@@ -1,0 +1,73 @@
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-scroll";
+// Assets
+
+import whatsapp from "../../assets/img/whatsapplogo.png"
+
+export default function Contact() {
+
+  const getCurrentYear = () => {
+    return new Date().getFullYear();
+  }
+
+  return (
+    <Wrapper>
+      <div className="darkBg">
+     <br />
+        <div className="container">
+       
+
+        <section style={{ color: 'white' }} className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
+        
+  <div style={{ display: 'flex', gap: '30px', justifyContent: 'right' }} className='social-icons'>
+    <a href='https://www.upwork.com/freelancers/muhammada5313' className='social-icon' target="_blank" rel="noopener noreferrer">
+      <img src={"https://i.ibb.co/dQH10HX/upwork.png"} alt='Facebook' width='30' height='30' />
+    </a>
+
+    <a href='https://www.fiverr.com/abdu11ahmalik12?public_mode=true' className='social-icon' target="_blank" rel="noopener noreferrer">
+      <img src={"https://i.ibb.co/Zx4wfjh/fivverlogo.png"} alt='Facebook' width='55' height='30' />
+    </a>
+   
+
+    <a href='https://www.linkedin.com/company/ab-matrixx/' className='social-icon' target="_blank" rel="noopener noreferrer">
+      <img src={"https://i.ibb.co/jHtywTY/linkedin-logo.png"} alt='LinkedIn' width='30' height='30' />
+    </a>
+  </div>
+</section>
+          <InnerWrapper className="flexSpaceCenter" style={{ padding: "30px 0" }}>
+          <Link className="pointer flexNullCenter" to="home" smooth={true}>
+            <img style={{width: '100px'}} src={"https://i.ibb.co/59LQpvD/NOBG-LOGO.png"} />
+          
+          </Link>
+            <StyleP className="whiteColor font13">
+              © {getCurrentYear()} - <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
+            </StyleP>
+            <StyleP className="whiteColor font13">
+              <h1>Contact Details:</h1>
+              <span className="whiteColor font13">abmatrix.co@gmail.com</span> 
+<br />  
+              <span className="whiteColor font13">+92 313 7753833</span>       <img src={whatsapp} alt='LinkedIn' width='20' height='20' />
+
+            </StyleP>
+           
+          </InnerWrapper>
+        </div>
+      </div>
+    </Wrapper>
+  );
+}
+
+const Wrapper = styled.div`
+  width: 100%;
+`;
+const InnerWrapper = styled.div`
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
+`;
+const StyleP = styled.p`
+  @media (max-width: 550px) {
+    margin: 20px 0;
+  }
+`;

@@ -1,0 +1,372 @@
+import React from "react";
+import styled from "styled-components";
+// Components
+import ClientSlider from "../Elements/ClientSlider";
+import ServiceBox from "../Elements/ServiceBox";
+import FullButton from "../Buttons/FullButton";
+
+import prof1 from "../../assets/img/prof.jpeg";
+import prof2 from "../../assets/img/profile.jpg";
+import prof3 from "../../assets/img/prof3.jpg"
+
+import { Link } from "react-scroll";
+
+
+export default function Services() {
+  return (
+    <Wrapper id="services">
+      <div  className="lightBg" style={{ padding: "50px 0" }}>
+        {/* <div className="container">
+          <ClientSlider />
+        </div> */}
+
+
+      </div>
+      <div className="whiteBg" style={{ padding: "60px 0" }}>
+        <div className="container">
+          <HeaderInfo>
+            <h1 className="font40 extraBold">Our Awesome Services</h1>
+            <p className="font13">
+              Elevate Your Online Experience: Design, Develop, Integrate, Deploy – Transforming Ideas into Digital Excellence.
+            </p>
+            <br />
+          </HeaderInfo>
+          <h1>Web Development</h1>
+          <ServiceBoxRow className="flex">
+            <ServiceBoxWrapper>
+              <ServiceBox
+                icon="monitor"
+                title="UI/UX Design"
+                subtitle="Transform your ideas into visually stunning and user-friendly interfaces with our expert UI/UX design services. We craft meticulous Figma designs, ensuring an intuitive and engaging experience for your users."
+              />
+            </ServiceBoxWrapper>
+            <ServiceBoxWrapper>
+              <ServiceBox
+                icon="browser"
+                title="Web Development"
+                subtitle="Our skilled developers bring your visions to life using the latest technologies. For Web App development, we leverage the power of the MERN stack, while for websites, we excel in HTML, CSS, JS, and WordPress, creating dynamic and responsive platforms tailored to your needs."
+              />
+            </ServiceBoxWrapper>
+            <ServiceBoxWrapper>
+              <ServiceBox
+                icon="Database"
+                title="Databases"
+                subtitle="Unlock the true potential of your data with our database services. From SQL and MYSQL to NOSQL, MongoDB, and OracleDB, we offer robust solutions to manage and organize your information efficiently."
+              />
+            </ServiceBoxWrapper>
+            <ServiceBoxWrapper>
+              <ServiceBox
+                icon="Integration"
+                title="Integration"
+                subtitle="Seamless integration is key to a well-functioning digital ecosystem. We specialize in connecting frontend and backend components, with expertise in integrating databases, particularly MongoDB, ensuring a cohesive and efficient system."
+              />
+            </ServiceBoxWrapper>
+            <ServiceBoxWrapper>
+              <ServiceBox
+                icon="Deployment"
+                title="Deployment"
+                subtitle="Take the hassle out of launching your websites with our deployment services. We handle the technicalities, ensuring smooth and secure deployments that make your online presence accessible to your audience."
+              />
+            </ServiceBoxWrapper>
+          </ServiceBoxRow>
+
+          <h1>AI Services</h1>
+<ServiceBoxRow className="flex">
+    <ServiceBoxWrapper>
+        <ServiceBox
+            icon="AI"
+            title="Machine Learning"
+            subtitle="Harness the power of algorithms to enable systems to learn and improve from experience automatically."
+        />
+    </ServiceBoxWrapper>
+    <ServiceBoxWrapper>
+        <ServiceBox
+            icon="AI2"
+            title="Deep Learning"
+            subtitle="Utilize neural networks to mimic the way the human brain works, enabling computers to solve complex problems."
+        />
+    </ServiceBoxWrapper>
+    <ServiceBoxWrapper>
+        <ServiceBox
+            icon="AI3"
+            title="Data Analytics"
+            subtitle="Extract meaningful insights from vast amounts of data, empowering informed decision-making."
+        />
+    </ServiceBoxWrapper>
+    <ServiceBoxWrapper>
+        <ServiceBox
+            icon="AI4"
+            title="Computer Vision"
+            subtitle="Enable machines to interpret and understand the visual world, revolutionizing various industries."
+        />
+    </ServiceBoxWrapper>
+    <ServiceBoxWrapper>
+        <ServiceBox
+            icon="AI5"
+            title="NLP"
+            subtitle="Enable computers to understand, interpret, and generate human language, facilitating communication between humans and machines."
+        />
+    </ServiceBoxWrapper>
+</ServiceBoxRow>
+
+          <h1>Blockchain Services</h1>
+          <ServiceBoxRow className="flex">
+            <ServiceBoxWrapper>
+              <ServiceBox
+                icon="blockchain1"
+                title="Smart Contract Creation"
+                subtitle="Deploy self-executing contracts with predefined rules and conditions, enabling trustless transactions."
+              />
+            </ServiceBoxWrapper>
+            <ServiceBoxWrapper>
+              <ServiceBox
+                icon="blockchain2"
+                title="Decentralized App (DApp)"
+                subtitle="Build applications that run on a decentralized network, ensuring transparency, security, and immutability."
+              />
+            </ServiceBoxWrapper>
+            <ServiceBoxWrapper>
+              <ServiceBox
+                icon="blockchain3"
+                title="Decentralized Exchange (DEX)"
+                subtitle="Facilitate peer-to-peer cryptocurrency trading without the need for intermediaries, ensuring privacy and security."
+              />
+            </ServiceBoxWrapper>
+            <ServiceBoxWrapper>
+              <ServiceBox
+                icon="blockchain4"
+                title="Smart Contract Auditing"
+                subtitle="Ensure the security and reliability of smart contracts by conducting thorough audits and identifying vulnerabilities."
+              />
+            </ServiceBoxWrapper>
+            <ServiceBoxWrapper>
+              <ServiceBox
+                icon="blockchain5"
+                title="Tokens Creation"
+                subtitle="Create custom digital assets and tokens for various use cases, including fundraising, rewards programs, and decentralized governance."
+              />
+            </ServiceBoxWrapper>
+          </ServiceBoxRow>
+
+          <h1>Database Services</h1>
+<ServiceBoxRow className="flex">
+  <ServiceBoxWrapper>
+    <ServiceBox
+      icon="mysql"
+      title="MySQL"
+      subtitle="A widely-used relational database management system (RDBMS) that is known for its reliability, scalability, and ease of use. MySQL is suitable for various applications, ranging from small personal databases to large-scale enterprise systems."
+      description="MySQL is a popular choice for web development, powering many dynamic websites and web applications. It provides robust features such as ACID transactions, stored procedures, and triggers, making it suitable for mission-critical applications."
+    />
+  </ServiceBoxWrapper>
+  <ServiceBoxWrapper>
+    <ServiceBox
+      icon="sql"
+      title="SQL"
+      subtitle="Structured Query Language (SQL) is a domain-specific language used in programming and designed for managing data held in a relational database management system (RDBMS) or for stream processing in a relational data stream management system (RDSMS)."
+      description="SQL allows users to perform various tasks, including data manipulation (insert, update, delete), data definition (create, alter, drop), and data control (grant, revoke). It is essential for interacting with relational databases effectively."
+    />
+  </ServiceBoxWrapper>
+  <ServiceBoxWrapper>
+    <ServiceBox
+      icon="oracledb"
+      title="OracleDB"
+      subtitle="Oracle Database (commonly referred to as Oracle RDBMS or simply Oracle) is a multi-model database management system produced and marketed by Oracle Corporation."
+      description="OracleDB is known for its robustness, security, and scalability, making it suitable for large enterprises and mission-critical applications. It supports various data models, including relational, object-relational, and XML."
+    />
+  </ServiceBoxWrapper>
+  <ServiceBoxWrapper>
+    <ServiceBox
+      icon="postgresql"
+      title="PostgreSQL"
+      subtitle="PostgreSQL is a powerful, open-source object-relational database system with over 15 years of active development. It has a strong reputation for reliability, data integrity, and advanced features."
+      description="PostgreSQL offers advanced features such as full ACID compliance, multi-version concurrency control (MVCC), and support for various programming languages and extensions. It is a popular choice for both small-scale and large-scale applications."
+    />
+  </ServiceBoxWrapper>
+  <ServiceBoxWrapper>
+    <ServiceBox
+      icon="mongodb"
+      title="MongoDB"
+      subtitle="MongoDB is a NoSQL document-oriented database that provides high performance, scalability, and flexibility. It stores data in flexible, JSON-like documents, allowing for dynamic and ad-hoc schemas."
+      description="MongoDB is well-suited for applications with evolving data models or large amounts of unstructured data. It supports features such as document indexing, replication, and sharding, making it suitable for a wide range of use cases, including content management, IoT, and real-time analytics."
+    />
+  </ServiceBoxWrapper>
+</ServiceBoxRow>
+
+
+          <div className="lightBg">
+<div className="container">
+  <Advertising className="flexSpaceCenter">
+    <AddLeft>
+      <h4 className="font15 semiBold">A few words about company from the Founder and CEO, Abdullah Malik</h4>
+      <h2 className="font40 extraBold">A Study of Creativity</h2>
+      <p className="font12">
+      Fueling Innovation, Transforming Ideas: We are a dynamic company dedicated to pushing the boundaries of digital creativity. From intuitive UI/UX designs to robust web development and seamless integrations, from Artifical Intelligene to Blockchain, we are the catalysts for your online success. Our commitment to excellence extends to database solutions and effortless deployment, ensuring your digital journey is not just evolutionary but revolutionary. Embrace the future with a partner that brings your vision to life – where innovation meets unparalleled expertise.
+      </p>
+      <ButtonsRow className="flexNullCenter" style={{ margin: "30px 0"}}>
+        {/* <div style={{ width: "190px" }}>
+          <FullButton title="Get Started" action={() => alert("clicked")} />
+        </div> */}
+        <div style={{ width: "190px", marginLeft: "15px" }}>
+          
+{/*                  
+<Link activeClass="active"  to="contact" spy={true} smooth={true} offset={-80}>
+<FullButton  style={{backgroundcolor: '#08116A'}} title="Contact Us" />
+    </Link> */}
+
+        </div>
+      </ButtonsRow>
+    </AddLeft>
+    <AddRight>
+      <AddRightInner>
+        <div className="flexNullCenter">
+          <AddImgWrapp1 className="flexCenter">
+          <img className="radius8" src={"https://i.ibb.co/DKMwW25/ABMATRIX-LOGO3.png"} alt="office" style={{height:'250px',width:'250px', zIndex: 9}} />
+
+          </AddImgWrapp1>
+          <AddImgWrapp2>
+            <img src={prof1} alt="office" />
+          </AddImgWrapp2>
+        </div>
+        <div className="flexNullCenter">
+          <AddImgWrapp3>
+            <img src={prof2} alt="office" />
+          </AddImgWrapp3>
+          <AddImgWrapp4>
+            <img src={prof3} alt="office" />
+          </AddImgWrapp4>
+        </div>
+      </AddRightInner>
+    </AddRight>
+  </Advertising>
+</div>
+</div>
+        </div>
+      </div>
+    </Wrapper>
+  );
+}
+
+
+
+const Wrapper = styled.section`
+  width: 100%;
+`;
+const ServiceBoxRow = styled.div`
+  @media (max-width: 860px) {
+    flex-direction: column;
+  }
+`;
+const ServiceBoxWrapper = styled.div`
+  width: 20%;
+  margin-right: 5%;
+  padding: 80px 0;
+  @media (max-width: 860px) {
+    width: 100%;
+    text-align: center;
+    padding: 40px 0;
+  }
+`;
+const HeaderInfo = styled.div`
+  @media (max-width: 860px) {
+    text-align: center;
+  }
+`;
+const Advertising = styled.div`
+  margin: 80px 0;
+  padding: 100px 0;
+  position: relative;
+  @media (max-width: 1160px) {
+    padding: 100px 0 40px 0;
+  }
+  @media (max-width: 860px) {
+    flex-direction: column;
+    padding: 0 0 30px 0;
+    margin: 80px 0 0px 0;
+  }
+`;
+const ButtonsRow = styled.div`
+  @media (max-width: 860px) {
+    justify-content: space-between;
+  }
+`;
+const AddLeft = styled.div`
+  width: 50%;
+  p {
+    max-width: 475px;
+  }
+  @media (max-width: 860px) {
+    width: 80%;
+    order: 2;
+    text-align: center;
+    h2 {
+      line-height: 3rem;
+      margin: 15px 0;
+    }
+    p {
+      margin: 0 auto;
+    }
+  }
+`;
+const AddRight = styled.div`
+  width: 50%;
+  position: absolute;
+  top: -70px;
+  right: 0;
+  @media (max-width: 860px) {
+    width: 80%;
+    position: relative;
+    order: 1;
+    top: -40px;
+  }
+`;
+const AddRightInner = styled.div`
+  width: 100%;
+`;
+const AddImgWrapp1 = styled.div`
+  width: 48%;
+  margin: 0 6% 10px 6%;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  }
+`;
+const AddImgWrapp2 = styled.div`
+  width: 30%;
+  margin: 0 5% 10px 5%;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  }
+`;
+const AddImgWrapp3 = styled.div`
+  width: 20%;
+  margin-left: 40%;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  }
+`;
+const AddImgWrapp4 = styled.div`
+  width: 30%;
+  margin: 0 5%auto;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  }
+`;
