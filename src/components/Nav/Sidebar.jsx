@@ -118,6 +118,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 
 const Wrapper = styled.nav`
   width: 400px;
+  max-width: 100%;
   height: 100vh;
   position: fixed;
   top: 0;
