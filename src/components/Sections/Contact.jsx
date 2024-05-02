@@ -30,10 +30,15 @@ export default function Contact() {
           </HeaderInfo>
           <SumbitWrapper className="flex">
           <ButtonWrapper>
-              <a href="mailto:abmatrix.co@gmail.com" target="_blank" rel="noopener noreferrer">
-                <ButtonInput type="button" value="Connect with us on Gmail" className="pointer animate radius8" style={{ maxWidth: "220px" }} />
-              </a>
-            </ButtonWrapper>
+  <ButtonInput 
+    type="button" 
+    value="Connect with us on Gmail" 
+    className="pointer animate radius8" 
+    style={{ maxWidth: "220px" }}
+    onClick={() => window.open('mailto:abmatrix.co@gmail.com', '_blank')}
+  />
+</ButtonWrapper>
+
             <ButtonWrapper>
               <ButtonInput2 type="button" onClick={openWhatsApp} value="Chat with us on WhatsApp" className="pointer animate radius8 whatsappButton" style={{ maxWidth: "220px" }} />
             </ButtonWrapper>

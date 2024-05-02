@@ -26,6 +26,18 @@ import auditai2 from "../../assets/img/projects/auditai2.png";
 import auditai3 from "../../assets/img/projects/auditai3.png";
 import { MdHeight } from "react-icons/md";
 
+
+import sc1 from "../../assets/img/sc1.png";
+import sc2 from "../../assets/img/sc2.png";  
+import sc3 from "../../assets/img/sc3.png";
+import sc4 from "../../assets/img/sc4.png";
+import sc5 from "../../assets/img/sc5.png";
+
+import mic1 from "../../assets/img/mic1.png";
+import mic2 from "../../assets/img/mic2.png";
+import mic3 from "../../assets/img/mic3.png";
+import mic4 from "../../assets/img/mic4.png";
+
 export default function Projects() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -107,6 +119,38 @@ export default function Projects() {
     },
 
     {
+      img: mic1 ,
+      title: "Microsh",
+      text: "A webapp for influencer Market place for runnign campaigns",
+      gallery: [
+       mic2,
+       mic3,
+       mic4,
+       mic1,
+
+       
+      ],
+    },
+
+
+    {
+      img: sc1,
+      title: "Schoolr",
+      text: "A webapp for online tuting and learning services",
+      gallery: [
+       sc2,
+       sc3,
+       sc4,
+       sc5,
+       sc1,
+
+       
+    
+      ],
+    }, 
+
+    
+    {
       img: trade1 ,
       title: "A Trade Portal",
       text: "A trade management Portal",
@@ -119,7 +163,6 @@ export default function Projects() {
        
       ],
     },
-
     {
       img: ecom1,
       title: "Ecommerce store",
@@ -133,6 +176,8 @@ export default function Projects() {
     
       ],
     },  
+
+    
 
    
 

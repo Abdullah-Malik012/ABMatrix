@@ -90,32 +90,50 @@ const Wrapper = styled.nav`
   top: 0;
   left: 0;
   z-index: 999;
+  transition: height 0.3s ease; // Smooth transition for height change
 `;
+
 const NavInner = styled.div`
   position: relative;
   height: 100%;
-`
+  display: flex; // Ensure that NavInner uses flex to align children properly
+  justify-content: space-between; // Spreads out the logo, navigation links, and burger icon
+  align-items: center; // Vertically centers everything within the navbar
+  padding: 0 20px; // Adds padding on both sides for a little breathing room
+`;
+
 const BurderWrapper = styled.button`
   outline: none;
-  border: 0px;
+  border: 0;
   background-color: transparent;
   height: 100%;
   padding: 0 15px;
-  display: none;
+  display: none; // Only display this button on small screens
+  align-items: center; // Center the burger icon vertically
+  justify-content: center; // Center the burger icon horizontally
   @media (max-width: 760px) {
-    display: block;
+    display: flex; // Use flexbox to center the burger icon
   }
 `;
+
 const UlWrapper = styled.ul`
   display: flex;
+  list-style: none; // Remove bullet points from list
+  margin: 0; // Remove default margin
+  padding: 0; // Remove default padding
+  align-items: center; // Align links vertically
   @media (max-width: 760px) { 
-    display: none;
+    display: none; // Hide the list on small screens
   }
 `;
+
 const UlWrapperRight = styled.ul`
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
   @media (max-width: 760px) {
     display: none;
   }
 `;
-
-
