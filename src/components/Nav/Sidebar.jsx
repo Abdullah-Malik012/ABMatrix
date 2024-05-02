@@ -122,12 +122,15 @@ const Wrapper = styled.nav`
   position: fixed;
   top: 0;
   padding: 0 30px;
-  right: ${(props) => (props.sidebarOpen ? "0px" : "-400px")};
+  right: ${(props) => (props.sidebarOpen ? "0" : "-100vw")};  // Change from -400px to -100vw
+  transition: right 0.3s ease-in-out; // Ensures smooth sliding
   z-index: 9999;
   @media (max-width: 400px) {
     width: 100%;
+    right: ${(props) => (props.sidebarOpen ? "0" : "-100%")};  // Ensure full width is off-screen on smaller devices
   }
 `;
+
 const SidebarHeader = styled.div`
   padding: 20px 0;
 `;
