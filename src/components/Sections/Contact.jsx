@@ -57,7 +57,7 @@ const HeaderInfo = styled.div`
 `;
 
 const ButtonInput = styled.input`
-  background: url(${gmailback})  no-repeat center center / cover; // Update URL
+  background: silver  no-repeat center center / cover; // Update URL
   color: black;
   padding: 15px;
   font-weight: bold;
@@ -65,7 +65,7 @@ const ButtonInput = styled.input`
   outline: none;
   transition: background-color 0.3s ease;
   :hover {
-    background-color: darkblue;
+    background-color: white;
     opacity: 0.8; // Make text more readable on hover if needed
   }
 `;
