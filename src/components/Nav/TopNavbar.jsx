@@ -88,6 +88,8 @@ const Wrapper = styled.nav`
   width: 100%;
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0; // Ensures the nav stretches across
   z-index: 999;
   transition: height 0.3s ease; // Smooth transition for height change
 `;
@@ -105,7 +107,6 @@ const NavInner = styled.div`
     flex-direction: column; // Stacks the items vertically
   }
 `;
-
 
 const BurderWrapper = styled.button`
   outline: none;
@@ -127,7 +128,6 @@ const BurderWrapper = styled.button`
   }
 `;
 
-
 const UlWrapper = styled.ul`
   display: flex;
   list-style: none; // Remove bullet points from list
@@ -138,6 +138,9 @@ const UlWrapper = styled.ul`
     display: none; // Hide the list on small screens
   }
 `;
+
+// You may adjust or remove UlWrapperRight if it's not used
+
 
 const UlWrapperRight = styled.ul`
   display: flex;

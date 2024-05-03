@@ -109,59 +109,22 @@ const Wrapper = styled.section`
   padding-top: 20px;
   margin-bottom: 200px;
 `;
-const HeaderInfo = styled.div`
-  margin-bottom: 30px;
-  @media (max-width: 860px) {
-    text-align: center;
-  }
-`;
-
 
 const ListsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 860px) {
+    flex-direction: column;
+  }
 `;
 
 const List = styled.ul`
-  list-style-type: disc; /* Use 'disc' for filled circles or 'circle' for empty circles */
+  list-style-type: disc;
   padding: 0;
 `;
 
 const ListItem = styled.li`
-  margin-bottom: 8px; /* Adjust the spacing between list items */
-`;
-
-
-const TablesWrapper = styled.div`
-
-  @media (max-width: 860px) {
-    flex-direction: column;
-  }
-`;
-const TableBox = styled.div`
-  width: 31%;
-
-  @media (max-width: 860px) {
-    width: 100%;
-    max-width: 370px;
-    margin: 0 auto
-  }
-`;
-
-const ServiceBoxRow = styled.div`
-  @media (max-width: 860px) {
-    flex-direction: column;
-  }
-`;
-const ServiceBoxWrapper = styled.div`
-  width: 20%;
-  margin-right: 5%;
-  padding: 80px 0;
-  @media (max-width: 860px) {
-    width: 100%;
-    text-align: center;
-    padding: 40px 0;
-  }
+  margin-bottom: 18px;
 `;
 
 const Advertising = styled.div`
@@ -169,64 +132,42 @@ const Advertising = styled.div`
   padding: 100px 0;
   position: relative;
   @media (max-width: 1160px) {
-    padding: 100px 0 40px 0;
+    padding: 50px 0;
   }
   @media (max-width: 860px) {
     flex-direction: column;
-    padding: 0 0 30px 0;
-    margin: 80px 0 0px 0;
+    padding: 20px 0;
+    margin: 40px 0;
   }
 `;
-const ButtonsRow = styled.div`
-  @media (max-width: 860px) {
-    justify-content: space-between;
-  }
-`;
+
 const AddLeft = styled.div`
   width: 50%;
   p {
     max-width: 475px;
   }
   @media (max-width: 860px) {
-    width: 80%;
-    order: 2;
+    width: 100%;
     text-align: center;
-    h2 {
-      line-height: 3rem;
-      margin: 15px 0;
-    }
     p {
       margin: 0 auto;
+      max-width: 100%; /* Ensure paragraph does not exceed the container width */
     }
   }
 `;
+
 const AddRight = styled.div`
   width: 50%;
   position: absolute;
   top: -70px;
   right: 0;
   @media (max-width: 860px) {
-    width: 80%;
-    position: relative;
-    order: 1;
-    top: -40px;
-  }
-`;
-const AddRightInner = styled.div`
-  width: 100%;
-`;
-const AddImgWrapp1 = styled.div`
-  width: 48%;
-  margin: 0 6% 10px 6%;
-  img {
     width: 100%;
-    height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    top: 0;
   }
 `;
+
 const AddImgWrapp2 = styled.div`
   width: 30%;
   margin: 0 5% 10px 5%;
@@ -235,34 +176,20 @@ const AddImgWrapp2 = styled.div`
     height: auto;
     border-radius: 1rem;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
   }
-`;
-const AddImgWrapp3 = styled.div`
-  width: 20%;
-  margin-left: 40%;
-  img {
+  @media (max-width: 860px) {
     width: 100%;
-    height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    margin: 10px 0; /* Adjust margin for mobile devices */
   }
 `;
-const AddImgWrapp4 = styled.div`
-  width: 30%;
-  margin: 0 5%auto;
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-  }
+
+// Apply similar responsive adjustments to other components as needed
+
+
+const AddRightInner = styled.div`
+  width: 100%;
 `;
+
 
 
 

@@ -117,18 +117,17 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 }
 
 const Wrapper = styled.nav`
-  width: 400px;
-  max-width: 100%;
+  width: 300px; /* Fixed width for the sidebar */
   height: 100vh;
   position: fixed;
   top: 0;
-  padding: 0 30px;
-  right: ${(props) => (props.sidebarOpen ? "0" : "-100vw")};  // Change from -400px to -100vw
-  transition: right 0.3s ease-in-out; // Ensures smooth sliding
-  z-index: 9999;
-  @media (max-width: 400px) {
-    width: 100%;
-    right: ${(props) => (props.sidebarOpen ? "0" : "-100%")};  // Ensure full width is off-screen on smaller devices
+  left: ${props => props.sidebarOpen ? '0' : '-300px'}; /* Hide sidebar off the screen */
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+
+  @media (max-width: 768px) {
+    width: 100%; /* Full width on smaller screens */
+    left: ${props => props.sidebarOpen ? '0' : '-100%'}; /* Hide completely on small screens */
   }
 `;
 

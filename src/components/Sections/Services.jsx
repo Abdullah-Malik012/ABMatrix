@@ -142,7 +142,7 @@ export default function Services() {
             <ServiceBoxWrapper>
               <ServiceBox
                 icon="blockchain5"
-                title="Tokens Creation"
+                title="Custom Token Creation"
                 subtitle="Create custom digital assets and tokens for various use cases, including fundraising, rewards programs, and decentralized governance."
               />
             </ServiceBoxWrapper>
@@ -224,15 +224,15 @@ export default function Services() {
 
           </AddImgWrapp1>
           <AddImgWrapp2>
-            <img src={prof1} alt="office" />
+            <img src={prof3} alt="office" />
           </AddImgWrapp2>
         </div>
         <div className="flexNullCenter">
           <AddImgWrapp3>
-            <img src={prof2} alt="office" />
+            <img src={prof1} alt="office" />
           </AddImgWrapp3>
           <AddImgWrapp4>
-            <img src={prof3} alt="office" />
+            <img src={prof2} alt="office" />
           </AddImgWrapp4>
         </div>
       </AddRightInner>
@@ -295,15 +295,16 @@ const AddLeft = styled.div`
     max-width: 475px;
   }
   @media (max-width: 860px) {
-    width: 80%;
+    width: 100%;  // Use full width on smaller screens
     order: 2;
     text-align: center;
     h2 {
-      line-height: 3rem;
-      margin: 15px 0;
+      font-size: 2rem;  // Smaller font size for headings on smaller screens
+      line-height: 2.5rem;  // Adjust line height to fit smaller screens
     }
     p {
       margin: 0 auto;
+      padding: 0 20px;  // Add padding for better readability
     }
   }
 `;
@@ -313,60 +314,74 @@ const AddRight = styled.div`
   top: -70px;
   right: 0;
   @media (max-width: 860px) {
-    width: 80%;
+    width: 100%;  // Full width for smaller screens
     position: relative;
+    top: 0;  // Adjust positioning to flow in normal document flow
     order: 1;
-    top: -40px;
   }
 `;
-const AddRightInner = styled.div`
-  width: 100%;
-`;
-const AddImgWrapp1 = styled.div`
-  width: 48%;
-  margin: 0 6% 10px 6%;
-  img {
+
+  const AddRightInner = styled.div`
     width: 100%;
-    height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-  }
-`;
-const AddImgWrapp2 = styled.div`
-  width: 30%;
-  margin: 0 5% 10px 5%;
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-  }
-`;
-const AddImgWrapp3 = styled.div`
-  width: 20%;
-  margin-left: 40%;
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-  }
-`;
-const AddImgWrapp4 = styled.div`
-  width: 30%;
-  margin: 0 5%auto;
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-  }
-`;
+  `;
+  const AddImgWrapp1 = styled.div`
+    width: 38%;
+    margin: 0 6%;
+    @media (max-width: 860px) {
+      width: 40%;
+
+      margin: 10px 0;
+      margin-left:40px;  // Adjust margins to align images properly
+    }
+    img {
+      width: 30%;
+      height: auto;
+      border-radius: 1rem;
+    }
+  `;
+
+  const AddImgWrapp2 = styled.div`
+    width: 80%;
+    margin: 0 5%;
+    @media (max-width: 860px) {
+      width: 200%;  // Larger images for visibility
+      margin: 10px auto;  // Center images
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+  `;
+
+  const AddImgWrapp3 = styled.div`
+    width: 20%;
+    margin-left: 40%;
+    @media (max-width: 860px) {
+      display: none;
+
+      width: 80%;  // Larger images for visibility
+      margin: 10px auto;  // Center images
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+  `;
+
+  const AddImgWrapp4 = styled.div`
+    width: 30%;
+    margin: 0 auto;
+    @media (max-width: 860px) {
+      display:none;
+
+      width: 40%;  // Adjust width for smaller screens
+      margin: 10px auto;  // Center images
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+  `;

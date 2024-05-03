@@ -38,6 +38,12 @@ import mic2 from "../../assets/img/mic2.png";
 import mic3 from "../../assets/img/mic3.png";
 import mic4 from "../../assets/img/mic4.png";
 
+import lh1 from "../../assets/img/lh1.png";
+import lh2 from "../../assets/img/lh2.png";
+import lh3 from "../../assets/img/lh3.png";
+import lh4 from "../../assets/img/lh4.png";
+
+
 export default function Projects() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -91,18 +97,20 @@ export default function Projects() {
       ],
     },
     
-
     {
-      img: port1 ,
-      title: "Portfolio page",
-      text: "A highly attractive and eye capturing portfolio design",
+      img: lh1 ,
+      title: "limda host",
+      text: "A webapp plateform for hosting website",
       gallery: [
-        port2,
-        port3,
-        port1,
+        
+        lh2,
+        lh3,
+        lh4,
+        lh1,
 
       ],
     },
+   
 
 
     {
@@ -149,6 +157,17 @@ export default function Projects() {
       ],
     }, 
 
+    {
+      img: port1 ,
+      title: "Portfolio page",
+      text: "A highly attractive and eye capturing portfolio design",
+      gallery: [
+        port2,
+        port3,
+        port1,
+
+      ],
+    },
     
     {
       img: trade1 ,

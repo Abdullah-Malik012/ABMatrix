@@ -1,18 +1,19 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-// Screens
-import Landing from "./screens/Landing.jsx";
+// src/App.js
+import React from 'react';
+import Sidebar from './components/Nav/Sidebar';
+import TopNavbar from './components/Nav/TopNavbar';
+import Landing from './screens/Landing';
 
-export default function App() {
+function App() {
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
+
   return (
-    <>
-      <Helmet>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;800&display=swap" rel="stylesheet" />
-      </Helmet>
+    <div>
+      <TopNavbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+      <Sidebar sidebarOpen={sidebarOpen} />
       <Landing />
-    </>
+    </div>
   );
 }
 
+export default App;

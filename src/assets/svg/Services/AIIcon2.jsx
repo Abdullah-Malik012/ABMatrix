@@ -3,7 +3,7 @@ import * as React from "react";
 function AIIcon2(props) {
   return (
     
-    <svg width="80px" height="140px" viewBox="0 10 48 38" xmlns="http://www.w3.org/2000/svg">
+    <svg width="60px" height="70px" viewBox="0 0 48 38" xmlns="http://www.w3.org/2000/svg" style={{marginLeft:"30%"}}>
       <title>machine-learning</title>
       <g id="Layer_2" data-name="Layer 2">
         <g id="invisible_box" data-name="invisible box">
