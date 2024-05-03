@@ -19,8 +19,8 @@ export default function Contact() {
        
 
         <section style={{ color: 'white' }} className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
-        
-  <div style={{ display: 'flex', gap: '30px', justifyContent: 'right' }} className='social-icons'>
+     <Socialicon>   
+  <div style={{ display: 'flex', gap: '30px' }} id= 'soicalicon' className='social-icons'>
     <a href='https://www.upwork.com/freelancers/muhammada5313' className='social-icon' target="_blank" rel="noopener noreferrer">
       <img src={"https://i.ibb.co/dQH10HX/upwork.png"} alt='Facebook' width='30' height='30' />
     </a>
@@ -34,6 +34,7 @@ export default function Contact() {
       <img src={"https://i.ibb.co/jHtywTY/linkedin-logo.png"} alt='LinkedIn' width='30' height='30' />
     </a>
   </div>
+  </Socialicon>
 </section>
           <InnerWrapper className="flexSpaceCenter" style={{ padding: "30px 0" }}>
           <Link className="pointer flexNullCenter" to="home" smooth={true}>
@@ -47,7 +48,7 @@ export default function Contact() {
               <h1>Contact Details:</h1>
               <span className="whiteColor font13">abmatrix.co@gmail.com</span> 
 <br />  
-              <span className="whiteColor font13">+92 313 7753833</span>       <img src={whatsapp} alt='LinkedIn' width='20' height='20' />
+              <span className="whiteColor font13">+92 313 7753833</span><img src={whatsapp} alt='LinkedIn' width='20' height='20' />
 
             </StyleP>
            
@@ -71,3 +72,14 @@ const StyleP = styled.p`
     margin: 20px 0;
   }
 `;
+const Socialicon = styled.p`
+  display: flex;
+  justify-content: right; // Default alignment for larger screens
+  gap: 30px; // Assuming you want some space between icons
+  margin: 20px 0;
+
+  @media (max-width: 550px) {
+    justify-content: center; // Center the icons on small screens
+  }
+`;
+
