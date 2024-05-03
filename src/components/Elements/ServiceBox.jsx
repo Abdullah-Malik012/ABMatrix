@@ -121,7 +121,7 @@ export default function ServiceBox({ icon, title, subtitle }) {
 }
 
 const Wrapper = styled.div`
-  width: 120%;
+  width: 60%;
 `;
 const IconStyle = styled.div`
   @media (max-width: 860px) {

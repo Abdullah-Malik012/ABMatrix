@@ -31,19 +31,23 @@ export default function Services() {
             </p>
             <br />
           </HeaderInfo>
-          <h1>Web Development</h1>
+          <br />
+          <br />
+          <h1 style={{textAlign: "center"}}>Web Development</h1>
           <ServiceBoxRow className="flex">
+        
             <ServiceBoxWrapper>
+              
               <ServiceBox
                 icon="monitor"
-                title="UI/UX Design"
+                title="UI/UX"
                 subtitle="Transform your ideas into visually stunning and user-friendly interfaces with our expert UI/UX design services. We craft meticulous Figma designs, ensuring an intuitive and engaging experience for your users."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
                 icon="browser"
-                title="Web Development"
+                title="Web Dev"
                 subtitle="Our skilled developers bring your visions to life using the latest technologies. For Web App development, we leverage the power of the MERN stack, while for websites, we excel in HTML, CSS, JS, and WordPress, creating dynamic and responsive platforms tailored to your needs."
               />
             </ServiceBoxWrapper>
@@ -70,7 +74,7 @@ export default function Services() {
             </ServiceBoxWrapper>
           </ServiceBoxRow>
 
-          <h1>AI Services</h1>
+          <h1 style={{textAlign: "center"}}>AI Services</h1>
 <ServiceBoxRow className="flex">
     <ServiceBoxWrapper>
         <ServiceBox
@@ -103,13 +107,13 @@ export default function Services() {
     <ServiceBoxWrapper>
         <ServiceBox
             icon="AI5"
-            title="NLP"
+            title="NL processing"
             subtitle="Enable computers to understand, interpret, and generate human language, facilitating communication between humans and machines."
         />
     </ServiceBoxWrapper>
 </ServiceBoxRow>
 
-          <h1>Blockchain Services</h1>
+          <h1 style={{textAlign: "center"}}>Blockchain Services</h1>
           <ServiceBoxRow className="flex">
             <ServiceBoxWrapper>
               <ServiceBox
@@ -148,7 +152,7 @@ export default function Services() {
             </ServiceBoxWrapper>
           </ServiceBoxRow>
 
-          <h1>Database Services</h1>
+          <h1 style={{textAlign: "center"}}>Database Services</h1>
 <ServiceBoxRow className="flex">
   <ServiceBoxWrapper>
     <ServiceBox
@@ -252,6 +256,8 @@ const Wrapper = styled.section`
   width: 100%;
 `;
 const ServiceBoxRow = styled.div`
+
+
   @media (max-width: 860px) {
     flex-direction: column;
   }
@@ -262,6 +268,10 @@ const ServiceBoxWrapper = styled.div`
   padding: 80px 0;
   @media (max-width: 860px) {
     width: 100%;
+    margin-right: 0;
+    display:flex;
+    justify-content: center;
+
     text-align: center;
     padding: 40px 0;
   }
@@ -385,3 +395,4 @@ const AddRight = styled.div`
       border-radius: 1rem;
     }
   `;
+  

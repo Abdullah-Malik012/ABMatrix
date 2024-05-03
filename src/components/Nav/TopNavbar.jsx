@@ -66,18 +66,7 @@ export default function TopNavbar() {
               </Link>
             </li>
           </UlWrapper>
-          {/* <UlWrapperRight className="flexNullCenter">
-            <li className="semiBold font15 pointer">
-              <a href="/" style={{ padding: "10px 30px 10px 0" }}>
-                Log in
-              </a>
-            </li>
-            <li className="semiBold font15 pointer flexCenter">
-              <a href="/" className="radius8 lightBg" style={{ padding: "10px 15px" }}>
-                Get Started
-              </a>
-            </li>
-          </UlWrapperRight> */}
+          
         </NavInner>
       </Wrapper>
     </>

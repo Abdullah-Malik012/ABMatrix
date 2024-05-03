@@ -15,7 +15,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
       </SidebarHeader>
 
       <UlStyle className="flexNullCenter flexColumn">
-        <li className="semiBold font15 pointer">
+        <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
@@ -29,7 +29,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             Home
           </Link>
         </li>
-        <li className="semiBold font15 pointer">
+        <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
@@ -43,7 +43,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             Services
           </Link>
         </li>
-        <li className="semiBold font15 pointer">
+        <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
@@ -57,7 +57,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             Projects
           </Link>
         </li>
-        <li className="semiBold font15 pointer">
+        <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
@@ -71,7 +71,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             packages
           </Link>
         </li>
-        <li className="semiBold font15 pointer">
+        <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
@@ -85,7 +85,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             Pricing
           </Link>
         </li>
-        <li className="semiBold font15 pointer">
+        <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
             activeClass="active"
@@ -126,7 +126,7 @@ const Wrapper = styled.nav`
   z-index: 1000;
 
   @media (max-width: 768px) {
-    width: 100%; /* Full width on smaller screens */
+    width: 60%; /* Full width on smaller screens */
     left: ${props => props.sidebarOpen ? '0' : '-100%'}; /* Hide completely on small screens */
   }
 `;
