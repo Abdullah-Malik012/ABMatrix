@@ -43,35 +43,35 @@ export default function Services() {
               <ServiceBox
                 icon="monitor"
                 title="UI/UX"
-                subtitle="Transform your ideas into visually stunning and user-friendly interfaces with our expert UI/UX design services. We craft meticulous Figma designs, ensuring an intuitive and engaging experience for your users."
+                subtitle=" We craft meticulous Figma designs, ensuring an intuitive and engaging experience for your users."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
                 icon="browser"
                 title="Web Dev"
-                subtitle="Our skilled developers bring your visions to life using the latest technologies. For Web App development, we leverage the power of the MERN stack, while for websites, we excel in HTML, CSS, JS, and WordPress, creating dynamic and responsive platforms tailored to your needs."
+                subtitle=" For Web App development, we leverage the power of the MERN stack, while for websites, creating dynamic and responsive platforms tailored to your needs."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
                 icon="Database"
                 title="Databases"
-                subtitle="Unlock the true potential of your data with our database services. From SQL and MYSQL to NOSQL, MongoDB, and OracleDB, we offer robust solutions to manage and organize your information efficiently."
+                subtitle="From SQL and MYSQL to NOSQL, MongoDB, and OracleDB, we offer robust solutions to manage and organize your information efficiently."
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
                 icon="Integration"
                 title="Integration"
-                subtitle="Seamless integration is key to a well-functioning digital ecosystem. We specialize in connecting frontend and backend components, with expertise in integrating databases, particularly MongoDB, ensuring a cohesive and efficient system."
+                subtitle="We specialize in connecting frontend and backend components, with expertise in integrating databases"
               />
             </ServiceBoxWrapper>
             <ServiceBoxWrapper>
               <ServiceBox
                 icon="Deployment"
                 title="Deployment"
-                subtitle="Take the hassle out of launching your websites with our deployment services. We handle the technicalities, ensuring smooth and secure deployments that make your online presence accessible to your audience."
+                subtitle="We handle the technicalities, ensuring smooth and secure deployments that make your online presence accessible to your audience."
               />
             </ServiceBoxWrapper>
           </ServiceBoxRow>
@@ -160,15 +160,15 @@ export default function Services() {
     <ServiceBox
       icon="mysql"
       title="MySQL"
-      subtitle="A widely-used relational database management system (RDBMS) that is known for its reliability, scalability, and ease of use. MySQL is suitable for various applications, ranging from small personal databases to large-scale enterprise systems."
-      description="MySQL is a popular choice for web development, powering many dynamic websites and web applications. It provides robust features such as ACID transactions, stored procedures, and triggers, making it suitable for mission-critical applications."
+      subtitle="A widely-used relational database management system (RDBMS) that is known for its reliability, scalability, and ease of use."
+      description="MySQL is a popular choice for web development, powering many dynamic websites and web applications."
     />
   </ServiceBoxWrapper>
   <ServiceBoxWrapper>
     <ServiceBox
       icon="sql"
       title="SQL"
-      subtitle="Structured Query Language (SQL) is a domain-specific language used in programming and designed for managing data held in a relational database management system (RDBMS) or for stream processing in a relational data stream management system (RDSMS)."
+      subtitle="SQL is a domain-specific language used in programming and designed for managing data held in a RDBMS or for stream processing in a RDSMS"
       description="SQL allows users to perform various tasks, including data manipulation (insert, update, delete), data definition (create, alter, drop), and data control (grant, revoke). It is essential for interacting with relational databases effectively."
     />
   </ServiceBoxWrapper>
@@ -176,7 +176,7 @@ export default function Services() {
     <ServiceBox
       icon="oracledb"
       title="OracleDB"
-      subtitle="Oracle Database (commonly referred to as Oracle RDBMS or simply Oracle) is a multi-model database management system produced and marketed by Oracle Corporation."
+      subtitle="Oracle Database is a multi-model database management system produced and marketed by Oracle Corporation."
       description="OracleDB is known for its robustness, security, and scalability, making it suitable for large enterprises and mission-critical applications. It supports various data models, including relational, object-relational, and XML."
     />
   </ServiceBoxWrapper>
@@ -184,7 +184,7 @@ export default function Services() {
     <ServiceBox
       icon="postgresql"
       title="PostgreSQL"
-      subtitle="PostgreSQL is a powerful, open-source object-relational database system with over 15 years of active development. It has a strong reputation for reliability, data integrity, and advanced features."
+      subtitle="PostgreSQL is an open-source object-relational database system. It has a strong reputation for reliability, data integrity, and advanced features."
       description="PostgreSQL offers advanced features such as full ACID compliance, multi-version concurrency control (MVCC), and support for various programming languages and extensions. It is a popular choice for both small-scale and large-scale applications."
     />
   </ServiceBoxWrapper>
@@ -192,7 +192,7 @@ export default function Services() {
     <ServiceBox
       icon="mongodb"
       title="MongoDB"
-      subtitle="MongoDB is a NoSQL document-oriented database that provides high performance, scalability, and flexibility. It stores data in flexible, JSON-like documents, allowing for dynamic and ad-hoc schemas."
+      subtitle="MongoDB is a NoSQL document-oriented database that provides high performance, scalability, and flexibility. "
       description="MongoDB is well-suited for applications with evolving data models or large amounts of unstructured data. It supports features such as document indexing, replication, and sharding, making it suitable for a wide range of use cases, including content management, IoT, and real-time analytics."
     />
   </ServiceBoxWrapper>

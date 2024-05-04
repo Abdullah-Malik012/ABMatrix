@@ -79,6 +79,8 @@ const HeaderInfo = styled.div`
 const CardsWrapper = styled.div`
   display: flex;
   overflow-x: auto;
+  text-align: left; // Centers the text
+
   scroll-snap-type: x mandatory;
   padding: 0 10px;
   gap: 20px; /* Adjust this value to set the space between cards */
@@ -91,6 +93,9 @@ const CardsWrapper = styled.div`
 
 const TableBox = styled.div`
   flex: 0 0 auto;
+  justify-content:left;
+  text-align: left; // Centers the text
+
   scroll-snap-align: start;
   padding: 0 10px;
   width: 400px; 
@@ -120,7 +125,7 @@ const ScrollButtonLeft = styled(ScrollButton)`
   left: 10px;
 
   @media (max-width: 768px) {
-    display: ${({ showOnSmallScreens }) => (showOnSmallScreens ? 'block' : 'visible')};
+    display: block; /* Always display on small screens */
   }
 `;
 
@@ -128,7 +133,7 @@ const ScrollButtonRight = styled(ScrollButton)`
   right: 10px;
 
   @media (max-width: 768px) {
-    display: ${({ showOnSmallScreens }) => (showOnSmallScreens ? 'block' : 'visible')};
+    display: block; /* Always display on small screens */
   }
 `;
 
@@ -146,9 +151,9 @@ const pricingTables = [
     offers: [
       { name: "Figma Designs" },
       { name: "Canva Designs" },
-      { name: "Adobe Designs" },
-      { name: "Adobe Designs" },
-      { name: "Adobe Designs" },
+      { name: "Wireframes" },
+      { name: "Adobe XD" },
+      { name: "Adobe Photoshop" },
 
 
     ],
