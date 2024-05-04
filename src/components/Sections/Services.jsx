@@ -33,7 +33,7 @@ export default function Services() {
           </HeaderInfo>
           <br />
           <br />
-          <StyledH1 style={{textAlign: "center"}}>'Web Development'</StyledH1>
+          <StyledH1 style={{textAlign: "center"}}>Web Development</StyledH1>
           <ServiceBoxRow className="flex">
         
             <ServiceBoxWrapper>
@@ -74,7 +74,7 @@ export default function Services() {
             </ServiceBoxWrapper>
           </ServiceBoxRow>
 
-          <StyledH1 style={{textAlign: "center"}}>'AI Services'</StyledH1>
+          <StyledH1 style={{textAlign: "center"}}>AI Services</StyledH1>
 <ServiceBoxRow className="flex">
     <ServiceBoxWrapper>
         <ServiceBox
@@ -113,7 +113,7 @@ export default function Services() {
     </ServiceBoxWrapper>
 </ServiceBoxRow>
 
-          <StyledH1 style={{fontWeight:"bold", textAlign: "center"}}>'Blockchain Services'</StyledH1>
+          <StyledH1 style={{fontWeight:"bold", textAlign: "center"}}>Blockchain Services</StyledH1>
           <ServiceBoxRow className="flex">
             <ServiceBoxWrapper>
               <ServiceBox
@@ -152,7 +152,7 @@ export default function Services() {
             </ServiceBoxWrapper>
           </ServiceBoxRow>
 
-          <StyledH1 style={{textAlign: "center"}}>'Database Services'</StyledH1>
+          <StyledH1 style={{textAlign: "center"}}>Database Services</StyledH1>
 <ServiceBoxRow className="flex">
   <ServiceBoxWrapper>
     <ServiceBox
@@ -207,15 +207,10 @@ export default function Services() {
       Fueling Innovation, Transforming Ideas: We are a dynamic company dedicated to pushing the boundaries of digital creativity. From intuitive UI/UX designs to robust web development and seamless integrations, from Artifical Intelligene to Blockchain, we are the catalysts for your online success. Our commitment to excellence extends to database solutions and effortless deployment, ensuring your digital journey is not just evolutionary but revolutionary. Embrace the future with a partner that brings your vision to life – where innovation meets unparalleled expertise.
       </p>
       <ButtonsRow className="flexNullCenter" style={{ margin: "30px 0"}}>
-        {/* <div style={{ width: "190px" }}>
-          <FullButton title="Get Started" action={() => alert("clicked")} />
-        </div> */}
+       
         <div style={{ width: "190px", marginLeft: "15px" }}>
           
-{/*                  
-<Link activeClass="active"  to="contact" spy={true} smooth={true} offset={-80}>
-<FullButton  style={{backgroundcolor: '#08116A'}} title="Contact Us" />
-    </Link> */}
+
 
         </div>
       </ButtonsRow>
@@ -267,7 +262,9 @@ const StyledH1 = styled.h1`
   font-weight: bold; // Ensures the text is always bold
   text-align: center; // Centers the text
   font-size: 32px; // Default font size for larger screens
-  color: darkblue;
+  color: black;
+  background: lightgrey;
+  border-radius: 100px;
 
   @media (max-width: 768px) {
     font-weight: bold;
