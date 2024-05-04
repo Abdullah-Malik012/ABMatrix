@@ -33,7 +33,9 @@ export default function Services() {
           </HeaderInfo>
           <br />
           <br />
+          <Heading>
           <StyledH1 style={{textAlign: "center"}}>Web Development</StyledH1>
+          </Heading>
           <ServiceBoxRow className="flex">
         
             <ServiceBoxWrapper>
@@ -74,7 +76,7 @@ export default function Services() {
             </ServiceBoxWrapper>
           </ServiceBoxRow>
 
-          <StyledH1 style={{textAlign: "center"}}>AI Services</StyledH1>
+          <Heading> <StyledH1 style={{textAlign: "center"}}>AI Services</StyledH1></Heading>
 <ServiceBoxRow className="flex">
     <ServiceBoxWrapper>
         <ServiceBox
@@ -113,7 +115,7 @@ export default function Services() {
     </ServiceBoxWrapper>
 </ServiceBoxRow>
 
-          <StyledH1 style={{fontWeight:"bold", textAlign: "center"}}>Blockchain Services</StyledH1>
+<Heading><StyledH1 style={{fontWeight:"bold", textAlign: "center"}}>Blockchain Services</StyledH1></Heading>
           <ServiceBoxRow className="flex">
             <ServiceBoxWrapper>
               <ServiceBox
@@ -152,7 +154,7 @@ export default function Services() {
             </ServiceBoxWrapper>
           </ServiceBoxRow>
 
-          <StyledH1 style={{textAlign: "center"}}>Database Services</StyledH1>
+          <Heading> <StyledH1 style={{textAlign: "center"}}>Database Services</StyledH1></Heading>
 <ServiceBoxRow className="flex">
   <ServiceBoxWrapper>
     <ServiceBox
@@ -250,6 +252,8 @@ export default function Services() {
 const Wrapper = styled.section`
   width: 100%;
 `;
+
+
 const ServiceBoxRow = styled.div`
 
 
@@ -258,21 +262,26 @@ const ServiceBoxRow = styled.div`
   }
 `;
 
+const Heading = styled.div`
+text-align: center; 
+
+`;
+
 const StyledH1 = styled.h1`
-  font-weight: bold; // Ensures the text is always bold
+  font-weight: bold;
   text-align: center; // Centers the text
   font-size: 32px; // Default font size for larger screens
   color: black;
   background: lightgrey;
-  border-radius: 100px;
+  border-radius: 20px; // Adjusted for more aesthetic appearance
+  display: inline-block; // Makes the background only as wide as the content
+  padding: 10px 20px;
 
   @media (max-width: 768px) {
-    font-weight: bold;
     font-size: 28px; // Smaller font size for medium screens
   }
 
   @media (max-width: 480px) {
-    font-weight: bold;
     font-size: 24px; // Even smaller font size for small screens
   }
 `;
