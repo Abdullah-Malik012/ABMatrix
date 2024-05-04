@@ -68,7 +68,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             smooth={true}
             offset={-60}
           >
-            packages
+            Packages
           </Link>
         </li>
         <li className="semiBold font20 pointer">

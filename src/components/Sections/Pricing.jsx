@@ -127,7 +127,7 @@ const ScrollButton = styled.button`
 const ScrollButtonLeft = styled(ScrollButton)`
   left: 10px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     display: none; /* Always display on small screens */
   }
 `;
@@ -135,7 +135,7 @@ const ScrollButtonLeft = styled(ScrollButton)`
 const ScrollButtonRight = styled(ScrollButton)`
   right: 10px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     display: none; /* Always display on small screens */
   }
 `;
