@@ -29,6 +29,9 @@ export default function Pricing() {
         <HeaderInfo>
           <h1 className="font40 extraBold">Check Our Pricing</h1>
           <p className="font13">Here are our pricing for Separate services</p>
+          <br />
+
+          <p className="font13">Scroll right for more</p>
         </HeaderInfo>
 
         <CardsWrapper ref={containerRef}>
@@ -125,7 +128,7 @@ const ScrollButtonLeft = styled(ScrollButton)`
   left: 10px;
 
   @media (max-width: 768px) {
-    display: block; /* Always display on small screens */
+    display: none; /* Always display on small screens */
   }
 `;
 
@@ -133,7 +136,7 @@ const ScrollButtonRight = styled(ScrollButton)`
   right: 10px;
 
   @media (max-width: 768px) {
-    display: block; /* Always display on small screens */
+    display: none; /* Always display on small screens */
   }
 `;
 

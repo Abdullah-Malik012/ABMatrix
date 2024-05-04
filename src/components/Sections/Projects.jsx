@@ -271,6 +271,12 @@ const GalleryModal = styled.div`
   
   padding: 10px;
   animation: fadeInUp 1s ease;
+  @media (max-width: 600px) {
+    
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+  }
 `;
 
 const GalleryImage = styled.img`
@@ -281,6 +287,12 @@ const GalleryImage = styled.img`
   transition: transform 0.2s ease-in-out;
   &:hover {
     transform: scale(1.1);
+  }
+  @media (max-width: 600px) {
+    
+    width: 190%;
+    height: 70%;
+    font-size: 14px;
   }
 `;
 
@@ -314,6 +326,12 @@ const NavigationButton = styled.button`
 
   &:last-child {
     right: 0px; // Positioned on the right side
+  }
+  @media (max-width: 600px) {
+
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
   }
 `;
 
