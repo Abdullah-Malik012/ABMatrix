@@ -117,32 +117,76 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
 }
 
 const Wrapper = styled.nav`
-  width: 300px; /* Fixed width for the sidebar */
+  width: 300px;
   height: 100vh;
   position: fixed;
   top: 0;
-  left: ${props => props.sidebarOpen ? '0' : '-300px'}; /* Hide sidebar off the screen */
+  left: ${props => props.sidebarOpen ? '0' : '-300px'};
   transition: left 0.3s ease-in-out;
   z-index: 1000;
+  background: linear-gradient(160deg, #1a237e 0%, #121212 100%);
+  color: #ffffff;
 
   @media (max-width: 768px) {
-    width: 60%; /* Full width on smaller screens */
-    left: ${props => props.sidebarOpen ? '0' : '-100%'}; /* Hide completely on small screens */
+    width: 60%;
+    left: ${props => props.sidebarOpen ? '0' : '-100%'};
   }
 `;
 
 const SidebarHeader = styled.div`
-  padding: 20px 0;
+  padding: 20px;
+  border-bottom: 1px solid #333;
 `;
+
 const CloseBtn = styled.button`
-  border: 0px;
-  outline: none;
+  border: none;
   background-color: transparent;
+  cursor: pointer;
   padding: 10px;
+  display: flex; // Center the SVG icon
+  justify-content: center;
+  align-items: center;
+  position: relative; // Good for absolute positioning inside if needed
+
+  svg {
+    fill: #ffffff; // Initial color for the SVG
+    width: 24px; // Width of the SVG
+    height: 24px; // Height of the SVG
+    transition: fill 0.3s ease, transform 0.3s ease; // Smooth color and transform transition
+  }
+
+  &:hover svg {
+    fill: #9fa8da; // Change color on hover
+    transform: rotate(90deg); // Rotate effect on hover
+  }
+
+  &:focus {
+    outline: none; // Removes the outline, but ensure accessibility is maintained
+    svg {
+      fill: #9fa8da; // Same hover color for consistency
+    }
+  }
+
+  &:active svg {
+    fill: #6875f5; // Different color when the button is clicked
+    transform: scale(0.9); // Slightly smaller on click
+  }
 `;
+
+
 const UlStyle = styled.ul`
-  padding: 40px;
+  list-style: none;
+  padding: 40px 20px;
   li {
     margin: 20px 0;
+    a {
+      color: #fff;
+      font-size: 18px;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #9fa8da;
+      }
+    }
   }
 `;
