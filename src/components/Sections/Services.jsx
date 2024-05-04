@@ -33,7 +33,7 @@ export default function Services() {
           </HeaderInfo>
           <br />
           <br />
-          <h1 style={{textAlign: "center"}}>Web Development</h1>
+          <StyledH1 style={{textAlign: "center"}}>'Web Development'</StyledH1>
           <ServiceBoxRow className="flex">
         
             <ServiceBoxWrapper>
@@ -74,7 +74,7 @@ export default function Services() {
             </ServiceBoxWrapper>
           </ServiceBoxRow>
 
-          <h1 style={{textAlign: "center"}}>AI Services</h1>
+          <StyledH1 style={{textAlign: "center"}}>'AI Services'</StyledH1>
 <ServiceBoxRow className="flex">
     <ServiceBoxWrapper>
         <ServiceBox
@@ -113,7 +113,7 @@ export default function Services() {
     </ServiceBoxWrapper>
 </ServiceBoxRow>
 
-          <h1 style={{textAlign: "center"}}>Blockchain Services</h1>
+          <StyledH1 style={{fontWeight:"bold", textAlign: "center"}}>'Blockchain Services'</StyledH1>
           <ServiceBoxRow className="flex">
             <ServiceBoxWrapper>
               <ServiceBox
@@ -152,7 +152,7 @@ export default function Services() {
             </ServiceBoxWrapper>
           </ServiceBoxRow>
 
-          <h1 style={{textAlign: "center"}}>Database Services</h1>
+          <StyledH1 style={{textAlign: "center"}}>'Database Services'</StyledH1>
 <ServiceBoxRow className="flex">
   <ServiceBoxWrapper>
     <ServiceBox
@@ -262,6 +262,24 @@ const ServiceBoxRow = styled.div`
     flex-direction: column;
   }
 `;
+
+const StyledH1 = styled.h1`
+  font-weight: bold; // Ensures the text is always bold
+  text-align: center; // Centers the text
+  font-size: 32px; // Default font size for larger screens
+  color: darkblue;
+
+  @media (max-width: 768px) {
+    font-weight: bold;
+    font-size: 28px; // Smaller font size for medium screens
+  }
+
+  @media (max-width: 480px) {
+    font-weight: bold;
+    font-size: 24px; // Even smaller font size for small screens
+  }
+`;
+
 const ServiceBoxWrapper = styled.div`
   width: 20%;
   margin-right: 5%;

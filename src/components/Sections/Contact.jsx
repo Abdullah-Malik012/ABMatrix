@@ -106,7 +106,13 @@ const SumbitWrapper = styled.div`
 const ButtonWrapper = styled.div`
   margin-bottom: 10px;
   width: 100%;
- 
+  @media (max-width: 991px) {
+
+    display:flex;
+    justify-content:center;
+    width: 100%;
+    margin-bottom: 50px;
+  }
   
 `;
 

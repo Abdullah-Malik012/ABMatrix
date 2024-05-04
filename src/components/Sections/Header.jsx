@@ -15,7 +15,7 @@ export default function Header() {
     <Wrapper id="home" className="container flexSpaceCenter">
       <LeftSide className="flexCenter">
         <div>
-          <h1 className="extraBold font60">Transforming Visions into Software Realities.</h1>
+        <StyledHeader>Transforming Visions into Software Realities.</StyledHeader>
           <HeaderP className="font13 semiBold">
           "Welcome to our world at AB-Matrix, where we specialize in transforming your visions into tangible software realities. We understand the power of ideas and the impact they can have on businesses and lives. Through a fusion of creativity and cutting-edge technology, we meticulously craft every line of code to bring your concepts to life.
           </HeaderP>
@@ -29,7 +29,7 @@ export default function Header() {
       </LeftSide>
       <RightSide>
         <ImageWrapper>
-          <Img className="radius8" src={"https://i.ibb.co/Cm5P1rQ/img1.jpg"} alt="office" style={{width:'400px', zIndex: 9}} />
+          <Img className="radius8" src={"https://i.ibb.co/Cm5P1rQ/img1.jpg"} alt="office"/>
           <QuoteWrapper className="flexCenter darkBg radius8">
             <QuotesWrapper>
               <QuotesIcon />
@@ -119,7 +119,7 @@ const ImageWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
   z-index: 9;
   @media (max-width: 960px) {
     width: 100%;
@@ -127,11 +127,23 @@ const ImageWrapper = styled.div`
   }
 `;
 const Img = styled.img`
+  /* Default size for larger screens */
+  width: 400px; /* Example size, adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+
+  /* Scale down the image for medium screens */
+  @media (max-width: 960px) {
+    width: 200px; /* Smaller size for medium screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Scale down further for small screens */
   @media (max-width: 560px) {
-    width: 80%;
-    height: auto;
+    width: 70%; /* Full width on small screens */
+    height: auto; /* Maintain aspect ratio */
   }
 `;
+
 const QuoteWrapper = styled.div`
   position: absolute;
   left: 0;
@@ -143,6 +155,7 @@ const QuoteWrapper = styled.div`
     left: 20px;
   }
   @media (max-width: 560px) {
+
     bottom: -50px;
   }
 `;
@@ -151,17 +164,19 @@ const QuotesWrapper = styled.div`
   left: -20px;
   top: -10px;
 `;
-const DotsWrapper = styled.div`
-  position: absolute;
-  right: -100px;
-  bottom: 100px;
-  z-index: 2;
+const StyledHeader = styled.h1`
+  font-size: 60px; // Default size for larger screens
+  font-weight: 800; // Assuming 'extraBold' is similar to font-weight 800
+  color: #000; // Adjust the color as needed
+
   @media (max-width: 960px) {
-    right: 100px;
+    font-size: 40px; // Slightly smaller for medium screens
   }
+
   @media (max-width: 560px) {
-    display: none;
+    font-size: 30px; // Even smaller for small screens
   }
 `;
+
 
 

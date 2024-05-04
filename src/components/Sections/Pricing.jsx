@@ -93,7 +93,7 @@ const TableBox = styled.div`
   flex: 0 0 auto;
   scroll-snap-align: start;
   padding: 0 10px;
-  width: 300px; 
+  width: 400px; 
 `;
 
 
@@ -118,10 +118,18 @@ const ScrollButton = styled.button`
 
 const ScrollButtonLeft = styled(ScrollButton)`
   left: 10px;
+
+  @media (max-width: 768px) {
+    display: ${({ showOnSmallScreens }) => (showOnSmallScreens ? 'block' : 'visible')};
+  }
 `;
 
 const ScrollButtonRight = styled(ScrollButton)`
   right: 10px;
+
+  @media (max-width: 768px) {
+    display: ${({ showOnSmallScreens }) => (showOnSmallScreens ? 'block' : 'visible')};
+  }
 `;
 
 
@@ -183,7 +191,9 @@ const pricingTables = [
     offers: [
       { name: "Frontend with backend" },
       { name: "Backend with Database" },
-      { name: "Api integration and third party Api" },
+      { name: "UI integration" },
+      { name: "Api integration" },
+      { name: "Third party Api's" },
 
 
     ],
