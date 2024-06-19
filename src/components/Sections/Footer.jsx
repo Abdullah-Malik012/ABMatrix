@@ -41,9 +41,9 @@ export default function Contact() {
             <img style={{width: '100px'}} src={"https://i.ibb.co/59LQpvD/NOBG-LOGO.png"} />
           
           </Link>
-            <StyleP className="whiteColor font13">
+          <CenteredStyleP className="whiteColor font13">
               © {getCurrentYear()} - <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
-            </StyleP>
+            </CenteredStyleP>
             {/* <StyleP className="whiteColor font13">
               <h1>Contact Details:</h1>
               <span className="whiteColor font13">abmatrix.co@gmail.com</span> 
