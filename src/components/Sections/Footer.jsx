@@ -63,17 +63,25 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 const InnerWrapper = styled.div`
-  @media (max-width: 550px) {
-    flex-direction: column;
-  }
-`;
-const StyleP = styled.p`
-  @media (max-width: 550px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-    
-    margin: 20px 0;
+  @media (min-width: 550px) {
+    flex-direction: row;
   }
 `;
+
+const StyleP = styled.p`
+  text-align: center;
+  margin: 20px 0;
+
+  @media (min-width: 550px) {
+    margin: 0 20px;
+  }
+`;
+
 const Socialicon = styled.p`
   display: flex;
   justify-content: right; // Default alignment for larger screens
