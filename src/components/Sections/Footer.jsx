@@ -42,6 +42,8 @@ export default function Contact() {
 
 const Wrapper = styled.div`
   width: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 
 const InnerWrapper = styled.div`
@@ -69,7 +71,7 @@ const Socialicon = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 30px;
-  margin-top: 60px;
+  margin: 20px 0;
 
   @media (max-width: 550px) {
     justify-content: center;
