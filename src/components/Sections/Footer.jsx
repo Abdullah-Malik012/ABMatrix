@@ -69,7 +69,8 @@ const Wrapper = styled.div`
 `;
 const InnerWrapper = styled.div`
   display: flex;
- 
+ justify-content: left; // Default alignment for larger screens
+  align-items: left;
   flex-direction: column;
 
   @media (min-width: 550px) {
