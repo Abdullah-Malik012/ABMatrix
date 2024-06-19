@@ -44,13 +44,13 @@ export default function Contact() {
             <StyleP className="whiteColor font13">
               © {getCurrentYear()} - <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
             </StyleP>
-            <StyleP className="whiteColor font13">
+            {/* <StyleP className="whiteColor font13">
               <h1>Contact Details:</h1>
               <span className="whiteColor font13">abmatrix.co@gmail.com</span> 
 <br />  
               <span className="whiteColor font13">+92 313 7753833</span><img src={whatsapp} alt='LinkedIn' width='20' height='20' />
 
-            </StyleP>
+            </StyleP> */}
            
           </InnerWrapper>
         </div>
