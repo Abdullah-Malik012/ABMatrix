@@ -58,7 +58,7 @@ const InnerWrapper = styled.div`
 
 const StyleP = styled.p`
   text-align: center;
-  margin:  0;
+  margin: 20px 0;
 
   @media (min-width: 550px) {
     margin: 0;
@@ -67,7 +67,7 @@ const StyleP = styled.p`
 
 const Socialicon = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content:center;
   align-items: center;
   gap: 30px;
   margin: 20px 0;
