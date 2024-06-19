@@ -92,7 +92,7 @@ const Socialicon = styled.p`
   justify-content: right; // Default alignment for larger screens
   align-items: center;
   gap: 30px; // Assuming you want some space between icons
-  margin-top: 20px;
+  margin-top: 80px;
   margin: 20px 0;
 
   @media (max-width: 550px) {
