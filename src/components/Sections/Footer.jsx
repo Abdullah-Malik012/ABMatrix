@@ -37,13 +37,13 @@ export default function Contact() {
   </Socialicon>
 </section>
           <InnerWrapper className="flexSpaceCenter" style={{ padding: "30px 0" }}>
-          <StyleP className="whiteColor font13">
-              © {getCurrentYear()} - <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
-            </StyleP>
+         
           <Link className="pointer flexNullCenter" to="home" smooth={true}>
             <img style={{width: '100px'}} src={"https://i.ibb.co/59LQpvD/NOBG-LOGO.png"} />
           
           </Link>
+
+          
             
             {/* <StyleP className="whiteColor font13">
               <h1>Contact Details:</h1>
@@ -54,6 +54,10 @@ export default function Contact() {
             </StyleP> */}
            
           </InnerWrapper>
+
+          <StyleP className="whiteColor font13">
+              © {getCurrentYear()} - <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
+            </StyleP>
         </div>
       </div>
     </Wrapper>
