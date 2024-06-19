@@ -69,8 +69,7 @@ const Wrapper = styled.div`
 `;
 const InnerWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+ 
   flex-direction: column;
 
   @media (min-width: 550px) {
@@ -90,6 +89,7 @@ const StyleP = styled.p`
 const Socialicon = styled.p`
   display: flex;
   justify-content: right; // Default alignment for larger screens
+  align-items: center;
   gap: 30px; // Assuming you want some space between icons
   margin: 20px 0;
 
