@@ -80,7 +80,7 @@ const InnerWrapper = styled.div`
 
 const StyleP = styled.p`
   text-align: center;
- margin-bottm: 20px;
+margin: 20px 0 30px 0;
 
   @media (min-width: 550px) {
     margin: 0 20px;
