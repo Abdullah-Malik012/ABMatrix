@@ -69,7 +69,7 @@ const Socialicon = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 30px;
-  margin: 20px 0;
+  margin-top: 60px;
 
   @media (max-width: 550px) {
     justify-content: center;
