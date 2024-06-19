@@ -42,7 +42,7 @@ export default function Contact() {
           
           </Link>
           <CenteredStyleP className="whiteColor font13">
-              © {getCurrentYear()} - <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
+              ©  <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
             </CenteredStyleP>
             {/* <StyleP className="whiteColor font13">
               <h1>Contact Details:</h1>
