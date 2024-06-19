@@ -67,10 +67,11 @@ const StyleP = styled.p`
 
 const Socialicon = styled.div`
   display: flex;
-  justify-content:center;
+  justify-content: flex-end;
   align-items: center;
   gap: 30px;
   margin: 20px 0;
+  padding: 0 20px;
 
   @media (max-width: 550px) {
     justify-content: center;
