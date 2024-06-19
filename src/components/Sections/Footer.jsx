@@ -7,7 +7,9 @@ import whatsapp from "../../assets/img/whatsapplogo.png"
 
 export default function Contact() {
 
-  
+  const getCurrentYear = () => {
+    return new Date().getFullYear();
+  }
 
   return (
     <Wrapper>
@@ -39,9 +41,9 @@ export default function Contact() {
             <img style={{width: '100px'}} src={"https://i.ibb.co/59LQpvD/NOBG-LOGO.png"} />
           
           </Link>
-          <CenteredStyleP className="whiteColor font13">
-              ©  <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
-            </CenteredStyleP>
+            <StyleP className="whiteColor font13">
+              © {getCurrentYear()} - <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
+            </StyleP>
             {/* <StyleP className="whiteColor font13">
               <h1>Contact Details:</h1>
               <span className="whiteColor font13">abmatrix.co@gmail.com</span> 
