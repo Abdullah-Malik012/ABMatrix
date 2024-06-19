@@ -7,9 +7,7 @@ import whatsapp from "../../assets/img/whatsapplogo.png"
 
 export default function Contact() {
 
-  const getCurrentYear = () => {
-    return new Date().getFullYear();
-  }
+  
 
   return (
     <Wrapper>
