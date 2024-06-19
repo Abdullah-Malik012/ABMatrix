@@ -29,10 +29,11 @@ export default function Contact() {
             <Link className="pointer flexNullCenter" to="home" smooth={true}>
               <img style={{ width: '100px' }} src={"https://i.ibb.co/59LQpvD/NOBG-LOGO.png"} alt="AB-Matrix Logo" />
             </Link>
-            <StyleP className="whiteColor font13">
+           
+          </InnerWrapper>
+          <StyleP className="whiteColor font13">
               ©  <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
             </StyleP>
-          </InnerWrapper>
         </div>
       </div>
     </Wrapper>
