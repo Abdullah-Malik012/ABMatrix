@@ -42,8 +42,7 @@ export default function Contact() {
 
 const Wrapper = styled.div`
   width: 100%;
-  justify-content: center;
-  align-items: center;
+ 
 `;
 
 const InnerWrapper = styled.div`
