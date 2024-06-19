@@ -25,7 +25,7 @@ export default function Contact() {
               </div>
             </Socialicon>
           </section>
-          <InnerWrapper className="flexSpaceCenter" style={{ padding: "30px 0" }}>
+          <InnerWrapper className="flexSpaceCenter" >
             <Link className="pointer flexNullCenter" to="home" smooth={true}>
               <img style={{ width: '100px' }} src={"https://i.ibb.co/59LQpvD/NOBG-LOGO.png"} alt="AB-Matrix Logo" />
             </Link>
@@ -42,8 +42,7 @@ export default function Contact() {
 
 const Wrapper = styled.div`
   width: 100%;
-  justify-content: center;
-  align-items: center;
+ 
 `;
 
 const InnerWrapper = styled.div`
@@ -58,7 +57,7 @@ const InnerWrapper = styled.div`
 `;
 
 const StyleP = styled.p`
-  text-align: center;
+
   margin: 20px 0;
 
   @media (min-width: 550px) {
@@ -68,8 +67,7 @@ const StyleP = styled.p`
 
 const Socialicon = styled.div`
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  
   gap: 30px;
   margin: 20px 0;
 
