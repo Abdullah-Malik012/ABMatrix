@@ -3,14 +3,18 @@ import styled from "styled-components";
 import { Link } from "react-scroll";
 
 export default function Contact() {
-  
-
   return (
     <Wrapper>
       <div className="darkBg">
         <br />
         <div className="container">
-          <section style={{ color: 'white' }} className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
+          <InnerWrapper className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
+            <Link className="pointer flexNullCenter" to="home" smooth={true}>
+              <img style={{ width: '100px', marginBottom: '30px' }} src={"https://i.ibb.co/59LQpvD/NOBG-LOGO.png"} alt="AB-Matrix Logo" />
+            </Link>
+            <StyleP className="whiteColor font13">
+              © <span className="purpleColor font13">AB-Matrix </span> All Right Reserved
+            </StyleP>
             <Socialicon>
               <div style={{ display: 'flex', gap: '30px' }} id='soicalicon' className='social-icons'>
                 <a href='https://www.upwork.com/freelancers/muhammada5313' className='social-icon' target="_blank" rel="noopener noreferrer">
@@ -24,16 +28,7 @@ export default function Contact() {
                 </a>
               </div>
             </Socialicon>
-          </section>
-          <InnerWrapper className="flexSpaceCenter" style={{ padding: "30px 0" }}>
-            <Link className="pointer flexNullCenter" to="home" smooth={true}>
-              <img style={{ width: '100px' }} src={"https://i.ibb.co/59LQpvD/NOBG-LOGO.png"} alt="AB-Matrix Logo" />
-            </Link>
-           
           </InnerWrapper>
-          <StyleP className="whiteColor font13">
-              ©  <span className="purpleColor font13">AB-Matrix</span> All Right Reserved
-            </StyleP>
         </div>
       </div>
     </Wrapper>
@@ -42,7 +37,6 @@ export default function Contact() {
 
 const Wrapper = styled.div`
   width: 100%;
- 
 `;
 
 const InnerWrapper = styled.div`
