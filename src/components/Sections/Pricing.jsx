@@ -164,7 +164,7 @@ const pricingTables = [
   },
   {
     icon: "browser",
-    price: "Starting with 500$",
+    price: "Starting with 1000$",
     title: "Web Develop",
     text: "You can choose from following Services and more",
     offers: [
@@ -178,7 +178,7 @@ const pricingTables = [
   },
   {
     icon: "Database",
-    price: "Starting with 100$",
+    price: "Starting with 200$",
     title: "Data Bases",
     text: "You can choose from following Services and more",
     offers: [
@@ -209,7 +209,7 @@ const pricingTables = [
   },
   {
     icon: "Deployment",
-    price: "Starting with 200$",
+    price: "Starting with 300$",
     title: "Deployment",
     text: "You can choose from following Services and more",
     offers: [
@@ -224,7 +224,7 @@ const pricingTables = [
   },
   {
     icon: "AI",
-    price: "Starting with 400$",
+    price: "Starting with 1000$",
     title: "AI Services",
     text: "You can choose from following Services and more",
     offers: [
@@ -239,7 +239,7 @@ const pricingTables = [
   },
   {
     icon: "blockchain1",
-    price: "Starting with 600$",
+    price: "Starting with 1000$",
     title: "Blockchain ",
     text: "You can choose from following Services and more",
     offers: [

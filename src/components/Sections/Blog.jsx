@@ -16,7 +16,7 @@ export default function Blog() {
             <Advertising className="flexSpaceCenter">
               <AddLeft>
                 <h2 className="font40 extraBold">UI/UX design + Web Development + Database </h2>
-                <h1>Starting from 800$</h1>
+                <h1>Starting from 1400$</h1>
                 <p>You can select from following services and more</p>
                 <br />
                 <ListsContainer className="flexNullCenter">
@@ -68,7 +68,7 @@ export default function Blog() {
             <Advertising className="flexSpaceCenter">
               <AddLeft>
                 <h2 className="font40 extraBold">Integration + Deployment </h2>
-                <h1>Starting from 300$</h1>
+                <h1>Starting from 450$</h1>
                 <p>You can select from following services and more</p>
                 <br />
                 <ListsContainer className="flexNullCenter">
