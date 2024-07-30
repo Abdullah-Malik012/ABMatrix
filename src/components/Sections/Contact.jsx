@@ -18,6 +18,15 @@ export default function Contact() {
     window.open(whatsappUrl, "_blank");
   };
 
+  const openGmailCompose = () => {
+    const email = 'abmatrix.co@gmail.com';
+    const subject = encodeURIComponent('Subject here'); // Optional
+    const body = encodeURIComponent('Body here'); // Optional
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+    
+    window.open(gmailUrl, '_blank');
+  };
+
   return (
     <Wrapper id="contact">
       <div className="lightBg">
@@ -35,7 +44,7 @@ export default function Contact() {
     value="Connect with us on Gmail" 
     className="pointer animate radius8" 
     style={{ maxWidth: "220px" }}
-    onClick={() => window.open('mailto:abmatrix.co@gmail.com', '_blank')}
+    onClick={openGmailCompose }
   />
 </ButtonWrapper>
 
