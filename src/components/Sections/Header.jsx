@@ -29,7 +29,7 @@ export default function Header() {
       </LeftSide>
       <RightSide>
         <ImageWrapper>
-          <Img className="radius8" src={"https://i.ibb.co/Cm5P1rQ/img1.jpg"} alt="office"/>
+          <Img className="radius8" src={"headerimage.jpg"} alt="office"/>
           <QuoteWrapper className="flexCenter darkBg radius8">
             <QuotesWrapper>
               <QuotesIcon />
