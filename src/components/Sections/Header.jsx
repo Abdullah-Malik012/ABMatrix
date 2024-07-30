@@ -8,7 +8,7 @@ import FullButton from "../Buttons/FullButton";
 import QuotesIcon from "../../assets/svg/Quotes";
 import Dots from "../../assets/svg/Dots";
 import { Link } from "react-scroll";
-
+import imageheader from "./headerimage.jpg";
 
 export default function Header() {
   return (
@@ -29,7 +29,7 @@ export default function Header() {
       </LeftSide>
       <RightSide>
         <ImageWrapper>
-          <Img className="radius8" src={"headerimage.jpg"} alt="office"/>
+          <Img className="radius8" src={imageheader} alt="office"/>
           <QuoteWrapper className="flexCenter darkBg radius8">
             <QuotesWrapper>
               <QuotesIcon />

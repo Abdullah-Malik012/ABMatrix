@@ -6,7 +6,7 @@ import Sidebar from "../Nav/Sidebar";
 import Backdrop from "../Elements/Backdrop";
 // Assets
 import BurgerIcon from "../../assets/svg/BurgerIcon";
-
+import logo from "./logo.png";
 
 export default function TopNavbar() {
   const [y, setY] = useState(window.scrollY);
@@ -27,7 +27,7 @@ export default function TopNavbar() {
       <Wrapper className="flexCenter animate whiteBg" style={y > 100 ? { height: "110px" } : { height: "100px" }}>
         <NavInner className="container flexSpaceCenter">
           <Link className="pointer flexNullCenter" to="home" smooth={true}>
-            <img style={{width: '100px'}} src={"https://i.ibb.co/59LQpvD/NOBG-LOGO.png"} />
+            <img style={{width: '100px'}} src={logo} />
           
           </Link>
           <BurderWrapper className="pointer" onClick={() => toggleSidebar(!sidebarOpen)}>

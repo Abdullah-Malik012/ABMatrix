@@ -203,7 +203,7 @@ export default function Services() {
 <div className="container">
   <Advertising className="flexSpaceCenter">
     <AddLeft>
-      <h4 className="font15 semiBold">A few words about company from the Founder and CEO, Abdullah Malik</h4>
+      {/* <h4 className="font15 semiBold">A few words about company from the Founder and CEO, Abdullah Malik</h4> */}
       <h2 className="font40 extraBold">A Study of Creativity</h2>
       <p className="font12">
       Fueling Innovation, Transforming Ideas: We are a dynamic company dedicated to pushing the boundaries of digital creativity. From intuitive UI/UX designs to robust web development and seamless integrations, from Artifical Intelligene to Blockchain, we are the catalysts for your online success. Our commitment to excellence extends to database solutions and effortless deployment, ensuring your digital journey is not just evolutionary but revolutionary. Embrace the future with a partner that brings your vision to life – where innovation meets unparalleled expertise.
@@ -224,7 +224,7 @@ export default function Services() {
           <img className="radius8" src={"https://i.ibb.co/DKMwW25/ABMATRIX-LOGO3.png"} alt="office" style={{height:'250px',width:'250px', zIndex: 9}} />
 
           </AddImgWrapp1>
-          <AddImgWrapp2>
+          {/* <AddImgWrapp2>
             <img src={prof3} alt="office" />
           </AddImgWrapp2>
         </div>
@@ -234,7 +234,7 @@ export default function Services() {
           </AddImgWrapp3>
           <AddImgWrapp4>
             <img src={prof2} alt="office" />
-          </AddImgWrapp4>
+          </AddImgWrapp4> */}
         </div>
       </AddRightInner>
     </AddRight>

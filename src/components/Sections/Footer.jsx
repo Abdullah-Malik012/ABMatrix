@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
+import logo from "./logo.png";
+
 
 export default function Contact() {
   return (
@@ -10,7 +12,7 @@ export default function Contact() {
         <div className="container">
           <InnerWrapper className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
             <Link className="pointer flexNullCenter" to="home" smooth={true}>
-              <img style={{ width: '100px', marginBottom: '30px' }} src={"https://i.ibb.co/59LQpvD/NOBG-LOGO.png"} alt="AB-Matrix Logo" />
+              <img style={{ width: '100px', marginBottom: '30px' }} src={logo} alt="AB-Matrix Logo" />
             </Link>
             <StyleP className="whiteColor font13">
               © <span className="purpleColor font13">AB-Matrix </span> All Right Reserved
