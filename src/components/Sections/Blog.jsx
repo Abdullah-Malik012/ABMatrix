@@ -1,5 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import db from "./DB.jpg";
+import uiux from "./uiux.jpg";
+import web from "./web.jpg";
+import deployment from "./Deployment.png";
+import integration from "./integration.webp";
 
 
 export default function Blog() {
@@ -40,13 +45,13 @@ export default function Blog() {
                 <AddRightInner>
                   <div className="flexNullCenter">
                   <AddImgWrapp2>
-                      <img src={"https://i.ibb.co/dBM4sWG/ui-ux.jpg"} alt="office" />
+                      <img src={uiux} alt="office" />
                     </AddImgWrapp2>
                     <AddImgWrapp2>
-                      <img src={"https://i.ibb.co/bKvqbxf/web-development.jpg"} alt="office" />
+                      <img src={web} alt="office" />
                     </AddImgWrapp2>
                     <AddImgWrapp2>
-                      <img src={"https://i.ibb.co/QD4srrB/DB.jpg "} alt="office" />
+                      <img src={db} alt="office" />
                     </AddImgWrapp2>
                   </div>
                   
@@ -87,10 +92,10 @@ export default function Blog() {
                   <div className="flexNullCenter">
                     
                     <AddImgWrapp2>
-                      <img src={"https://i.ibb.co/BN3KSNH/Deployment.png"} alt="office" />
+                      <img src={deployment} alt="office" />
                     </AddImgWrapp2>
                     <AddImgWrapp2>
-                      <img src={"https://i.ibb.co/Z1sK4wN/integration.webp"} alt="office" />
+                      <img src={integration} alt="office" />
                     </AddImgWrapp2>
                     
                   </div>
