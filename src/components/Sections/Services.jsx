@@ -362,7 +362,7 @@ const AddRight = styled.div`
     width: 100%;
     margin: 0 6%;
     @media (max-width: 860px) {
-      width: 40%;
+      width: 100%;
 
       margin: 10px 0;
       margin-left:40px;  // Adjust margins to align images properly
