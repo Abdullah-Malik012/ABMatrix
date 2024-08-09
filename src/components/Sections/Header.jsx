@@ -83,6 +83,7 @@ const Wrapper = styled.section`
   background-position: center;
   text-align: center;
   position: relative;
+  
 
   video {
     position: absolute;

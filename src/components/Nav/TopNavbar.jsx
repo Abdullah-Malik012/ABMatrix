@@ -35,33 +35,33 @@ export default function TopNavbar() {
           </BurderWrapper>
           <UlWrapper className="flexNullCenter">
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="home" spy={true} smooth={true} offset={-80}>
+              <Link activeClass="active" style={{color:'white', padding: "10px 15px" }} to="home" spy={true} smooth={true} offset={-80}>
                 Home
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="services" spy={true} smooth={true} offset={-80}>
+              <Link activeClass="active" style={{color:'white', padding: "10px 15px" }} to="services" spy={true} smooth={true} offset={-80}>
                 Services
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="projects" spy={true} smooth={true} offset={-80}>
+              <Link activeClass="active" style={{color:'white', padding: "10px 15px" }} to="projects" spy={true} smooth={true} offset={-80}>
                 Projects
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="pricing" spy={true} smooth={true} offset={-80}>
+              <Link activeClass="active" style={{color:'white', padding: "10px 15px" }} to="pricing" spy={true} smooth={true} offset={-80}>
                 Pricing
               </Link>
             </li>
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="blog" spy={true} smooth={true} offset={-80}>
+              <Link activeClass="active" style={{color:'white', padding: "10px 15px" }} to="blog" spy={true} smooth={true} offset={-80}>
                 Packages
               </Link>
             </li>
            
             <li className="semiBold font15 pointer">
-              <Link activeClass="active" style={{ padding: "10px 15px" }} to="contact" spy={true} smooth={true} offset={-80}>
+              <Link activeClass="active" style={{color:'white', padding: "10px 15px" }} to="contact" spy={true} smooth={true} offset={-80}>
                 Contact
               </Link>
             </li>
@@ -76,6 +76,8 @@ export default function TopNavbar() {
 const Wrapper = styled.nav`
   width: 100%;
   position: fixed;
+   background-color: #010121;
+
   top: 0;
   left: 0;
   right: 0; // Ensures the nav stretches across
