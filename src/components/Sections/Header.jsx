@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <Wrapper id="home">
       <video autoPlay loop muted>
-        <source src={bgvideo} type="video/mp4" />
+        <source src={bgvideo} />
       </video>
       <Content>
         <LeftSide>
