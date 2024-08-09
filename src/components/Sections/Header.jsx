@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import FullButton from "../Buttons/FullButton";
 import QuotesIcon from "../../assets/svg/Quotes";
 import { Link } from "react-scroll";
-import bgvideo from "./bg.mov";
+import bgvideo from "./bg.mp4";
 
 export default function Header() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch((error) => {
+        console.log("Autoplay was prevented:", error);
+      });
+    }
+  }, []);
+
   return (
     <Wrapper id="home">
       <VideoContainer>
-      <StyledVideo autoPlay loop muted>
-        <source src={bgvideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </StyledVideo>
-    </VideoContainer>
+        <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
+          <source src={bgvideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </StyledVideo>
+      </VideoContainer>
       <Content>
         <LeftSide>
           <AnimatedHeader>
@@ -91,7 +102,6 @@ const Wrapper = styled.section`
 
 `;
 
-
 const VideoContainer = styled.div`
   position: fixed;
   top: 0;
@@ -165,8 +175,7 @@ const BtnWrapper = styled.div`
   margin-top: 50px;
   @media (max-width: 960px) {
     width: 60%;
-      margin-top: -5%;
-
+    margin-top: -5%;
   }
   @media (max-width: 480px) {
     width: 80%;
