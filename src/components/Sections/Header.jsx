@@ -1,182 +1,189 @@
-
-
 import React from "react";
-import styled from "styled-components";
-// Components
+import styled, { keyframes } from "styled-components";
 import FullButton from "../Buttons/FullButton";
-
 import QuotesIcon from "../../assets/svg/Quotes";
-import Dots from "../../assets/svg/Dots";
 import { Link } from "react-scroll";
-import imageheader from "./headerimage.jpg";
+import bgvideo from "./bg.mov";
 
 export default function Header() {
   return (
-    <Wrapper id="home" className="container flexSpaceCenter">
-      <LeftSide className="flexCenter">
-        <div>
-        <StyledHeader>Transforming Visions into Software Realities.</StyledHeader>
-          <HeaderP className="font13 semiBold">
-          "Welcome to our world at AB-Matrix, where we specialize in transforming your visions into tangible software realities. We understand the power of ideas and the impact they can have on businesses and lives. Through a fusion of creativity and cutting-edge technology, we meticulously craft every line of code to bring your concepts to life.
-          </HeaderP>
-          <BtnWrapper >
-          <Link activeClass="active" style={{ padding: "10px 15px" }} to="services" spy={true} smooth={true} offset={-80}>
-          <FullButton  style={{backgroundcolor: '#08116A'}} title="Let's Get Started" />
-              </Link>
-            
-          </BtnWrapper>
-        </div>
-      </LeftSide>
-      <RightSide>
-        <ImageWrapper>
-          <Img className="radius8" src={imageheader} alt="office"/>
+    <Wrapper id="home">
+      <video autoPlay loop muted>
+        <source src={bgvideo} type="video/mp4" />
+      </video>
+      <Content>
+        <LeftSide>
+          <AnimatedHeader>
           <QuoteWrapper className="flexCenter darkBg radius8">
             <QuotesWrapper>
               <QuotesIcon />
             </QuotesWrapper>
-            <div>
-              <p className="font15 whiteColor">
-                <em>In the realm of code, dreams become functions, visions become features, and aspirations transform into executable realities.</em>
-              </p>
-            </div>
-            
+            <QuoteText className="font15 whiteColor">
+              <em>
+                In the realm of code, dreams become functions, visions become
+                features, and aspirations transform into executable realities.
+              </em>
+            </QuoteText>
           </QuoteWrapper>
-          {/* <QuoteWrapper style={{marginLeft:"450px"}} className="flexCenter radius8">
-            
-            <Img className="radius8" src={"https://i.ibb.co/DKMwW25/ABMATRIX-LOGO3.png"} alt="office" style={{height:'250px',width:'250px', zIndex: 9}} />
+          </AnimatedHeader>
 
-            
-          </QuoteWrapper> */}
+        </LeftSide>
+        <RightSide>
+          <AnimatedHeader className="extraBold font60">
+            Transforming Visions into Software Realities.
           
-
-        </ImageWrapper>
-        
-      </RightSide>
+          <HeaderP className="font15 semiBold">
+            "Welcome to our world at AB-Matrix, where we specialize in
+            transforming your visions into tangible software realities. We
+            understand the power of ideas and the impact they can have on
+            businesses and lives. Through a fusion of creativity and
+            cutting-edge technology, we meticulously craft every line of code
+            to bring your concepts to life."
+          </HeaderP>
+          <BtnWrapper>
+            <Link
+              activeClass="active"
+              style={{ padding: "10px 15px" }}
+              to="services"
+              spy={true}
+              smooth={true}
+              offset={-80}
+            >
+              <FullButton
+                style={{ backgroundColor: "#08116A" }}
+                title="Let's Get Started"
+              />
+            </Link>
+          </BtnWrapper>
+          </AnimatedHeader>
+        </RightSide>
+      </Content>
     </Wrapper>
   );
 }
 
+// Keyframes for sliding animation
+const slideIn = keyframes`
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 
 const Wrapper = styled.section`
-  padding-top: 80px;
-  width: 100%;
-  min-height: 840px;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  position: relative;
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
   @media (max-width: 960px) {
+  margin-top: 100px;
     flex-direction: column;
   }
 `;
-const LeftSide = styled.div`
-  width: 50%;
-  height: 100%;
+
+const Content = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: white;
+  font-family: "Poppins", Times New Roman;
+
   @media (max-width: 960px) {
-    width: 100%;
-    order: 2;
-    margin: 50px 0;
+    flex-direction: column;
     text-align: center;
   }
-  @media (max-width: 560px) {
-    margin: 80px 0 50px 0;
-  }
 `;
+
 const RightSide = styled.div`
   width: 50%;
-  height: 100%;
+    margin-top: 10%;
+
   @media (max-width: 960px) {
     width: 100%;
-    order: 1;
-    margin-top: 30px;
+    margin-bottom: 30px;
   }
 `;
-const HeaderP = styled.div`
-  max-width: 470px;
-  padding: 15px 0 50px 0;
+
+const LeftSide = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  @media (max-width: 960px) {
+    width: 100%;
+  }
+`;
+
+const AnimatedHeader = styled.h1`
+  animation: ${slideIn} 1s ease-out;
+`;
+
+const HeaderP = styled.p`
+  max-width: 600px;
+  margin: 20px auto;
   line-height: 1.5rem;
   @media (max-width: 960px) {
-    padding: 15px 0 50px 0;
-    text-align: center;
     max-width: 100%;
+    font-size: 0.9rem;
   }
 `;
+
 const BtnWrapper = styled.div`
-  max-width: 190px;
-  
+  max-width: 200px;
+  margin: 0 auto;
+  margin-top: 50px;
   @media (max-width: 960px) {
-    margin: 0 auto;
+    width: 60%;
   }
-`;
-const GreyDiv = styled.div`
-  width: 30%;
-  height: 700px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 0;
-  @media (max-width: 960px) {
-    display: none;
-  }
-`;
-const ImageWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  margin-bottom: 60px;
-  z-index: 9;
-  @media (max-width: 960px) {
-    width: 100%;
-    justify-content: center;
-  }
-`;
-const Img = styled.img`
-  /* Default size for larger screens */
-  width: 400px; /* Example size, adjust as needed */
-  height: auto; /* Maintain aspect ratio */
-
-  /* Scale down the image for medium screens */
-  @media (max-width: 960px) {
-    width: 200px; /* Smaller size for medium screens */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  /* Scale down further for small screens */
-  @media (max-width: 560px) {
-    width: 70%; /* Full width on small screens */
-    height: auto; /* Maintain aspect ratio */
+  @media (max-width: 480px) {
+    width: 80%;
   }
 `;
 
 const QuoteWrapper = styled.div`
-  position: absolute;
-  left: 0;
-  bottom: 50px;
-  max-width: 330px;
-  padding: 30px;
-  z-index: 99;
+  position: relative;
+  max-width: 400px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
   @media (max-width: 960px) {
-    left: 20px;
-  }
-  @media (max-width: 560px) {
-
-    bottom: -50px;
+    display: none;
   }
 `;
+
 const QuotesWrapper = styled.div`
   position: absolute;
-  left: -20px;
-  top: -10px;
+  top: -20px;
+  left: 20px;
 `;
-const StyledHeader = styled.h1`
-  font-size: 60px; // Default size for larger screens
-  font-weight: 800; // Assuming 'extraBold' is similar to font-weight 800
-  color: #000; // Adjust the color as needed
 
+const QuoteText = styled.div`
+  margin-top: 40px;
+  text-align: left;
   @media (max-width: 960px) {
-    font-size: 40px; // Slightly smaller for medium screens
-  }
-
-  @media (max-width: 560px) {
-    font-size: 30px; // Even smaller for small screens
+    text-align: center;
   }
 `;
-
-
-
