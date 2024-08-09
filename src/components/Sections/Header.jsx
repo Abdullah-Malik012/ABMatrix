@@ -8,9 +8,12 @@ import bgvideo from "./bg.mov";
 export default function Header() {
   return (
     <Wrapper id="home">
-      <VideoBackground autoPlay loop muted playsInline disablePictureInPicture>
+      <VideoContainer>
+      <StyledVideo autoPlay loop muted>
         <source src={bgvideo} type="video/mp4" />
-      </VideoBackground>
+        Your browser does not support the video tag.
+      </StyledVideo>
+    </VideoContainer>
       <Content>
         <LeftSide>
           <AnimatedHeader>
@@ -88,15 +91,21 @@ const Wrapper = styled.section`
 
 `;
 
-const VideoBackground = styled.video`
-  position: absolute;
+
+const VideoContainer = styled.div`
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   z-index: -1;
-  pointer-events: none;  /* Prevent interaction with the video */
+  overflow: hidden;
+`;
+
+const StyledVideo = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const Content = styled.div`
