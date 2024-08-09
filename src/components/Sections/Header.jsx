@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import FullButton from "../Buttons/FullButton";
 import QuotesIcon from "../../assets/svg/Quotes";
 import { Link } from "react-scroll";
-import bgvideo from "./bg.mp4";
+import bgvideo from "./bg.mov";
 
 export default function Header() {
   const videoRef = useRef(null);
