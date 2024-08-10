@@ -4,6 +4,7 @@ import FullButton from "../Buttons/FullButton";
 import QuotesIcon from "../../assets/svg/Quotes";
 import { Link } from "react-scroll";
 import bgvideo from "./bg.mp4";
+import bgImage from "./headerimage.jpg";
 
 export default function Header() {
   const videoRef = useRef(null);
@@ -19,12 +20,13 @@ export default function Header() {
 
   return (
     <Wrapper id="home">
-      <VideoContainer>
-        <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
-          <source src={bgvideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </StyledVideo>
-      </VideoContainer>
+     <VideoContainer>
+    <StyledVideo autoPlay loop muted playsInline webkit-playsinline="true" controlsList="nodownload">
+      <source src={bgvideo} type="video/mp4" />
+      Your browser does not support the video tag.
+    </StyledVideo>
+    <FallbackImage src={bgImage} alt="Background" />
+  </VideoContainer>
       <Content>
         <LeftSide>
           <AnimatedHeader>
