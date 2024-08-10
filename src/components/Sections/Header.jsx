@@ -3,8 +3,7 @@ import styled, { keyframes } from "styled-components";
 import FullButton from "../Buttons/FullButton";
 import QuotesIcon from "../../assets/svg/Quotes";
 import { Link } from "react-scroll";
-import bgvideo from "./bg.mp4";
-import bgImage from "./headerimage.jpg";
+import bgvideo from "./bg.mov";
 
 export default function Header() {
   const videoRef = useRef(null);
@@ -20,13 +19,11 @@ export default function Header() {
 
   return (
     <Wrapper id="home">
-     <VideoContainer>
-    <StyledVideo autoPlay loop muted playsInline webkit-playsinline="true" controlsList="nodownload">
-      <source src={bgvideo} type="video/mp4" />
-      Your browser does not support the video tag.
-    </StyledVideo>
-    <FallbackImage src={bgImage} alt="Background" />
-  </VideoContainer>
+      <VideoContainer>
+        <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
+          <source src={bgvideo} type="video/mp4" />
+        </StyledVideo>
+      </VideoContainer>
       <Content>
         <LeftSide>
           <AnimatedHeader>
@@ -102,22 +99,6 @@ const Wrapper = styled.section`
     margin-top:5%;
   }
 
-`;
-
-const FallbackImage = styled.img`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1; /* Same as VideoContainer to maintain stacking order */
-  display: none; /* Initially hidden, will be shown if video fails */
-  
-  /* Add specific styles if video doesn't play */
-  @media (max-width: 960px) {
-    display: block; /* Show fallback image on mobile */
-  }
 `;
 
 const VideoContainer = styled.div`
