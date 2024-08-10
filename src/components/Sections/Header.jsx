@@ -104,6 +104,22 @@ const Wrapper = styled.section`
 
 `;
 
+const FallbackImage = styled.img`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Same as VideoContainer to maintain stacking order */
+  display: none; /* Initially hidden, will be shown if video fails */
+  
+  /* Add specific styles if video doesn't play */
+  @media (max-width: 960px) {
+    display: block; /* Show fallback image on mobile */
+  }
+`;
+
 const VideoContainer = styled.div`
   position: fixed;
   top: 0;
