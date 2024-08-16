@@ -251,9 +251,9 @@ export default function Projects() {
             </Modal>
           </div>
         </div>
-        <Footer/>
+       
       </Wrapper>
-      
+      <Footer/>
     </>
   );
 }
