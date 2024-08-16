@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 import logo from "./logo.png";
 
 
-export default function Contact() {
+export default function Footer() {
   return (
     <Wrapper>
       <div className="darkBg">
