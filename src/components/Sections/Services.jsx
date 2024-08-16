@@ -11,10 +11,12 @@ import prof3 from "../../assets/img/prof3.jpg"
 
 import { Link } from "react-scroll";
 
+import TopNavbar from "../Nav/TopNavbar";
 
 export default function Services() {
   return (
     <Wrapper id="services">
+      <TopNavbar/>
       <div  className="lightBg" style={{ padding: "50px 0" }}>
         {/* <div className="container">
           <ClientSlider />

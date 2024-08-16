@@ -6,10 +6,13 @@ import web from "./web.jpg";
 import deployment from "./Deployment.png";
 import integration from "./integration.webp";
 
+import TopNavbar from "../Nav/TopNavbar";
+
 
 export default function Blog() {
   return (
     <Wrapper id="blog">
+      <TopNavbar/>
        <div className="lightBg">
           <div className="container">
           

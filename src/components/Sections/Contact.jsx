@@ -4,6 +4,8 @@ import { FaWhatsapp } from "react-icons/fa"; // Import WhatsApp icon
 import green from "../../assets/img/green.avif"
 import gmailback from "../../assets/img/gmailback.avif"
 
+import TopNavbar from "../Nav/TopNavbar";
+
 export default function Contact() {
   // Function to open WhatsApp with a predefined message
   const openWhatsApp = () => {
@@ -29,6 +31,7 @@ export default function Contact() {
 
   return (
     <Wrapper id="contact">
+      <TopNavbar/>
       <div className="lightBg">
         <div className="container">
           <HeaderInfo>

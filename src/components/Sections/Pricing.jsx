@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import PricingTable from "../Elements/PricingTable";
 
+import TopNavbar from "../Nav/TopNavbar";
+
 export default function Pricing() {
   const containerRef = useRef(null);
   const [hoveredLeft, setHoveredLeft] = useState(false);
@@ -25,6 +27,7 @@ export default function Pricing() {
 
   return (
     <Wrapper id="pricing">
+      <TopNavbar/>
       <CardContent>
         <HeaderInfo>
           <h1 className="font40 extraBold">Check Our Pricing</h1>

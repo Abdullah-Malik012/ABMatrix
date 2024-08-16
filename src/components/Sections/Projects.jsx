@@ -43,6 +43,8 @@ import lh2 from "../../assets/img/lh2.png";
 import lh3 from "../../assets/img/lh3.png";
 import lh4 from "../../assets/img/lh4.png";
 
+import TopNavbar from "../Nav/TopNavbar";
+
 
 export default function Projects() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -209,6 +211,7 @@ export default function Projects() {
   return (
     <>
       <Wrapper id="projects">
+        <TopNavbar />
         <div className="whiteBg">
           <div className="container">
             <HeaderInfo>
