@@ -12,6 +12,7 @@ import Footer from "../../components/Sections/Footer";
 
 export default function Blog() {
   return (
+    <>
     <Wrapper id="blog">
       <TopNavbar/>
        <div className="lightBg">
@@ -109,8 +110,11 @@ export default function Blog() {
             </Advertising>
           </div>
         </div>
-        <Footer/>
     </Wrapper>
+            <Footer/>
+
+            </>
+
   );
 }
 

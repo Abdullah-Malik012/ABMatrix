@@ -32,6 +32,7 @@ export default function Contact() {
   };
 
   return (
+    <>
     <Wrapper id="contact">
       <TopNavbar/>
       <div className="lightBg">
@@ -60,8 +61,10 @@ export default function Contact() {
         </div>
       </div>
       <br />
-      <Footer/>
     </Wrapper>
+
+<Footer/>
+</>
   );
 }
 
