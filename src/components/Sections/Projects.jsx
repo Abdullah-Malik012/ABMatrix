@@ -44,6 +44,7 @@ import lh3 from "../../assets/img/lh3.png";
 import lh4 from "../../assets/img/lh4.png";
 
 import TopNavbar from "../Nav/TopNavbar";
+import Footer from "../../components/Sections/Footer";
 
 
 export default function Projects() {
@@ -250,6 +251,7 @@ export default function Projects() {
             </Modal>
           </div>
         </div>
+        <Footer/>
       </Wrapper>
       <br /><br /><br />
     </>

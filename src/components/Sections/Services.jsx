@@ -12,6 +12,7 @@ import prof3 from "../../assets/img/prof3.jpg"
 import { Link } from "react-scroll";
 
 import TopNavbar from "../Nav/TopNavbar";
+import Footer from "../../components/Sections/Footer";
 
 export default function Services() {
   return (
@@ -245,6 +246,7 @@ export default function Services() {
 </div>
         </div>
       </div>
+      <Footer/>
     </Wrapper>
   );
 }

@@ -8,6 +8,7 @@ import integration from "./integration.webp";
 
 import TopNavbar from "../Nav/TopNavbar";
 
+import Footer from "../../components/Sections/Footer";
 
 export default function Blog() {
   return (
@@ -108,6 +109,7 @@ export default function Blog() {
             </Advertising>
           </div>
         </div>
+        <Footer/>
     </Wrapper>
   );
 }

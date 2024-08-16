@@ -6,6 +6,8 @@ import gmailback from "../../assets/img/gmailback.avif"
 
 import TopNavbar from "../Nav/TopNavbar";
 
+import Footer from "../../components/Sections/Footer";
+
 export default function Contact() {
   // Function to open WhatsApp with a predefined message
   const openWhatsApp = () => {
@@ -58,6 +60,7 @@ export default function Contact() {
         </div>
       </div>
       <br />
+      <Footer/>
     </Wrapper>
   );
 }

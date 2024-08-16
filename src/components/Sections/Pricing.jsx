@@ -4,6 +4,8 @@ import PricingTable from "../Elements/PricingTable";
 
 import TopNavbar from "../Nav/TopNavbar";
 
+import Footer from "../../components/Sections/Footer";
+
 export default function Pricing() {
   const containerRef = useRef(null);
   const [hoveredLeft, setHoveredLeft] = useState(false);
@@ -60,6 +62,7 @@ export default function Pricing() {
         ⮞
         
       </ScrollButtonRight>
+      <Footer/>
     </Wrapper>
   );
 }
