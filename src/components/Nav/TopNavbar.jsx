@@ -100,8 +100,10 @@ const NavInner = styled.div`
 const BurderWrapper = styled.button`
   outline: none;
   border: 0;
-  background-color: transparent;
-  height: 100%;
+  border-radius: 10px;
+  background-color: #1ca9c9;
+  height: 50%;
+  width:15%;
   padding: 0 10px;
   display: none;
   align-items: center;
