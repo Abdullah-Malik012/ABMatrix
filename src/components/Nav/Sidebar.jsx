@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 // Assets
 import CloseIcon from "../../assets/svg/CloseIcon";
 
@@ -8,7 +8,6 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
   return (
     <Wrapper className="animate darkBg" sidebarOpen={sidebarOpen}>
       <SidebarHeader className="flexSpaceCenter">
-        
         <CloseBtn onClick={() => toggleSidebar(!sidebarOpen)} className="animate pointer">
           <CloseIcon />
         </CloseBtn>
@@ -18,13 +17,9 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
-            activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to="home"
-            spy={true}
-            smooth={true}
-            offset={-60}
+            to="/"
           >
             Home
           </Link>
@@ -32,13 +27,9 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
-            activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to="services"
-            spy={true}
-            smooth={true}
-            offset={-60}
+            to="/services"
           >
             Services
           </Link>
@@ -46,13 +37,9 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
-            activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to="projects"
-            spy={true}
-            smooth={true}
-            offset={-60}
+            to="/projects"
           >
             Projects
           </Link>
@@ -60,13 +47,9 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
-            activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to="blog"
-            spy={true}
-            smooth={true}
-            offset={-60}
+            to="/blog"
           >
             Packages
           </Link>
@@ -74,13 +57,9 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
-            activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to="pricing"
-            spy={true}
-            smooth={true}
-            offset={-60}
+            to="/pricing"
           >
             Pricing
           </Link>
@@ -88,30 +67,14 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
         <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
-            activeClass="active"
             className="whiteColor"
             style={{ padding: "10px 15px" }}
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={-60}
+            to="/contact"
           >
             Contact
           </Link>
         </li>
       </UlStyle>
-      {/* <UlStyle className="flexSpaceCenter">
-        <li className="semiBold font15 pointer">
-          <a href="/" style={{ padding: "10px 30px 10px 0" }} className="whiteColor">
-            Log in
-          </a>
-        </li>
-        <li className="semiBold font15 pointer flexCenter">
-          <a href="/" className="radius8 lightBg" style={{ padding: "10px 15px" }}>
-            Get Started
-          </a>
-        </li>
-      </UlStyle> */}
     </Wrapper>
   );
 }
@@ -121,7 +84,7 @@ const Wrapper = styled.nav`
   height: 100vh;
   position: fixed;
   top: 0;
-  left: ${props => props.sidebarOpen ? '0' : '-300px'};
+  left: ${(props) => (props.sidebarOpen ? '0' : '-300px')};
   transition: left 0.3s ease-in-out;
   z-index: 1000;
   background: linear-gradient(160deg, #1a237e 0%, #121212 100%);
@@ -129,7 +92,7 @@ const Wrapper = styled.nav`
 
   @media (max-width: 768px) {
     width: 60%;
-    left: ${props => props.sidebarOpen ? '0' : '-100%'};
+    left: ${(props) => (props.sidebarOpen ? '0' : '-100%')};
   }
 `;
 
@@ -143,36 +106,35 @@ const CloseBtn = styled.button`
   background-color: transparent;
   cursor: pointer;
   padding: 10px;
-  display: flex; // Center the SVG icon
+  display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; // Good for absolute positioning inside if needed
+  position: relative;
 
   svg {
-    fill: #ffffff; // Initial color for the SVG
-    width: 24px; // Width of the SVG
-    height: 24px; // Height of the SVG
-    transition: fill 0.3s ease, transform 0.3s ease; // Smooth color and transform transition
+    fill: #ffffff;
+    width: 24px;
+    height: 24px;
+    transition: fill 0.3s ease, transform 0.3s ease;
   }
 
   &:hover svg {
-    fill: #9fa8da; // Change color on hover
-    transform: rotate(90deg); // Rotate effect on hover
+    fill: #9fa8da;
+    transform: rotate(90deg);
   }
 
   &:focus {
-    outline: none; // Removes the outline, but ensure accessibility is maintained
+    outline: none;
     svg {
-      fill: #9fa8da; // Same hover color for consistency
+      fill: #9fa8da;
     }
   }
 
   &:active svg {
-    fill: #6875f5; // Different color when the button is clicked
-    transform: scale(0.9); // Slightly smaller on click
+    fill: #6875f5;
+    transform: scale(0.9);
   }
 `;
-
 
 const UlStyle = styled.ul`
   list-style: none;
