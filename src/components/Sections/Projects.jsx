@@ -253,7 +253,7 @@ export default function Projects() {
         </div>
         <Footer/>
       </Wrapper>
-      <br /><br /><br />
+      
     </>
   );
 }
