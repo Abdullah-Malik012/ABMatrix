@@ -20,8 +20,8 @@ export default function Landing() {
       
       <Pricing />
       <Blog />
-      <Contact />
-      <Footer /> */}
+      <Contact />*/}
+      <Footer /> 
     </>
   );
 }
