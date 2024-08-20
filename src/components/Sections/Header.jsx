@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef , useState} from "react";
 import styled, { keyframes } from "styled-components";
 import FullButton from "../Buttons/FullButton";
 import QuotesIcon from "../../assets/svg/Quotes";
@@ -6,10 +6,50 @@ import { Link } from "react-scroll";
 import bgvideo from "./bg.mov";
 import aboutimg from "./techbg.jpg";
 import bgimg from "./office.png";
+import faq from "./faq.jpg";
 
 export default function Header() {
   const videoRef = useRef(null);
 
+  const faqData = [
+    
+      {
+        "question": "What makes AB-Matrix different from other tech companies?",
+        "answer": "At AB-Matrix, we combine expertise in development, design, and strategy to bring your ideas to life with unparalleled precision. Our commitment to exceeding expectations ensures that your vision is not only realized but enhanced through innovative solutions."
+      },
+      {
+        "question": "How do I get started with AB-Matrix?",
+        "answer": "Getting started with us is easy! Simply reach out through our contact form on the website, or email us at abmatrix.co@gmail.com. Our team will guide you through the process from initial consultation to project deployment."
+      },
+      {
+        "question": "What is AB-Matrix's approach to project management?",
+        "answer": "We follow a collaborative approach to project management. From the initial concept to deployment, our team works closely with you to ensure that every aspect of your project is aligned with your goals and expectations. We prioritize clear communication and adaptive strategies to deliver exceptional results."
+      },
+      {
+        "question": "How does AB-Matrix handle data protection and compliance?",
+        "answer": "Data protection and compliance are core to our operations. We implement stringent security measures and adhere to relevant regulations to ensure that your data is safeguarded. Our team stays updated on the latest compliance requirements to ensure your project meets all necessary standards."
+      },
+      {
+        "question": "Can AB-Matrix handle international projects?",
+        "answer": "Absolutely! We have the expertise and resources to manage international projects efficiently. Whether you're based locally or globally, we are equipped to handle your project with the same level of dedication and excellence."
+      }
+    
+    // Add more FAQ items here
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const handleToggle = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const faqItem = question.parentElement;
+      faqItem.classList.toggle('active');
+    });
+  });
+  
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
@@ -176,14 +216,93 @@ export default function Header() {
             <TestimonialAuthor>-Aiman</TestimonialAuthor>
           </TestimonialItem>
 
-          
 
         </TestimonialContent>
+
+        
       </Testimonials>
       
+      <FeaturesSection>
+        <FeaturesHeader>Features & Benefits</FeaturesHeader>
+        <FeaturesContent>
+          <FeatureItem>
+            <FeatureIcon>🚀</FeatureIcon>
+            <FeatureTitle>Innovative Solutions</FeatureTitle>
+            <FeatureDescription>Leverage the latest technology to drive your business forward.</FeatureDescription>
+          </FeatureItem>
+          <FeatureItem>
+            <FeatureIcon>🔒</FeatureIcon>
+            <FeatureTitle>Top-notch Security</FeatureTitle>
+            <FeatureDescription>Robust security measures to ensure your data is safe and secure.</FeatureDescription>
+          </FeatureItem>
+          <FeatureItem>
+            <FeatureIcon>⚡</FeatureIcon>
+            <FeatureTitle>High Performance</FeatureTitle>
+            <FeatureDescription>Optimized performance for seamless and efficient operations.</FeatureDescription>
+          </FeatureItem>
+          <FeatureItem>
+            <FeatureIcon>🌟</FeatureIcon>
+            <FeatureTitle>Exceptional Support</FeatureTitle>
+            <FeatureDescription>Dedicated support team available to assist you anytime.</FeatureDescription>
+          </FeatureItem>
+        </FeaturesContent>
+      </FeaturesSection>
+
+      <FAQContainer>
+      <FAQHeader>Frequently Asked Questions</FAQHeader>
+      <FAQList>
+        {faqData.map((faq, index) => (
+          <FAQCard key={index} isActive={activeIndex === index}>
+            <FAQCardHeader onClick={() => handleToggle(index)}>
+              <h3>{faq.question}</h3>
+              <ArrowIcon isActive={activeIndex === index}>▼</ArrowIcon>
+            </FAQCardHeader>
+            <FAQCardBody isActive={activeIndex === index}>
+              <p>{faq.answer}</p>
+            </FAQCardBody>
+          </FAQCard>
+        ))}
+      </FAQList>
+    </FAQContainer>
+    <div className="lightBg">
+<div className="container">
+  <Advertising className="flexSpaceCenter">
+    <AddLeft>
+      <h2 className="font40 extraBold">A Study of Creativity</h2>
+      <p className="font12">
+      Fueling Innovation, Transforming Ideas: We are a dynamic company dedicated to pushing the boundaries of digital creativity. From intuitive UI/UX designs to robust web development and seamless integrations, from Artifical Intelligene to Blockchain, we are the catalysts for your online success. Our commitment to excellence extends to database solutions and effortless deployment, ensuring your digital journey is not just evolutionary but revolutionary. Embrace the future with a partner that brings your vision to life – where innovation meets unparalleled expertise.
+      </p>
+      <ButtonsRow className="flexNullCenter" style={{ margin: "30px 0"}}>
+       
+        <div style={{ width: "190px", marginLeft: "15px" }}>
+          
+
+
+        </div>
+      </ButtonsRow>
+    </AddLeft>
+    <AddRight>
+      <AddRightInner>
+        <div className="flexNullCenter">
+          <AddImgWrapp1 className="flexCenter">
+          <img className="radius8" src={"https://i.ibb.co/DKMwW25/ABMATRIX-LOGO3.png"} alt="office" style={{height:'250px',width:'250px', zIndex: 9}} />
+
+          </AddImgWrapp1>
+          
+        </div>
+      </AddRightInner>
+    </AddRight>
+  </Advertising>
+</div>
+</div>
+  
+
+
+
     </>
   );
 }
+
 
 // Keyframes for sliding animation
 const slideIn = keyframes`
@@ -197,6 +316,47 @@ const slideIn = keyframes`
   }
 `;
 
+
+const ButtonsRow = styled.div`
+  @media (max-width: 860px) {
+    justify-content: space-between;
+  }
+`;
+
+
+const AddLeft = styled.div`
+  width: 50%;
+  p {
+    max-width: 475px;
+  }
+  @media (max-width: 860px) {
+    width: 100%;  // Use full width on smaller screens
+    order: 2;
+    text-align: center;
+    h2 {
+      font-size: 1.5rem;  // Smaller font size for headings on smaller screens
+      line-height: 2.5rem;  // Adjust line height to fit smaller screens
+    }
+    p {
+      margin: 0 auto;
+      padding: 0 20px;  // Add padding for better readability
+    }
+  }
+    
+`;
+const AddRight = styled.div`
+  width: 50%;
+  position: absolute;
+  top: -70px;
+  right: 0;
+  @media (max-width: 860px) {
+    width: 100%;  // Full width for smaller screens
+    position: relative;
+    top: 0;  // Adjust positioning to flow in normal document flow
+    order: 1;
+  }
+`;
+
 // Keyframes for bouncing animation
 const slowBounce = keyframes`
   0%, 100% {
@@ -206,6 +366,8 @@ const slowBounce = keyframes`
     transform: translateY(-20px); // Adjust this value to change the bounce height
   }
 `;
+
+
 
 const Wrapper = styled.section`
   display: flex;
@@ -430,7 +592,7 @@ const TestimonialItem = styled.div`
   max-width: 400px;
   margin: 30px;
   padding: 20px;
-  background: rgba(3, 4, 94, 0.5); 
+  background: rgba(0, 0, 0, 0.7); 
   color: white;
   border-radius: 30px;
 `;
@@ -507,10 +669,6 @@ h2 .underline {
 }
 
 
-
-  
-
-
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -582,4 +740,280 @@ const StyledImage = styled.img`
   border-radius: 8px;
   box-shadow: 0 20px 30px rgba(0.9, 0.9, 0.9, 0.9); /* Shadow below for floating effect */
   animation: ${slowBounce} 2s ease infinite; 
+`;
+
+// Keyframes for infinite bounce animation
+const bounceAnimation = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+`;
+
+// Keyframes for a pulse effect on hover
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+
+// Features Section
+const FeaturesSection = styled.section`
+  padding: 40px;
+  background: #f5f5f5;
+  text-align: center;
+`;
+
+const FeaturesHeader = styled.h2`
+  font-size: 2rem;
+  margin-bottom: 20px;
+`;
+
+const FeaturesContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const FeatureItem = styled.div`
+  flex: 1;
+  max-width: 250px;
+  margin: 10px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: ${pulseAnimation} 3s infinite ease-in-out;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+    margin: 10px 0;
+  }
+`;
+
+const FeatureIcon = styled.div`
+  font-size: 2rem;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+  animation: ${bounceAnimation} 2s infinite;
+
+  ${FeatureItem}:hover & {
+    transform: scale(1.2) rotate(10deg);
+  }
+`;
+
+const FeatureTitle = styled.h3`
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+`;
+
+const FeatureDescription = styled.p`
+  font-size: 1rem;
+`;
+
+const FAQContainer = styled.section`
+  margin-top: 50px;
+  padding: 100px; /* Adjusted padding */
+  background: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 60vh;
+  background-image: url(${faq}); /* Ensure faq is imported correctly */
+  background-size: cover; /* Cover the entire container */
+  background-repeat: no-repeat; /* Prevent repeating the image */
+  background-position: center; /* Center the image */
+
+  
+  
+
+  @media (max-width: 768px) {
+    padding: 40px 15px; /* Adjusted padding for smaller screens */
+
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 10px; /* Further reduced padding for very small screens */
+
+  }
+`;
+
+const FAQHeader = styled.h2`
+  font-size: 2rem; /* Reduced font size */
+  color: white;
+  margin-bottom: 30px; /* Reduced margin */
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  margin-bottom: 5%;
+
+
+  @media (max-width: 768px) {
+
+              font-size: 25px;
+                margin-bottom: 10%;
+
+
+  }
+
+  @media (max-width: 480px) {
+            font-size: 25px;
+                            margin-bottom: 10%;
+
+
+  }
+
+
+  
+  
+`;
+
+const FAQList = styled.div`
+  max-width: 700px; /* Reduced width */
+  width: 100%;
+
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
+`;
+
+const FAQCard = styled.div`
+  background: #ffffff;
+  border-radius: 50px; /* Reduced border radius */
+  margin-bottom: 15px; /* Reduced margin */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Reduced shadow on hover */
+  }
+
+  
+`;
+
+const FAQCardHeader = styled.div`
+  padding: 15px; /* Reduced padding */
+  font-size: 1.1rem; /* Reduced font size */
+  font-weight: 600;
+  background: #495057;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
+
+`;
+
+const ArrowIcon = styled.span`
+  font-size: 1.25rem; /* Reduced font size */
+  transition: transform 0.3s ease;
+  transform: ${({ isActive }) => (isActive ? "rotate(180deg)" : "rotate(0)")};
+`;
+
+const FAQCardBody = styled.div`
+  padding: ${({ isActive }) => (isActive ? "15px" : "0")}; /* Adjusted padding */
+  background: #f9f9f9;
+  max-height: ${({ isActive }) => (isActive ? "150px" : "0")}; /* Adjusted max-height */
+  opacity: ${({ isActive }) => (isActive ? "1" : "0")};
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.3s ease;
+  visibility: ${({ isActive }) => (isActive ? "visible" : "hidden")};
+
+
+  @media (max-width: 768px) {
+    max-height: ${({ isActive }) => (isActive ? "180px" : "0")}; /* Adjusted max-height for smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    max-height: ${({ isActive }) => (isActive ? "160px" : "0")}; /* Further adjusted max-height for very small screens */
+  }
+`;
+
+
+const Advertising = styled.div`
+  margin: 110px 0;
+  padding: 100px 0;
+  position: relative;
+  @media (max-width: 1160px) {
+    padding: 100px 0 40px 0;
+    font-size: 10px;
+  }
+  @media (max-width: 860px) {
+    flex-direction: column;
+    padding: 0 0 30px 0;
+    margin: 80px 0 0px 0;
+        font-size: 10px;
+
+  }
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
+`;
+
+const AddRightInner = styled.div`
+width: 100%;
+`;
+const AddImgWrapp1 = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0; /* Ensure no margin is affecting the layout */
+
+  img {
+    width: 30%; /* Default width */
+    max-width: 100%; /* Prevent image from exceeding its container */
+    height: auto;
+    border-radius: 1rem;
+    display: block; /* Ensure the image behaves as a block element */
+    
+    @media (max-width: 860px) {
+      width: 50%; /* Reduce size for medium screens */
+    }
+
+    @media (max-width: 600px) {
+      width: 70%; /* Further reduce size for smaller screens */
+    }
+
+    @media (max-width: 400px) {
+      width: 90%; /* Maximum reduction for very small screens */
+    }
+  }
 `;
