@@ -13,11 +13,12 @@ export default function TopNavbar() {
   const [sidebarOpen, toggleSidebar] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => setY(window.scrollY));
+    const handleScroll = () => setY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", () => setY(window.scrollY));
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [y]);
+  }, []);
 
   return (
     <>
@@ -35,35 +36,23 @@ export default function TopNavbar() {
             <BurgerIcon />
           </BurderWrapper>
           <UlWrapper className="flexNullCenter">
-            <li className="semiBold font15 pointer">
-              <Link style={{ color: 'white', padding: "10px 15px" }} to="/">
-                Home
-              </Link>
+            <li>
+              <StyledLink to="/">Home</StyledLink>
             </li>
-            <li className="semiBold font15 pointer">
-              <Link style={{ color: 'white', padding: "10px 15px" }} to="/services">
-                Services
-              </Link>
+            <li>
+              <StyledLink to="/services">Services</StyledLink>
             </li>
-            <li className="semiBold font15 pointer">
-              <Link style={{ color: 'white', padding: "10px 15px" }} to="/projects">
-                Projects
-              </Link>
+            <li>
+              <StyledLink to="/projects">Projects</StyledLink>
             </li>
-            <li className="semiBold font15 pointer">
-              <Link style={{ color: 'white', padding: "10px 15px" }} to="/pricing">
-                Pricing
-              </Link>
+            <li>
+              <StyledLink to="/pricing">Pricing</StyledLink>
             </li>
-            <li className="semiBold font15 pointer">
-              <Link style={{ color: 'white', padding: "10px 15px" }} to="/blog">
-                Packages
-              </Link>
+            <li>
+              <StyledLink to="/blog">Packages</StyledLink>
             </li>
-            <li className="semiBold font15 pointer">
-              <Link style={{ color: 'white', padding: "10px 15px" }} to="/contact">
-                Contact
-              </Link>
+            <li>
+              <StyledLink to="/contact">Contact</StyledLink>
             </li>
           </UlWrapper>
         </NavInner>
@@ -127,16 +116,25 @@ const UlWrapper = styled.ul`
   @media (max-width: 760px) { 
     display: none;
   }
+
+  li {
+    margin: 0 15px;
+  }
 `;
 
-const UlWrapperRight = styled.ul`
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-  
-  @media (max-width: 760px) {
-    display: none;
+const StyledLink = styled(Link)`
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  overflow: hidden;
+  border-radius: 20px; /* Optional: add border radius */
+
+  &:hover {
+    background-color: white; /* Change to desired hover color */
+    transition: background-color 0.3s ease;
   }
 `;
