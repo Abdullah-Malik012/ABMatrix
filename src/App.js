@@ -9,19 +9,24 @@ import Projects from "./components/Sections/Projects.jsx";
 import Pricing from "./components/Sections/Pricing.jsx";
 import Blog from "./components/Sections/Blog.jsx";
 import Contact from "./components/Sections/Contact.jsx";
+import Footer from "../src/components/Sections/Footer.jsx";
 import TopNavbar from "./components/Nav/TopNavbar.jsx";
 
 export default function App() {
   return (
     <Router>
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/services" element={<Services />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/pricing" element={<Pricing />} />
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
-  </Router>
+      {/* Navbar is consistent for all screens */}
+      <TopNavbar />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      {/* Footer is consistent for all screens */}
+      <Footer />
+    </Router>
   );
 }
