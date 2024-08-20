@@ -30,7 +30,6 @@ export default function Pricing() {
   return (
     <>
     <Wrapper id="pricing">
-      <TopNavbar/>
       <CardContent>
         <HeaderInfo>
           <h1 className="font40 extraBold">Check Our Pricing</h1>
@@ -65,7 +64,6 @@ export default function Pricing() {
       </ScrollButtonRight>
      
     </Wrapper>
-    <Footer/>
     </>
   );
 }

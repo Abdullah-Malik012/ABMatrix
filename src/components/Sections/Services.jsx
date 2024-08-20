@@ -17,7 +17,6 @@ import Footer from "../../components/Sections/Footer";
 export default function Services() {
   return (
     <Wrapper id="services">
-      <TopNavbar/>
       <div  className="lightBg" style={{ padding: "50px 0" }}>
         {/* <div className="container">
           <ClientSlider />
@@ -246,7 +245,6 @@ export default function Services() {
 </div>
         </div>
       </div>
-      <Footer/>
     </Wrapper>
   );
 }

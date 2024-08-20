@@ -26,7 +26,6 @@ export default function Contact() {
 
   return (
     <PageWrapper>
-      <TopNavbar />
       <ContentWrapper>
         <Wrapper id="contact">
           <div className="lightBg">
@@ -62,7 +61,6 @@ export default function Contact() {
           <br />
         </Wrapper>
       </ContentWrapper>
-      <Footer />
     </PageWrapper>
   );
 }

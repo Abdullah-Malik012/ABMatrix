@@ -14,7 +14,6 @@ export default function Blog() {
   return (
     <>
     <Wrapper id="blog">
-      <TopNavbar/>
        <div className="lightBg">
           <div className="container">
           
@@ -111,7 +110,6 @@ export default function Blog() {
           </div>
         </div>
     </Wrapper>
-            <Footer/>
 
             </>
 

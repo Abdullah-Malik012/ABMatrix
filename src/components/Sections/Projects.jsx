@@ -212,7 +212,6 @@ export default function Projects() {
   return (
     <>
       <Wrapper id="projects">
-        <TopNavbar />
         <div className="whiteBg">
           <div className="container">
             <HeaderInfo>
@@ -253,7 +252,6 @@ export default function Projects() {
         </div>
        
       </Wrapper>
-      <Footer/>
     </>
   );
 }
