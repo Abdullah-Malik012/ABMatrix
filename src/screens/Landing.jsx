@@ -12,9 +12,9 @@ import Footer from "../components/Sections/Footer"
 export default function Landing() {
   return (
     <>
-      <TopNavbar />
+      {/* <TopNavbar /> */}
       
-      {/* <Header /> */}
+      <Header />
       {/* <Services />
       <Projects />
       
