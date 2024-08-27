@@ -1,424 +1,469 @@
-import React from "react";
-import styled from "styled-components";
-// Components
-import ClientSlider from "../Elements/ClientSlider";
-import ServiceBox from "../Elements/ServiceBox";
-import FullButton from "../Buttons/FullButton";
+import React, { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 
-import prof1 from "../../assets/img/prof.jpeg";
-import prof2 from "../../assets/img/profile.jpg";
-import prof3 from "../../assets/img/prof3.jpg"
+// Import images
+import webImage from './webbanner.jpg';
+import aiImage from './aibanner.png';
+import blockchainImage from './blockchainbanner.png';
+import dbImage from './dbbanner.jpg';
 
-import { Link } from "react-scroll";
+import servicesbg from './servicesbg.jpg'; // Import the new background image
 
-import TopNavbar from "../Nav/TopNavbar";
-import Footer from "../../components/Sections/Footer";
+// Keyframes for underline animation
 
-export default function Services() {
-  return (
-    <Wrapper id="services">
-      <div  className="lightBg" style={{ padding: "50px 0" }}>
-        {/* <div className="container">
-          <ClientSlider />
-        </div> */}
+// Keyframes for underline animation
 
 
-      </div>
-      <div className="whiteBg" style={{ padding: "60px 0" }}>
-        <div className="container">
-          <HeaderInfo>
-            <h1 className="font40 extraBold">Our Awesome Services</h1>
-            <p className="font13">
-              Elevate Your Online Experience: Design, Develop, Integrate, Deploy – Transforming Ideas into Digital Excellence.
-            </p>
-            <br />
-          </HeaderInfo>
-          <br />
-          <br />
-          <Heading>
-          <StyledH1 style={{textAlign: "center"}}>Web Development</StyledH1>
-          </Heading>
-          <ServiceBoxRow className="flex">
-        
-            <ServiceBoxWrapper>
-              
-              <ServiceBox
-                icon="monitor"
-                title="UI/UX"
-                subtitle=" We craft meticulous Figma designs, ensuring an intuitive and engaging experience for your users."
-              />
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-              <ServiceBox
-                icon="browser"
-                title="Web Dev"
-                subtitle=" For Web App development, we leverage the power of the MERN stack, while for websites, creating dynamic and responsive platforms tailored to your needs."
-              />
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-              <ServiceBox
-                icon="Database"
-                title="Databases"
-                subtitle="From SQL and MYSQL to NOSQL, MongoDB, and OracleDB, we offer robust solutions to manage and organize your information efficiently."
-              />
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-              <ServiceBox
-                icon="Integration"
-                title="Integration"
-                subtitle="We specialize in connecting frontend and backend components, with expertise in integrating databases"
-              />
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-              <ServiceBox
-                icon="Deployment"
-                title="Deployment"
-                subtitle="We handle the technicalities, ensuring smooth and secure deployments that make your online presence accessible to your audience."
-              />
-            </ServiceBoxWrapper>
-          </ServiceBoxRow>
-
-          <Heading> <StyledH1 style={{textAlign: "center"}}>AI Services</StyledH1></Heading>
-<ServiceBoxRow className="flex">
-    <ServiceBoxWrapper>
-        <ServiceBox
-            icon="AI"
-            title="Machine Learning"
-            subtitle="Harness the power of algorithms to enable systems to learn and improve from experience automatically."
-        />
-    </ServiceBoxWrapper>
-    <ServiceBoxWrapper>
-        <ServiceBox
-            icon="AI2"
-            title="Deep Learning"
-            subtitle="Utilize neural networks to mimic the way the human brain works, enabling computers to solve complex problems."
-        />
-    </ServiceBoxWrapper>
-    <ServiceBoxWrapper>
-        <ServiceBox
-            icon="AI3"
-            title="Data Analytics"
-            subtitle="Extract meaningful insights from vast amounts of data, empowering informed decision-making."
-        />
-    </ServiceBoxWrapper>
-    <ServiceBoxWrapper>
-        <ServiceBox
-            icon="AI4"
-            title="Computer Vision"
-            subtitle="Enable machines to interpret and understand the visual world, revolutionizing various industries."
-        />
-    </ServiceBoxWrapper>
-    <ServiceBoxWrapper>
-        <ServiceBox
-            icon="AI5"
-            title="NL processing"
-            subtitle="Enable computers to understand, interpret, and generate human language, facilitating communication between humans and machines."
-        />
-    </ServiceBoxWrapper>
-</ServiceBoxRow>
-
-<Heading><StyledH1 style={{fontWeight:"bold", textAlign: "center"}}>Blockchain Services</StyledH1></Heading>
-          <ServiceBoxRow className="flex">
-            <ServiceBoxWrapper>
-              <ServiceBox
-                icon="blockchain1"
-                title="Smart Contract Creation"
-                subtitle="Deploy self-executing contracts with predefined rules and conditions, enabling trustless transactions."
-              />
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-              <ServiceBox
-                icon="blockchain2"
-                title="Decentralized App (DApp)"
-                subtitle="Build applications that run on a decentralized network, ensuring transparency, security, and immutability."
-              />
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-              <ServiceBox
-                icon="blockchain3"
-                title="Decentralized Exchange (DEX)"
-                subtitle="Facilitate peer-to-peer cryptocurrency trading without the need for intermediaries, ensuring privacy and security."
-              />
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-              <ServiceBox
-                icon="blockchain4"
-                title="Smart Contract Auditing"
-                subtitle="Ensure the security and reliability of smart contracts by conducting thorough audits and identifying vulnerabilities."
-              />
-            </ServiceBoxWrapper>
-            <ServiceBoxWrapper>
-              <ServiceBox
-                icon="blockchain5"
-                title="Custom Token Creation"
-                subtitle="Create custom digital assets and tokens for various use cases, including fundraising, rewards programs, and decentralized governance."
-              />
-            </ServiceBoxWrapper>
-          </ServiceBoxRow>
-
-          <Heading> <StyledH1 style={{textAlign: "center"}}>Database Services</StyledH1></Heading>
-<ServiceBoxRow className="flex">
-  <ServiceBoxWrapper>
-    <ServiceBox
-      icon="mysql"
-      title="MySQL"
-      subtitle="A widely-used relational database management system (RDBMS) that is known for its reliability, scalability, and ease of use."
-      description="MySQL is a popular choice for web development, powering many dynamic websites and web applications."
-    />
-  </ServiceBoxWrapper>
-  <ServiceBoxWrapper>
-    <ServiceBox
-      icon="sql"
-      title="SQL"
-      subtitle="SQL is a domain-specific language used in programming and designed for managing data held in a RDBMS or for stream processing in a RDSMS"
-      description="SQL allows users to perform various tasks, including data manipulation (insert, update, delete), data definition (create, alter, drop), and data control (grant, revoke). It is essential for interacting with relational databases effectively."
-    />
-  </ServiceBoxWrapper>
-  <ServiceBoxWrapper>
-    <ServiceBox
-      icon="oracledb"
-      title="OracleDB"
-      subtitle="Oracle Database is a multi-model database management system produced and marketed by Oracle Corporation."
-      description="OracleDB is known for its robustness, security, and scalability, making it suitable for large enterprises and mission-critical applications. It supports various data models, including relational, object-relational, and XML."
-    />
-  </ServiceBoxWrapper>
-  <ServiceBoxWrapper>
-    <ServiceBox
-      icon="postgresql"
-      title="PostgreSQL"
-      subtitle="PostgreSQL is an open-source object-relational database system. It has a strong reputation for reliability, data integrity, and advanced features."
-      description="PostgreSQL offers advanced features such as full ACID compliance, multi-version concurrency control (MVCC), and support for various programming languages and extensions. It is a popular choice for both small-scale and large-scale applications."
-    />
-  </ServiceBoxWrapper>
-  <ServiceBoxWrapper>
-    <ServiceBox
-      icon="mongodb"
-      title="MongoDB"
-      subtitle="MongoDB is a NoSQL document-oriented database that provides high performance, scalability, and flexibility. "
-      description="MongoDB is well-suited for applications with evolving data models or large amounts of unstructured data. It supports features such as document indexing, replication, and sharding, making it suitable for a wide range of use cases, including content management, IoT, and real-time analytics."
-    />
-  </ServiceBoxWrapper>
-</ServiceBoxRow>
-
-
-          <div className="lightBg">
-<div className="container">
-  <Advertising className="flexSpaceCenter">
-    <AddLeft>
-      {/* <h4 className="font15 semiBold">A few words about company from the Founder and CEO, Abdullah Malik</h4> */}
-      <h2 className="font40 extraBold">A Study of Creativity</h2>
-      <p className="font12">
-      Fueling Innovation, Transforming Ideas: We are a dynamic company dedicated to pushing the boundaries of digital creativity. From intuitive UI/UX designs to robust web development and seamless integrations, from Artifical Intelligene to Blockchain, we are the catalysts for your online success. Our commitment to excellence extends to database solutions and effortless deployment, ensuring your digital journey is not just evolutionary but revolutionary. Embrace the future with a partner that brings your vision to life – where innovation meets unparalleled expertise.
-      </p>
-      <ButtonsRow className="flexNullCenter" style={{ margin: "30px 0"}}>
-       
-        <div style={{ width: "190px", marginLeft: "15px" }}>
-          
-
-
-        </div>
-      </ButtonsRow>
-    </AddLeft>
-    <AddRight>
-      <AddRightInner>
-        <div className="flexNullCenter">
-          <AddImgWrapp1 className="flexCenter">
-          <img className="radius8" src={"https://i.ibb.co/DKMwW25/ABMATRIX-LOGO3.png"} alt="office" style={{height:'250px',width:'250px', zIndex: 9}} />
-
-          </AddImgWrapp1>
-          {/* <AddImgWrapp2>
-            <img src={prof3} alt="office" />
-          </AddImgWrapp2>
-        </div>
-        <div className="flexNullCenter">
-          <AddImgWrapp3>
-            <img src={prof1} alt="office" />
-          </AddImgWrapp3>
-          <AddImgWrapp4>
-            <img src={prof2} alt="office" />
-          </AddImgWrapp4> */}
-        </div>
-      </AddRightInner>
-    </AddRight>
-  </Advertising>
-</div>
-</div>
-        </div>
-      </div>
-    </Wrapper>
-  );
-}
-
-
-
-const Wrapper = styled.section`
-  width: 100%;
-`;
-
-
-const ServiceBoxRow = styled.div`
-
-
-  @media (max-width: 860px) {
-    flex-direction: column;
+// Keyframes for dropdown animation
+const dropdownOpen = keyframes`
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 300px;
   }
 `;
 
-const Heading = styled.div`
-text-align: center; 
-
+const dropdownClose = keyframes`
+  from {
+    max-height: 300px;
+  }
+  to {
+    max-height: 0;
+  }
 `;
 
-const StyledH1 = styled.h1`
+// Keyframes for continuous vertical slide animation
+const continuousSlide = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
+const Container = styled.div`
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+`;
+const pulseAnimation = keyframes`
+  0% {
+    text-shadow: 0 0 10px rgba(0, 0, 139, 0.5); /* Dark blue shadow */
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 0, 139, 0.8), 0 0 30px rgba(0, 0, 255, 0.5); /* Bright blue shadow */
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 0, 139, 0.5);
+  }
+`;
+
+const underlineAnimation = keyframes`
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 50%;
+  }
+`;
+
+const Header = styled.div`
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+
+  
+`;
+
+const HeaderTitle = styled.h1`
+  font-size: 3rem;
   font-weight: bold;
-  text-align: center; // Centers the text
-  font-size: 32px; // Default font size for larger screens
-  color: black;
-  background: lightgrey;
-  border-radius: 20px; // Adjusted for more aesthetic appearance
-  display: inline-block; // Makes the background only as wide as the content
-  padding: 10px 20px;
+  color: #e0f2f1; /* Light color for text */
+  position: relative;
+  display: inline-block;
+  padding: 20px 20px;
+  margin-top: 80px;
+  background: linear-gradient(135deg, #003366, #004080); /* Dark blue gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 0, 139, 0.5); /* Dark blue shadow */
+  animation: ${pulseAnimation} 2s infinite; /* Continuous pulse effect */
+  transition: transform 0.3s ease;
+
 
   @media (max-width: 768px) {
-    font-size: 28px; // Smaller font size for medium screens
+    font-size: 2rem;
+    padding: 5px 10px;
+  }
+
+  &:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Adjusted position */
+    width: 0;
+    height: 5px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #003366, #004080); /* Dark blue gradient */
+    transition: width 3.6s ease;
+  }
+`;
+
+
+
+const Section = styled.div`
+  display: flex;
+  flex-direction: ${props => (props.reverse ? 'row-reverse' : 'row')};
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 80px;
+  padding: 40px 20px;
+  background: ${props => (props.bgImage ? `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props.bgImage})` : '#f9f9f9')};
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    background-image: none;
+  }
+`;
+
+const ServicesContent = styled.div`
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+  
+  display: flex;
+  flex-direction: column;
+  
+  gap: 30px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
+const ServiceBox = styled.div`
+  background: ${props =>
+    props.bgImage
+      ? `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${props.bgImage})`
+      : '#ffffff'};
+  background-size: cover;
+  background-position: center;
+  padding: 10px; /* Further reduced padding */
+  border-radius: 8px; /* Slightly smaller border radius */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Slightly lighter shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Reduced gap */
+  flex: 1 1 calc(50% - 10px); /* Adjusted size to fit two cards per row */
+  border-radius: 50px;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 14px rgba(0, 123, 255, 0.4); /* Brighter blue shadow */
+    animation: ${pulseAnimation} 1.5s infinite;
+  }
+
+  h3 {
+    font-size: 1rem; /* Adjusted font size */
+    color: #004085; /* Darker blue for better contrast */
+    font-weight: bold;
+    margin: 0 0 5px;
+  }
+
+  p {
+    font-size: 0.8rem; /* Smaller font size */
+    color: #333; /* Darker gray for better readability */
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    flex: 1 1 calc(100% - 10px); /* Make cards full width on smaller screens */
+    padding: 8px;
+      width: 100%;
+
+    h3 {
+      font-size: 0.9rem;
+    }
+    p {
+      font-size: 0.75rem;
+    }
+  }
+`;
+
+const ImageWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  animation: ${continuousSlide} 2s ease-in-out infinite;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
+
+const ServiceImage = styled.img`
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 768px) {
+    max-width: 300px;
+  }
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-transform: uppercase;
+  border-bottom: 2px solid #00c4cc;
+  padding-bottom: 10px;
+
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+
+    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+`;
+
+const DropdownContent = styled.div`
+  max-height: ${props => (props.show ? '300px' : '0')};
+  overflow: hidden;
+  animation: ${props => (props.show ? dropdownOpen : dropdownClose)} 0.4s ease;
+  padding: ${props => (props.show ? '15px' : '0')};
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+  transition: padding 0.4s ease;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: ${props => (props.show ? '10px' : '0')};
+
+    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+`;
+
+const TechnologiesRow = styled.div`
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+`;
+
+const TechnologyItem = styled.div`
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #333;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    background-color: #e9ecef;
+    border-color: #00c4cc;
+  }
+`;
+
+const BannerSection = styled.div`
+  background-image: url(${servicesbg});
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative; // Ensure positioning context for the overlay
+
+  // Create the overlay effect using a pseudo-element
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); // Semi-transparent black overlay
+    z-index: 1; // Place the overlay above the background image
+  }
+
+  // Ensure the content appears above the overlay
+  h1 {
+    position: relative;
+    z-index: 2;
+    color: #ffffff; // Adjust text color if needed
+  }
+
+  // Media queries for responsiveness
+  @media (max-width: 768px) {
+    height: 300px;
   }
 
   @media (max-width: 480px) {
-    font-size: 24px; // Even smaller font size for small screens
+    height: 200px;
   }
 `;
 
-const ServiceBoxWrapper = styled.div`
-  width: 20%;
-  margin-right: 5%;
-  padding: 80px 0;
-  @media (max-width: 860px) {
-    width: 100%;
-    margin-right: 0;
-    display:flex;
-    justify-content: center;
 
-    text-align: center;
-    padding: 40px 0;
+// BannerHeading with responsive adjustments
+const BannerHeading = styled.h1`
+  font-size: 4rem;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.7);
+  padding: 10px; /* Optional: adds padding around the text */
+  border-radius: 8px; /* Optional: rounds the corners */
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
   }
-`;
-const HeaderInfo = styled.div`
-  @media (max-width: 860px) {
-    text-align: center;
-  }
-`;
-const Advertising = styled.div`
-  margin: 80px 0;
-  padding: 100px 0;
-  position: relative;
-  @media (max-width: 1160px) {
-    padding: 100px 0 40px 0;
-  }
-  @media (max-width: 860px) {
-    flex-direction: column;
-    padding: 0 0 30px 0;
-    margin: 80px 0 0px 0;
-  }
-`;
-const ButtonsRow = styled.div`
-  @media (max-width: 860px) {
-    justify-content: space-between;
-  }
-`;
-const AddLeft = styled.div`
-  width: 50%;
-  p {
-    max-width: 475px;
-  }
-  @media (max-width: 860px) {
-    width: 100%;  // Use full width on smaller screens
-    order: 2;
-    text-align: center;
-    h2 {
-      font-size: 2rem;  // Smaller font size for headings on smaller screens
-      line-height: 2.5rem;  // Adjust line height to fit smaller screens
-    }
-    p {
-      margin: 0 auto;
-      padding: 0 20px;  // Add padding for better readability
-    }
-  }
-`;
-const AddRight = styled.div`
-  width: 50%;
-  position: absolute;
-  top: -70px;
-  right: 0;
-  @media (max-width: 860px) {
-    width: 100%;  // Full width for smaller screens
-    position: relative;
-    top: 0;  // Adjust positioning to flow in normal document flow
-    order: 1;
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    padding: 8px; /* Adjust padding for smaller screens */
   }
 `;
 
-  const AddRightInner = styled.div`
-    width: 100%;
-  `;
-  const AddImgWrapp1 = styled.div`
-    width: 100%;
-    margin: 0 6%;
-    @media (max-width: 860px) {
-      width: 100%;
 
-      margin: 10px 0;
-      margin-left:40px;  // Adjust margins to align images properly
-    }
-    img {
-      width: 30%;
-      height: auto;
-      border-radius: 1rem;
-    }
-  `;
 
-  const AddImgWrapp2 = styled.div`
-    width: 80%;
-    margin: 0 5%;
-    @media (max-width: 860px) {
-      width: 200%;  // Larger images for visibility
-      margin: 10px auto;  // Center images
-    }
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 1rem;
-    }
-  `;
 
-  const AddImgWrapp3 = styled.div`
-    width: 20%;
-    margin-left: 40%;
-    @media (max-width: 860px) {
-      display: none;
 
-      width: 80%;  // Larger images for visibility
-      margin: 10px auto;  // Center images
-    }
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 1rem;
-    }
-  `;
 
-  const AddImgWrapp4 = styled.div`
-    width: 30%;
-    margin: 0 auto;
-    @media (max-width: 860px) {
-      display:none;
 
-      width: 40%;  // Adjust width for smaller screens
-      margin: 10px auto;  // Center images
-    }
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 1rem;
-    }
-  `;
-  
+const services = {
+  web: {
+    title: '🌐 Web Development', // Added globe emoji for Web Development
+    items: [
+      { title: '🎨 Web Design', description: 'Beautiful and functional web designs', technologies: ['Figma', 'Adobe XD', 'Sketch'] }, // Added palette emoji
+      { title: '🖥️ Front-End Development', description: 'Building interactive user interfaces', technologies: ['React', 'Next', 'Php', 'React Native'] }, // Added computer emoji
+      { title: '⚙️ Back-End Development', description: 'Server-side application logic', technologies: ['Node', 'Express', 'Nest'] }, // Added gear emoji
+      { title: '🛠️ Full-Stack Development', description: 'Complete web solutions', technologies: ['MERN Stack', 'MEAN Stack' , 'React Native stack'] }, // Added hammer and wrench emoji
+    ]
+  },
+  ai: {
+    title: '🤖 AI & Machine Learning', // Added robot emoji for AI & Machine Learning
+    items: [
+      { title: '📊 Machine Learning', description: 'Advanced data analysis', technologies: ['Python', 'TensorFlow', 'Scikit-Learn'] }, // Added chart emoji
+      { title: '🗣️ Natural Language Processing', description: 'Understanding and processing human language', technologies: ['NLTK', 'SpaCy', 'Transformers'] }, // Added speaking head emoji
+      { title: '📷 Computer Vision', description: 'Image and video analysis', technologies: ['OpenCV', 'YOLO', 'Keras'] }, // Added camera emoji
+      { title: '💡 AI Consulting', description: 'Strategic AI implementation', technologies: ['Consultation', 'AI Strategy'] }, // Added light bulb emoji
+    ]
+  },
+  blockchain: {
+    title: '🔗 Blockchain Solutions', // Added chain link emoji for Blockchain Solutions
+    items: [
+      { title: '📜 Smart Contract Development', description: 'Building secure smart contracts', technologies: ['Solidity', 'Ethereum', 'Truffle'] }, // Added scroll emoji
+      { title: '🔄 Blockchain Integration', description: 'Integrating blockchain with existing systems', technologies: ['Hyperledger', 'Bitcoin', 'Chainlink'] }, // Added recycling emoji
+      { title: '💳 Crypto Wallets', description: 'Developing secure cryptocurrency wallets', technologies: ['Web3.js', 'MetaMask'] }, // Added credit card emoji
+      { title: '🛠️ Decentralized Applications', description: 'Building decentralized apps', technologies: ['DApps', 'Web3'] }, // Added hammer and wrench emoji
+    ]
+  },
+  db: {
+    title: '💾 Database Solutions', // Added floppy disk emoji for Database Solutions
+    items: [
+      { title: '📝 Database Design', description: 'Designing robust database schemas', technologies: ['MySQL', 'MongoDB', 'PostgreSQL'] }, // Added memo emoji
+      { title: '📂 Database Management', description: 'Managing and maintaining databases', technologies: ['SQL Server', 'Oracle'] }, // Added file folder emoji
+      { title: '🚚 Data Migration', description: 'Migrating data between systems', technologies: ['ETL', 'Data Pipeline'] }, // Added truck emoji
+      { title: '⚡ Database Optimization', description: 'Improving database performance', technologies: ['Indexing', 'Query Optimization'] }, // Added high voltage emoji
+    ]
+  }
+};
+
+
+const Services = () => {
+  const [activeSection, setActiveSection] = useState(null);
+
+  const handleToggle = (title) => {
+    setActiveSection(activeSection === title ? null : title);
+  };
+
+  return (
+    <>
+    <BannerSection>
+        <BannerHeading>Our Services</BannerHeading>
+        
+      </BannerSection>
+    <Container>
+      
+      {/* <Header>
+        <HeaderTitle>Our Services</HeaderTitle>
+      </Header> */}
+      {Object.entries(services).map(([key, { title, items }], index) => (
+        <Section key={key} reverse={index % 2 !== 0}>
+          
+          <ServicesContent>
+            <SectionTitle>{title}</SectionTitle>
+            {items.map((item, idx) => (
+              <div key={idx}>
+                <ServiceBox onClick={() => handleToggle(item.title)}>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </ServiceBox>
+                <DropdownContent show={activeSection === item.title}>
+                  <TechnologiesRow>
+                    {item.technologies.map((tech, i) => (
+                      <TechnologyItem key={i}>{tech}</TechnologyItem>
+                    ))}
+                  </TechnologiesRow>
+                </DropdownContent>
+              </div>
+            ))}
+          </ServicesContent>
+          <ImageWrapper>
+            <ServiceImage src={key === 'web' ? webImage : key === 'ai' ? aiImage : key === 'blockchain' ? blockchainImage : dbImage} alt={title} />
+          </ImageWrapper>
+        </Section>
+      ))}
+    </Container>
+    </>
+  );
+};
+
+export default Services;
