@@ -10,31 +10,29 @@ import faq from "./faq.jpg";
 
 export default function Header() {
   const videoRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true); // Loading state
 
   const faqData = [
-    
-      {
-        "question": "What makes AB-Matrix different from other tech companies?",
-        "answer": "At AB-Matrix, we combine expertise in development, design, and strategy to bring your ideas to life with unparalleled precision. Our commitment to exceeding expectations ensures that your vision is not only realized but enhanced through innovative solutions."
-      },
-      {
-        "question": "How do I get started with AB-Matrix?",
-        "answer": "Getting started with us is easy! Simply reach out through our contact form on the website, or email us at abmatrix.co@gmail.com. Our team will guide you through the process from initial consultation to project deployment."
-      },
-      {
-        "question": "What is AB-Matrix's approach to project management?",
-        "answer": "We follow a collaborative approach to project management. From the initial concept to deployment, our team works closely with you to ensure that every aspect of your project is aligned with your goals and expectations. We prioritize clear communication and adaptive strategies to deliver exceptional results."
-      },
-      {
-        "question": "How does AB-Matrix handle data protection and compliance?",
-        "answer": "Data protection and compliance are core to our operations. We implement stringent security measures and adhere to relevant regulations to ensure that your data is safeguarded. Our team stays updated on the latest compliance requirements to ensure your project meets all necessary standards."
-      },
-      {
-        "question": "Can AB-Matrix handle international projects?",
-        "answer": "Absolutely! We have the expertise and resources to manage international projects efficiently. Whether you're based locally or globally, we are equipped to handle your project with the same level of dedication and excellence."
-      }
-    
-    // Add more FAQ items here
+    {
+      question: "What makes AB-Matrix different from other tech companies?",
+      answer: "At AB-Matrix, we combine expertise in development, design, and strategy to bring your ideas to life with unparalleled precision. Our commitment to exceeding expectations ensures that your vision is not only realized but enhanced through innovative solutions."
+    },
+    {
+      question: "How do I get started with AB-Matrix?",
+      answer: "Getting started with us is easy! Simply reach out through our contact form on the website, or email us at abmatrix.co@gmail.com. Our team will guide you through the process from initial consultation to project deployment."
+    },
+    {
+      question: "What is AB-Matrix's approach to project management?",
+      answer: "We follow a collaborative approach to project management. From the initial concept to deployment, our team works closely with you to ensure that every aspect of your project is aligned with your goals and expectations. We prioritize clear communication and adaptive strategies to deliver exceptional results."
+    },
+    {
+      question: "How does AB-Matrix handle data protection and compliance?",
+      answer: "Data protection and compliance are core to our operations. We implement stringent security measures and adhere to relevant regulations to ensure that your data is safeguarded. Our team stays updated on the latest compliance requirements to ensure your project meets all necessary standards."
+    },
+    {
+      question: "Can AB-Matrix handle international projects?",
+      answer: "Absolutely! We have the expertise and resources to manage international projects efficiently. Whether you're based locally or globally, we are equipped to handle your project with the same level of dedication and excellence."
+    }
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);
@@ -43,16 +41,12 @@ export default function Header() {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-      const faqItem = question.parentElement;
-      faqItem.classList.toggle('active');
-    });
-  });
-  
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
+      video.onloadeddata = () => {
+        setIsLoading(false); // Set loading to false once the video is loaded
+      };
       video.play().catch((error) => {
         console.log("Autoplay was prevented:", error);
       });
@@ -61,59 +55,64 @@ export default function Header() {
 
   return (
     <>
-    <Wrapper id="home">
-      <VideoContainer>
-        <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
-          <source src={bgvideo} type="video/mp4" />
-        </StyledVideo>
-      </VideoContainer>
-      <Content>
-        <LeftSide>
-          <AnimatedHeader>
-            <QuoteWrapper className="flexCenter darkBg radius8">
-              <QuotesWrapper>
-                <QuotesIcon />
-              </QuotesWrapper>
-              <QuoteText className="font15 whiteColor">
-                <em>
-                  In the realm of code, dreams become functions, visions become
-                  features, and aspirations transform into executable realities.
-                </em>
-              </QuoteText>
-            </QuoteWrapper>
-          </AnimatedHeader>
-        </LeftSide>
-        <RightSide>
-          <AnimatedHeader className="extraBold font60">
-            Transforming Visions into Software Realities.
-            <HeaderP className="font15 semiBold">
-              "Welcome to our world at AB-Matrix, where we specialize in
-              transforming your visions into tangible software realities. We
-              understand the power of ideas and the impact they can have on
-              businesses and lives. Through a fusion of creativity and
-              cutting-edge technology, we meticulously craft every line of code
-              to bring your concepts to life."
-            </HeaderP>
-            <BtnWrapper>
-              <Link
-                activeClass="active"
-                style={{ padding: "10px 15px" }}
-                to="About"
-                spy={true}
-                smooth={true}
-                offset={-80}
-              >
-                <FullButton
-                  style={{ backgroundColor: "#08116A" }}
-                  title="Let's Get Started"
-                />
-              </Link>
-            </BtnWrapper>
-          </AnimatedHeader>
-        </RightSide>
-      </Content>
-
-    </Wrapper>
+      {isLoading && (
+        <LoadingOverlay>
+          <Spinner />
+        </LoadingOverlay>
+      )}
+      <Wrapper id="home">
+        <VideoContainer>
+          <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
+            <source src={bgvideo} type="video/mp4" />
+          </StyledVideo>
+        </VideoContainer>
+        <Content>
+          <LeftSide>
+            <AnimatedHeader>
+              <QuoteWrapper className="flexCenter darkBg radius8">
+                <QuotesWrapper>
+                  <QuotesIcon />
+                </QuotesWrapper>
+                <QuoteText className="font15 whiteColor">
+                  <em>
+                    In the realm of code, dreams become functions, visions
+                    become features, and aspirations transform into executable
+                    realities.
+                  </em>
+                </QuoteText>
+              </QuoteWrapper>
+            </AnimatedHeader>
+          </LeftSide>
+          <RightSide>
+            <AnimatedHeader className="extraBold font60">
+              Transforming Visions into Software Realities.
+              <HeaderP className="font15 semiBold">
+                "Welcome to our world at AB-Matrix, where we specialize in
+                transforming your visions into tangible software realities. We
+                understand the power of ideas and the impact they can have on
+                businesses and lives. Through a fusion of creativity and
+                cutting-edge technology, we meticulously craft every line of
+                code to bring your concepts to life."
+              </HeaderP>
+              <BtnWrapper>
+                <Link
+                  activeClass="active"
+                  style={{ padding: "10px 15px" }}
+                  to="About"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                >
+                  <FullButton
+                    style={{ backgroundColor: "#08116A" }}
+                    title="Let's Get Started"
+                  />
+                </Link>
+              </BtnWrapper>
+            </AnimatedHeader>
+          </RightSide>
+        </Content>
+      </Wrapper>
     <AboutWrapper id="About">
     <ImageWrapper>
         <StyledImage src={aboutimg} />
@@ -316,6 +315,32 @@ const slideIn = keyframes`
   }
 `;
 
+const LoadingOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+`;
+
+const Spinner = styled.div`
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #08116A;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
 
 const ButtonsRow = styled.div`
   @media (max-width: 860px) {
