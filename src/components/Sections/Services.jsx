@@ -8,6 +8,7 @@ import blockchainImage from './blockchainbanner.png';
 import dbImage from './dbbanner.jpg';
 
 import servicesbg from './servicesbg.jpg'; // Import the new background image
+import projectvideo from "../../components/Sections/servicesbg.mp4";
 
 // Keyframes for underline animation
 
@@ -372,6 +373,72 @@ const BannerHeading = styled.h1`
 `;
 
 
+const HeaderBanner = styled.header`
+width: 100%;
+height: 100vh;
+position: relative; /* Ensure positioning for the video */
+overflow: hidden; /* Hide overflow to keep the video within the header area */
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+
+
+`;
+
+// Define the BackgroundVideo component
+const BackgroundVideo = styled.video`
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: -1; /* Ensure the video is behind the content */
+`;
+
+const skewIn = keyframes`
+0% {
+  opacity: 0;
+  transform: skewX(-20deg) scale(0.8);
+}
+100% {
+  opacity: 1;
+  transform: skewX(0deg) scale(1);
+}
+`;
+
+// Define the moving animation
+const moveText = keyframes`
+0% {
+  transform: translateX(0);
+}
+50% {
+  transform: translateX(-10px); /* Move text slightly to the left */
+}
+100% {
+  transform: translateX(0);
+}
+`;
+
+const BannerContent = styled.div`
+position: relative; /* Ensure content is above the video */
+max-width: 800px;
+z-index: 1; /* Ensure content is above the video */
+
+
+h1 {
+  font-size: 2.6rem;
+  animation: ${skewIn} 0.9s ease-out, ${moveText} 1.5s ease-in-out infinite; /* Apply both animations */
+}
+
+p {
+  font-size: 1.5rem;
+  animation: ${skewIn} 0.9s ease-out forwards, ${moveText} 1.5s ease-in-out infinite; /* Apply both animations with delay */
+}
+`;
+
 
 
 
@@ -426,10 +493,18 @@ const Services = () => {
 
   return (
     <>
-    <BannerSection>
-        <BannerHeading>Our Services</BannerHeading>
-        
-      </BannerSection>
+   <HeaderBanner>
+      {/* <TopNavbar /> */}
+      <BackgroundVideo autoPlay loop muted>
+      <source src={projectvideo} type="video/mp4" />
+      Your browser does not support the video tag.
+    </BackgroundVideo>
+      <BannerContent>
+        <h1>Have a look at our Awesome Services</h1>
+        <p>The goal is to add value to people's life!</p>
+      </BannerContent>
+    </HeaderBanner>
+
     <Container>
       
       {/* <Header>

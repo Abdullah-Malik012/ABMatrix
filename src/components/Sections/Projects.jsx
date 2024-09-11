@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import ProjectBox from "../Elements/ProjectBox";
+import styled, { keyframes } from 'styled-components';
 import Modal from "react-modal";
-
-// Images
 import netbit1 from "../../assets/img/projects/netbit1.png";
 import netbit2 from "../../assets/img/projects/netbit2.png";
 import netbit3 from "../../assets/img/projects/netbit3.png";
@@ -24,28 +21,9 @@ import lendnest4 from "../../assets/img/projects/lendnest4.png";
 import auditai1 from "../../assets/img/projects/auditai1.png";
 import auditai2 from "../../assets/img/projects/auditai2.png";
 import auditai3 from "../../assets/img/projects/auditai3.png";
-import { MdHeight } from "react-icons/md";
+import TopNavbar from "../../components/Nav/TopNavbar";
 
-
-import sc1 from "../../assets/img/sc1.png";
-import sc2 from "../../assets/img/sc2.png";  
-import sc3 from "../../assets/img/sc3.png";
-import sc4 from "../../assets/img/sc4.png";
-import sc5 from "../../assets/img/sc5.png";
-
-import mic1 from "../../assets/img/mic1.png";
-import mic2 from "../../assets/img/mic2.png";
-import mic3 from "../../assets/img/mic3.png";
-import mic4 from "../../assets/img/mic4.png";
-
-import lh1 from "../../assets/img/lh1.png";
-import lh2 from "../../assets/img/lh2.png";
-import lh3 from "../../assets/img/lh3.png";
-import lh4 from "../../assets/img/lh4.png";
-
-import TopNavbar from "../Nav/TopNavbar";
-import Footer from "../../components/Sections/Footer";
-
+import projectvideo from "../../components/Sections/bg3.mp4";
 
 export default function Projects() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,12 +32,13 @@ export default function Projects() {
 
   const openModal = (images) => {
     setGalleryImages(images);
+    setCurrentImageIndex(0);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setCurrentImageIndex(0);
+    setGalleryImages([]);
   };
 
   const nextImage = () => {
@@ -70,293 +49,338 @@ export default function Projects() {
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + galleryImages.length) % galleryImages.length);
   };
 
-
   const projects = [
-   
     {
-      img: auditai1 ,
+      img: auditai1,
       title: "AuditAi",
-      text: "A Web App for auditing smart contracts using AI and  personalized bot that use AST and regix based approach",
-      gallery: [
-        
-        auditai2,
-        auditai3,
-        auditai1,
-
-      ],
+      text: "A Web App for auditing smart contracts using AI and a personalized bot.",
+      gallery: [auditai2, auditai3, auditai1],
     },
-
     {
-      img: lendnest1 ,
+      img: lendnest1,
       title: "LendNest",
-      text: "A Decentralized App based on Solidity and vite",
-      gallery: [
-        
-        lendnest2,
-        lendnest3,
-        lendnest4,
-        lendnest1,
-
-      ],
+      text: "A Decentralized App based on Solidity and Vite.",
+      gallery: [lendnest2, lendnest3, lendnest4, lendnest1],
     },
-    
     {
-      img: lh1 ,
-      title: "limda host",
-      text: "A webapp plateform for hosting website",
-      gallery: [
-        
-        lh2,
-        lh3,
-        lh4,
-        lh1,
-
-      ],
+      img: port1,
+      title: "Portfolio Page",
+      text: "A highly attractive and eye-catching portfolio design.",
+      gallery: [port2, port3, port1],
     },
-   
-
-
     {
       img: netbit1,
       title: "Netbit Movies App",
-      text: "A movie review plateform similar to imdb",
-      gallery: [
-        netbit1,
-        netbit2,
-        netbit3,
-
-       
-      ],
+      text: "A movie review platform similar to IMDb.",
+      gallery: [netbit1, netbit2, netbit3],
     },
-
     {
-      img: mic1 ,
-      title: "Microsh",
-      text: "A webapp for influencer Market place for runnign campaigns",
-      gallery: [
-       mic2,
-       mic3,
-       mic4,
-       mic1,
-
-       
-      ],
-    },
-
-
-    {
-      img: sc1,
-      title: "Schoolr",
-      text: "A webapp for online tuting and learning services",
-      gallery: [
-       sc2,
-       sc3,
-       sc4,
-       sc5,
-       sc1,
-
-       
-    
-      ],
-    }, 
-
-    {
-      img: port1 ,
-      title: "Portfolio page",
-      text: "A highly attractive and eye capturing portfolio design",
-      gallery: [
-        port2,
-        port3,
-        port1,
-
-      ],
-    },
-    
-    {
-      img: trade1 ,
-      title: "A Trade Portal",
-      text: "A trade management Portal",
-      gallery: [
-        trade2,
-        trade3,
-        trade4,
-        trade1,
-
-       
-      ],
+      img: trade1,
+      title: "Trade Portal",
+      text: "A trade management portal.",
+      gallery: [trade2, trade3, trade4, trade1],
     },
     {
       img: ecom1,
-      title: "Ecommerce store",
-      text: "An Ecommerce store design",
-      gallery: [
-        ecom2,
-        ecom3,
-        ecom1,
-
-       
-    
-      ],
-    },  
-
-    
-
-   
-
-  
-
+      title: "Ecommerce Store",
+      text: "An ecommerce store design.",
+      gallery: [ecom2, ecom3, ecom1],
+    },
   ];
-
-  
 
   return (
     <>
-      <Wrapper id="projects">
-        <div className="whiteBg">
-          <div className="container">
-            <HeaderInfo>
-              <h1 className="font40 extraBold">Our Awesome Projects</h1>
-              <p className="font13">
-                Here are some of our recent projects
-              </p>
-            </HeaderInfo>
-            <div className="row textCenter">
-              {projects.map((project, index) => (
-                <div key={index} className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                  <ProjectBox
-                    img={project.img}
-                    title={project.title}
-                    text={project.text}
-                    action={() => openModal(project.gallery)}
-                  />
-                </div>
-              ))}
-            </div>
+      <HeaderBanner>
+        {/* <TopNavbar /> */}
+        <BackgroundVideo autoPlay loop muted>
+        <source src={projectvideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </BackgroundVideo>
+        <BannerContent>
+          <h1>Our Awesome Projects</h1>
+          <p>Here are some of our recent projects</p>
+        </BannerContent>
+      </HeaderBanner>
 
-            <Modal
-              isOpen={isModalOpen}
-              onRequestClose={closeModal}
-              contentLabel="Image Gallery Modal"
-              style={customModalStyles}
-            >
-              <GalleryModal>
-                <GalleryImage
-                  src={galleryImages[currentImageIndex]}
-                  alt={`Gallery Image ${currentImageIndex + 1}`}
+      <ProjectsWrapper>
+        <div className="container">
+          <ProjectGrid>
+            {projects.map((project, index) => (
+              <ProjectCard key={index}>
+                <CardImage
+                  src={project.img}
+                  alt={project.title}
+                  onClick={() => openModal(project.gallery)}
                 />
-              </GalleryModal>
-              <NavigationButton onClick={previousImage}>⮜</NavigationButton>
-              <NavigationButton onClick={nextImage}>⮞</NavigationButton>
-            </Modal>
-          </div>
+                <CardBody>
+                  <h2>{project.title}</h2>
+                  <p>{project.text}</p>
+                  <ViewGalleryButton onClick={() => openModal(project.gallery)}>
+                    View Gallery
+                  </ViewGalleryButton>
+                </CardBody>
+              </ProjectCard>
+            ))}
+          </ProjectGrid>
+
+          <Modal
+            isOpen={isModalOpen}
+            onRequestClose={closeModal}
+            contentLabel="Image Gallery Modal"
+            style={customModalStyles}
+          >
+            <ModalContent>
+              <GalleryMainImage src={galleryImages[currentImageIndex]} alt={`Gallery Image ${currentImageIndex + 1}`} />
+              <ThumbnailWrapper>
+                {galleryImages.map((image, index) => (
+                  <Thumbnail
+                    key={index}
+                    src={image}
+                    alt={`Thumbnail ${index + 1}`}
+                    active={currentImageIndex === index}
+                    onClick={() => setCurrentImageIndex(index)}
+                  />
+                ))}
+              </ThumbnailWrapper>
+              <ButtonWrapper>
+                <NavigationButton onClick={previousImage}>⮜</NavigationButton>
+                <NavigationButton onClick={nextImage}>⮞</NavigationButton>
+              </ButtonWrapper>
+              <CloseButton onClick={closeModal}>✖</CloseButton>
+            </ModalContent>
+          </Modal>
         </div>
-       
-      </Wrapper>
+      </ProjectsWrapper>
     </>
   );
 }
 
-const Wrapper = styled.section`
+const HeaderBanner = styled.header`
   width: 100%;
-`;
-
-const HeaderInfo = styled.div`
-  @media (max-width: 860px) {
-    text-align: center;
-  }
-`;
-
-const GalleryModal = styled.div`
+  height: 100vh;
+  position: relative; /* Ensure positioning for the video */
+  overflow: hidden; /* Hide overflow to keep the video within the header area */
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 80vh;
-  
-  padding: 10px;
-  animation: fadeInUp 1s ease;
-  @media (max-width: 600px) {
-    
-    width: 100%;
-    height: 100%;
-    font-size: 14px;
+  text-align: center;
+
+
+`;
+
+// Define the BackgroundVideo component
+const BackgroundVideo = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensure the video is behind the content */
+`;
+
+const glowUp = keyframes`
+  0% {
+    opacity: 0;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
   }
 `;
 
-const GalleryImage = styled.img`
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 8px;
+const BannerContent = styled.div`
+  position: relative; /* Ensure content is above the video */
+  max-width: 800px;
+  z-index: 1; /* Ensure content is above the video */
+  
+  h1 {
+    font-size: 3rem;
+    animation: ${glowUp} 2s ease-out infinite; /* Apply glow-up animation with loop */
+  }
+  
+  p {
+    font-size: 1.5rem;
+    animation: ${glowUp} 2s ease-out infinite 1s; /* Apply glow-up animation with loop and delay */
+  }
+`;
+const ProjectsWrapper = styled.section`
+  padding: 60px 20px;
+`;
+
+const ProjectGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+`;
+
+const ProjectCard = styled.div`
+  background: white;
+  border-radius: 15px; /* Increased border-radius for a modern look */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Softer shadow for depth */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+  border: 1px solid #eee; /* Subtle border for a clean look */
+  
+
+  &:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  }
+`;
+
+const CardImage = styled.img`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-bottom: 1px solid #eee; /* Divider between image and content */
+  
+  &:hover {
+    transform: scale(1.1);
+    filter: grayscale(40%) brightness(90%); /* Slight grayscale and brightness adjustment */
+  }
+`;
+
+const CardBody = styled.div`
+  padding: 20px;
+  background: #fafafa; /* Light background for better contrast */
+  
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #333; /* Darker color for better contrast */
+    font-weight: 600; /* Bold font weight for titles */
+  }
+  p {
+    font-size: 1rem;
+    color: #666; /* Softer text color for a modern feel */
+    line-height: 1.5; /* Increased line height for readability */
+  }
+`;
+
+const ViewGalleryButton = styled.button`
+  background: linear-gradient(135deg, #001d3d, #6e45e2, #88d3ce);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 30px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+
+
+
+  &:hover {
+    background: linear-gradient(135deg, #5a36b6, #6eb7d3);
+    transform: translateY(-5px);
+  }
+`;
+
+const ModalContent = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const GalleryMainImage = styled.img`
+ margin-top: 20px;
+  max-width: 75%;
+  max-height: 80vh;
+  border-radius: 10px;
+`;
+
+const ThumbnailWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+`;
+
+const Thumbnail = styled.img`
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.3s ease, border 0.3s ease;
+  border: ${({ active }) => (active ? '2px solid #6e45e2' : '2px solid transparent')};
+
   &:hover {
     transform: scale(1.1);
   }
-  @media (max-width: 600px) {
-    
-    width: 190%;
-    height: 70%;
-    font-size: 14px;
-  }
+`;
+
+const ButtonWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
 `;
 
 const NavigationButton = styled.button`
-  position: absolute;
-  top: 50%; // Center vertically
-  transform: translateY(-50%); // Adjust to precisely center vertically
-  width: 45px; // Fixed width for uniformity
-  height: 45px; // Fixed height to match width, creating a square button
-  background-color: #333; // Dark background for better contrast
-  color: white; // White text for readability
+  background: #1d3557;
+  color: white;
   border: none;
+  font-size: 2rem;
   cursor: pointer;
-  font-size: 16px; // Slightly larger font size for better visibility
-  display: flex; // Use flexbox for centering icon inside button
-  justify-content: center; // Center horizontally
-  align-items: center; // Center vertically
-  border-radius: 50%; // Circle shape
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2); // Subtle shadow for depth
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 50%;
+  transition: background 0.3s ease, color 0.3s ease;
 
   &:hover {
-    background-color: #007bff; // Blue background on hover
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3); // Larger shadow on hover for a lifting effect
-    transform: translateY(-50%) scale(1.1); // Slight scale up on hover
-  }
-
-  &:first-child {
-    left: 20px; // Positioned on the left side
-  }
-
-  &:last-child {
-    right: 0px; // Positioned on the right side
-  }
-  @media (max-width: 600px) {
-
-    width: 35px;
-    height: 35px;
-    font-size: 14px;
+    background: #0d1b2a; /* Changes background color on hover */
+    color: white; /* Ensures text color stays white on hover */
   }
 `;
 
 
+const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #d00000;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  width: 7%;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background: red; /* Changes background color to red on hover */
+    color: white; /* Ensures text color stays white on hover */
+  }
+`;
+
 
 const customModalStyles = {
-
-  overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    
-  },
   content: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
+    inset: "50% auto auto 50%",
+    transform: "translate(-50%, -40%)", // Adjusting Y-axis translation for centering
+    background: "#ffffff",
     padding: 0,
+    borderRadius: "15px",
+    boxShadow: "0 5px 20px rgba(0, 0, 0, 0.25)",
     border: "none",
-    borderRadius: "8px",
-    width: "90%",
-    maxWidth: "600px",
-    maxHeight: "80%",
-    overflow: "hidden",  // This will hide scrollbars
+    maxWidth: "80vw",
+    maxHeight: "80vh",
   },
 };
+
