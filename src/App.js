@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
@@ -12,12 +12,23 @@ import Contact from "./components/Sections/Contact.jsx";
 import Footer from "./components/Sections/Footer.jsx";
 import TopNavbar from "./components/Nav/TopNavbar.jsx";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   const location = useLocation();
 
   return (
     <div className="app-container">
       <TopNavbar />
+      <ScrollToTop />
       <main className="content">
         <TransitionGroup>
           <CSSTransition key={location.key} classNames="fade" timeout={300}>
@@ -77,8 +88,7 @@ function App() {
           }
 
           footer {
-            position: absolute;
-            bottom: 0;
+            position: relative;
             width: 100%;
             background: #f1f1f1; /* Adjust to match footer design */
             padding: 20px;
