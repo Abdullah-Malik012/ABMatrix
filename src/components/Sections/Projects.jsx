@@ -90,7 +90,7 @@ export default function Projects() {
 
   return (
     <>
-      <HeaderBanner>
+      <HeaderBanner id= "home">
         {/* <TopNavbar /> */}
         <BackgroundVideo autoPlay loop muted>
         <source src={projectvideo} type="video/mp4" />
