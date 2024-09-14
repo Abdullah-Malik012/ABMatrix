@@ -44,7 +44,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
             Projects
           </Link>
         </li>
-        <li className="semiBold font20 pointer">
+        {/* <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}
             className="whiteColor"
@@ -53,7 +53,7 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
           >
             Packages
           </Link>
-        </li>
+        </li> */}
         <li className="semiBold font20 pointer">
           <Link
             onClick={() => toggleSidebar(!sidebarOpen)}

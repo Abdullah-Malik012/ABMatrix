@@ -48,9 +48,9 @@ export default function TopNavbar() {
             <li>
               <StyledLink to="/pricing">Pricing</StyledLink>
             </li>
-            <li>
+            {/* <li>
               <StyledLink to="/blog">Packages</StyledLink>
-            </li>
+            </li> */}
             <li>
               <StyledLink to="/contact">Contact</StyledLink>
             </li>
