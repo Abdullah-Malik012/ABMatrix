@@ -55,11 +55,12 @@ export default function Pricing() {
 }
 
 
+
 // Styled Components
 const Wrapper = styled.section`
   position: relative;
   overflow: hidden;
-  background-color: #001d3d;
+  background-color: white;
   padding: 0;
   margin: 0;
 `;
@@ -100,7 +101,7 @@ const HeaderBanner = styled.header`
 
   @media (max-width: 768px) {
     justify-content: center; /* Center content on smaller screens */
-    align-items: flex-end; /* Align text to the bottom on smaller screens */
+    align-items: center; /* Align text to the bottom on smaller screens */
     text-align: center; /* Center text for smaller screens */
     padding-bottom: 20px; /* Adds space at the bottom */
   }
@@ -119,6 +120,7 @@ const BackgroundVideo = styled.video`
 const BannerContent = styled.div`
   position: relative; /* Ensure content is above the video */
   max-width: 800px;
+
   padding: 0 20px; /* Adds some padding on the sides */
   z-index: 1; /* Ensure content is above the video */
   text-align: right; /* Aligns text to the right within the content box */
@@ -127,30 +129,38 @@ const BannerContent = styled.div`
     max-width: 90%; /* Adjust the max width for smaller screens */
     text-align: center; /* Center text on smaller screens */
     position: absolute;
-    bottom: 20px; /* Position the content at the bottom */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+h1 {
+  font-size: 4rem; /* Default font size */
+  width: 65%;
+  padding: 0 20px; /* Adds padding around the text */
+  display: inline-block; /* Ensures the background fits the text */
+  animation: ${fadeAnimation} 2s infinite; /* Apply animation */
+  text-align: right; /* Align text to the right within the h1 */
+  
+  /* Apply a thinner, cleaner border around each letter */
+  -webkit-text-stroke: 1px black;
+  color: #f5f5f5; /* Softer inner color for better contrast with the stroke */
+  font-weight: 700; /* Bold the text for a more defined stroke appearance */
 
-  h1 {
-    font-size: 4rem; /* Default font size */
-    width: 65%;
-    padding: 0 20px; /* Adds padding around the text */
-    display: inline-block; /* Ensures the background fits the text */
-    animation: ${fadeAnimation} 2s infinite; /* Apply animation */
-    text-align: right; /* Align text to the right within the h1 */
+  /* Optional text-shadow for a softer, more 3D effect */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
 
-    @media (max-width: 768px) {
-      font-size: 2.5rem; /* Adjust font size for smaller screens */
-      width: 200%; /* Adjust width for smaller screens to fit content */
-      padding: 0 10px; /* Reduce padding for smaller screens */
-      text-align: center; /* Center text within the h1 */
-      line-height: 1.2; /* Adjust line height for better readability */
-    }
+  @media (max-width: 768px) {
+    font-size: 3rem; /* Adjust font size for smaller screens */
+    width: 200%; /* Adjust width for smaller screens */
+    padding: 0 10px; /* Reduce padding for smaller screens */
+    text-align: center; /* Center text */
+    line-height: 1.2; /* Adjust line height */
   }
+}
+
+
 `;
 const Container = styled.div`
   width: 100%;
@@ -158,6 +168,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+  
 
   @media (max-width: 1200px) {
     padding: 0 15px;
@@ -176,25 +187,31 @@ const Container = styled.div`
 const CardsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  
   gap: 40px; /* Increased spacing between cards */
-  padding: 80px 0; /* Increased padding for more space around cards */
+  padding: 80px 0; /* Padding for spacing but avoid white space */
   box-sizing: border-box;
+  margin-bottom: 0; /* Ensure no margin is added at the end */
 
   @media (max-width: 768px) {
-    gap: 30px; /* Adjust spacing for smaller screens */
+    gap: 40px; /* Adjust spacing for smaller screens */
     justify-content: center;
+    padding: 20px;
+
+   
+
   }
 `;
-
 const TableBox = styled.div`
-  flex: 1 1 calc(25% - 40px); /* Adjusted for increased gap, four cards in a row */
-  background: rgba(255, 255, 255, 0.1);
+  flex: 1 1 calc(25% - 40px); /* Four cards in a row by default */
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
-  padding: 30px; /* Increased padding for more content space */
-  min-height: 500px; /* Set minimum height to make cards taller */
+  background-color: white;
+  padding: 30px; /* Padding for more content space */
+  min-height: 500px; /* Minimum height to make cards taller */
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
+  color: black;
   box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow for more depth */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -221,25 +238,26 @@ const TableBox = styled.div`
     bottom: -15px;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.6) 0%,
-      rgba(255, 255, 255, 0) 50%
+      rgba(0, 29, 61, 0.5) 0%, /* Semi-transparent deep blue */
+      rgba(0, 29, 61, 0) 50%    /* Fading to transparent */
     );
     border-radius: 10px;
     z-index: -1; /* Place the pseudo-element behind the content */
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); /* Glowing border effect */
+    box-shadow: 0 0 25px rgba(0, 29, 61, 0.8); /* Deep blue glow effect */
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
+  /* Glow animation */
   @keyframes glow {
     0% {
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 10px rgba(0, 29, 61, 0.8); /* Initial deep blue glow */
     }
     50% {
-      box-shadow: 0 0 35px rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 25px rgba(0, 29, 61, 0.6); /* More intense deep blue glow */
     }
     100% {
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 10px rgba(0, 29, 61, 0.8); /* Reset to initial deep blue glow */
     }
   }
 
@@ -255,9 +273,9 @@ const TableBox = styled.div`
     }
 
     .title {
+      color: black;
       font-size: 1.75rem; /* Increased font size for better readability */
       font-weight: 600;
-      color: #fff;
     }
   }
 
@@ -326,12 +344,14 @@ const TableBox = styled.div`
     flex: 1 1 calc(50% - 40px); /* Two cards in a row */
     min-height: 400px; /* Adjusted height for smaller screens */
     padding: 20px; /* Adjust padding for smaller screens */
+    width: 100%; /* Full width for better responsiveness */
   }
 
   @media (max-width: 768px) {
     flex: 1 1 50%; /* One card in a row */
     min-height: 350px; /* Adjusted height for even smaller screens */
-    padding: 15px; /* Adjust padding for smaller screens */
+    padding: 20px; /* Adjust padding for smaller screens */
+
   }
 `;
 
@@ -348,7 +368,7 @@ const pricingTables = [
   {
     title: "Web Development",
     icon: "🌐", // Add an appropriate icon
-    price: "Starting with $500",
+    price: "Starting with $1000",
     text: "Full-stack development services",
     offers: ["  React", "  Node.js", "  Express", "  MongoDB", "  WordPress"],
     action: () => alert("contact"),
@@ -356,7 +376,7 @@ const pricingTables = [
   {
     title: "Database Solutions",
     icon: "💾", // Add an appropriate icon
-    price: "Starting with $100",
+    price: "Starting with $200",
     text: "Scalable database management",
     offers: ["  SQL", "  MySQL", "  MongoDB", "  PostgreSQL", "  OracleDB"],
     action: () => alert("contact"),
@@ -372,7 +392,7 @@ const pricingTables = [
   {
     title: "Deployment",
     icon: "🚀", // Add an appropriate icon
-    price: "Starting with $200",
+    price: "Starting with $300",
     text: "Reliable and secure deployment",
     offers: ["  AWS", "  Docker", "  Kubernetes", "  GitHub Actions"],
     action: () => alert("contact"),
@@ -380,7 +400,7 @@ const pricingTables = [
   {
     title: "AI Services",
     icon: "🤖", // Add an appropriate icon
-    price: "Starting with $400",
+    price: "Starting with $500",
     text: "AI and Machine Learning solutions",
     offers: ["  ML Models", "  NLP", "  Computer Vision", "  Data Analytics"],
     action: () => alert("contact"),
