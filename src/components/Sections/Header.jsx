@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import FullButton from "../Buttons/FullButton";
 import QuotesIcon from "../../assets/svg/Quotes";
 import { Link } from "react-scroll";
-import bgvideo from "./bg.mov";
+import bgvideo from "./bgheader.mp4";
 import aboutimg from "./techbg.jpg";
 import bgimg from "./office.png";
 import faq from "./faq.jpg";
@@ -403,9 +403,11 @@ const Wrapper = styled.section`
   background-position: center;
   text-align: center;
   position: relative;
+  
 
  @media (max-width: 960px) {
     margin-top:5%;
+
   }
 
 `;
@@ -644,12 +646,16 @@ const AboutWrapper = styled.div`
   justify-content: center;
   padding: 50px;
   background-color: #f8f9fa;
+  min-height: 100vh; /* Ensures it covers the full viewport height */
+  width: 100%; /* Ensures it covers the full viewport width */
+  box-sizing: border-box; /* Includes padding in the width calculation */
 
   @media (max-width: 960px) {
     flex-direction: column;
     padding: 20px;
   }
 `;
+
 const TextWrapper = styled.div`
   flex: 1;
   padding-right: 50px;
@@ -657,42 +663,42 @@ const TextWrapper = styled.div`
 
   @media (max-width: 960px) {
     padding-right: 0;
-
     text-align: center;
   }
-h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #08116A;
-  position: relative;
-}
-h2 .underline {
-  position: absolute;
-  bottom: -5px; /* Adjusts the space between text and underline */
-  height: 4px; /* Thickness of the underline */
-  background-color: #08116A; /* Color of the underline */
-  transform: scaleX(0); /* Start with no visible underline */
-  transform-origin: left; /* Animation starts from the left */
-  animation: slideUnderline 2s infinite; /* Apply the animation */
-  border-radius: 4px; /* Rounded ends of the underline */
-  width: 25%; /* Full width minus the width of the dots */
-}
 
-@keyframes slideUnderline {
-  0% {
+  h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #08116A;
+    position: relative;
+  }
+
+  h2 .underline {
+    position: absolute;
+    bottom: -5px; /* Adjusts the space between text and underline */
+    height: 4px; /* Thickness of the underline */
+    background-color: #08116A; /* Color of the underline */
     transform: scaleX(0); /* Start with no visible underline */
+    transform-origin: left; /* Animation starts from the left */
+    animation: slideUnderline 2s infinite; /* Apply the animation */
+    border-radius: 4px; /* Rounded ends of the underline */
+    width: 25%; /* Full width minus the width of the dots */
   }
-  50% {
-    transform: scaleX(1); /* Fully extend the underline */
-  }
-  100% {
-    transform: scaleX(0); /* Collapse the underline back to zero width */
-  }
-}
 
+  @keyframes slideUnderline {
+    0% {
+      transform: scaleX(0); /* Start with no visible underline */
+    }
+    50% {
+      transform: scaleX(1); /* Fully extend the underline */
+    }
+    100% {
+      transform: scaleX(0); /* Collapse the underline back to zero width */
+    }
+  }
 
   ul {
     display: flex;
@@ -703,17 +709,15 @@ h2 .underline {
     font-size: 1.125rem;
     line-height: 1.6;
     color: #333;
-      width:100%;
+    width: 100%; /* Ensures full width usage */
 
-
-     @media (max-width: 960px) {
-     display: flex;
-   font-size: 20px;
-   align-items: left;
-     justify-content: left;
-
-     flex-direction: column;
-      }
+    @media (max-width: 960px) {
+      display: flex;
+      font-size: 20px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+    }
 
     li {
       width: 45%;
@@ -728,17 +732,12 @@ h2 .underline {
         color: green;
         position: absolute;
         left: 0;
+      }
 
-       
-
-  }
-
-   @media (max-width: 960px) {
-    padding-right: 0;
-    text-align: center;
-    font-size: 80%;
-          width:100%;
-
+      @media (max-width: 960px) {
+        padding-left: 0; /* Adjust padding for mobile */
+        font-size: 80%;
+        width: 100%; /* Full width for mobile */
       }
     }
   }
