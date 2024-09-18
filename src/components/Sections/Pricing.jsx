@@ -87,23 +87,19 @@ const fadeAnimation = keyframes`
   }
 `;
 
-
 const HeaderBanner = styled.header`
   width: 100%;
   height: 100vh;
-  position: relative; /* Ensure positioning for the video */
-  overflow: hidden; /* Hide overflow to keep the video within the header area */
-  color: white;
+  position: relative;
+  overflow: hidden;
   display: flex;
-  justify-content: flex-end; /* Aligns content to the right */
-  align-items: center; /* Vertically centers the content */
-  text-align: right; /* Aligns text to the right within the content box */
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
-    justify-content: center; /* Center content on smaller screens */
-    align-items: center; /* Align text to the bottom on smaller screens */
-    text-align: center; /* Center text for smaller screens */
-    padding-bottom: 20px; /* Adds space at the bottom */
+    text-align: center;
   }
 `;
 
@@ -114,54 +110,28 @@ const BackgroundVideo = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1; /* Ensure the video is behind the content */
+  z-index: -1;
 `;
 
 const BannerContent = styled.div`
-  position: relative; /* Ensure content is above the video */
-  max-width: 800px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 
-  padding: 0 20px; /* Adds some padding on the sides */
-  z-index: 1; /* Ensure content is above the video */
-  text-align: right; /* Aligns text to the right within the content box */
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  }
 
   @media (max-width: 768px) {
-    max-width: 90%; /* Adjust the max width for smaller screens */
-    text-align: center; /* Center text on smaller screens */
-    position: absolute;
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    h1 {
+      font-size: 2.5rem;
+    }
   }
-h1 {
-  font-size: 4rem; /* Default font size */
-  width: 65%;
-  padding: 0 20px; /* Adds padding around the text */
-  display: inline-block; /* Ensures the background fits the text */
-  animation: ${fadeAnimation} 2s infinite; /* Apply animation */
-  text-align: right; /* Align text to the right within the h1 */
-  
-  /* Apply a thinner, cleaner border around each letter */
-  -webkit-text-stroke: 1px black;
-  color: #f5f5f5; /* Softer inner color for better contrast with the stroke */
-  font-weight: 700; /* Bold the text for a more defined stroke appearance */
-
-  /* Optional text-shadow for a softer, more 3D effect */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
-
-  @media (max-width: 768px) {
-    font-size: 3rem; /* Adjust font size for smaller screens */
-    width: 200%; /* Adjust width for smaller screens */
-    padding: 0 10px; /* Reduce padding for smaller screens */
-    text-align: center; /* Center text */
-    line-height: 1.2; /* Adjust line height */
-  }
-}
-
-
 `;
+
 const Container = styled.div`
   width: 100%;
   max-width: 1200px;
