@@ -55,11 +55,11 @@ export default function Header() {
 
   return (
     <>
-      {isLoading && (
+      {/* {isLoading && (
         <LoadingOverlay>
           <Spinner />
         </LoadingOverlay>
-      )}
+      )} */}
       <Wrapper id="home">
         <VideoContainer>
           <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
