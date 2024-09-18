@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
+import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaLinkedin } from 'react-icons/fa'; // Importing FontAwesome icons
 
 import contactImage from "../../components/Sections/contactus.jpg";
 import Contactbanner from "../../components/Sections/contactusbanner1.jpg"; // Replace with your contact image
+
+
 
 export default function Pricing() {
   const [formData, setFormData] = useState({
@@ -44,13 +47,14 @@ export default function Pricing() {
 
   return (
     <PageWrapper>
-    <HeaderBanner id="home">
-  <BackgroundImage src={Contactbanner} />
-  <BannerContent>
-    <h1>Why hesitate? </h1><h1>Let's Connect today!</h1>
-    <h2>Below you'll find multiple ways to connect with us</h2>
-  </BannerContent>
-</HeaderBanner>
+      <HeaderBanner id="home">
+        <BackgroundImage src={Contactbanner} />
+        <BannerContent>
+          <h1>Why hesitate?</h1>
+          <h1>Let's Connect today!</h1>
+          <h2>Below you'll find multiple ways to connect with us</h2>
+        </BannerContent>
+      </HeaderBanner>
 
       <ContentWrapper>
         <ContactSection id="contact">
@@ -136,7 +140,43 @@ export default function Pricing() {
             <img src={contactImage} alt="Contact Us" />
           </ContactLeft>
         </ContactSection>
+
+       
       </ContentWrapper>
+
+       {/* Icon Section */}
+       <IconSection>
+         <HeadingWrapper>
+    <StyledHeading>
+      You can also reach out to us through the following socials
+    </StyledHeading>
+    <Underline />
+  </HeadingWrapper>
+          <IconWrapper>
+            <IconLink href="https://wa.me/923137753833" target="_blank" rel="noopener noreferrer">
+              <FaWhatsapp size={40} color="#25D366" />
+              <IconLabel>WhatsApp</IconLabel>
+            </IconLink>
+            <IconLink
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=abmatrix.co@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaEnvelope size={40} color="#D44638" />
+        <IconLabel>Gmail</IconLabel>
+      </IconLink>
+
+            <IconLink href="https://www.upwork.com/freelancers/~0161c6d8726055c7c7" target="_blank" rel="noopener noreferrer">
+            <img src={"https://i.ibb.co/dQH10HX/upwork.png"} alt='Upwork' width='40' height='40' />
+
+              <IconLabel>Upwork</IconLabel>
+            </IconLink>
+            <IconLink href="https://www.linkedin.com/company/abmatrixsolutions/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin size={40} color="#0077B5" />
+              <IconLabel>LinkedIn</IconLabel>
+            </IconLink>
+          </IconWrapper>
+        </IconSection>
     </PageWrapper>
   );
 }
@@ -162,13 +202,12 @@ const HeaderBanner = styled.header`
 
   @media (max-width: 768px) {
     text-align: center;
-      h1 {
-    font-size: 0.5rem;
-  
-   
-  }
-        font-size: 0.6rem;
-
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
   }
 `;
 
@@ -183,6 +222,7 @@ const BackgroundImage = styled.div`
   background-position: center; // Centers the image
   z-index: -1;
 `;
+
 const BannerContent = styled.div`
   position: relative;
   z-index: 1;
@@ -195,9 +235,18 @@ const BannerContent = styled.div`
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
   }
 
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #ddd;
+  }
+
   @media (max-width: 768px) {
     h1 {
       font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.2rem;
     }
   }
 `;
@@ -259,18 +308,13 @@ const ContactLeft = styled.div`
   }
 `;
 
-
-
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 90%;
   box-sizing: border-box;
-
- 
 `;
 
-// Ensure you have the Roboto font loaded
 const font = `'Roboto', sans-serif`;
 
 // HeaderInfo Component
@@ -302,8 +346,6 @@ const HeaderInfo = styled.div`
       font-size: 1rem;
     }
   }
-
-   
 `;
 
 // FormField Component
@@ -311,9 +353,8 @@ const FormField = styled.div`
   margin-bottom: 20px;
   width: 100%;
 
-   @media (max-width: 768px) {
-     width: 95%;
-
+  @media (max-width: 768px) {
+    width: 95%;
   }
 `;
 
@@ -326,9 +367,12 @@ const Label = styled.label`
   margin-bottom: 6px;
   color: #333;
 
-   @media (max-width: 768px) {
-     width: 95%;
+  i {
+    margin-right: 8px;
+  }
 
+  @media (max-width: 768px) {
+    width: 95%;
   }
 `;
 
@@ -348,9 +392,8 @@ const Input = styled.input`
     outline: none;
   }
 
-   @media (max-width: 768px) {
-     width: 95%;
-
+  @media (max-width: 768px) {
+    width: 95%;
   }
 `;
 
@@ -372,12 +415,10 @@ const Textarea = styled.textarea`
     outline: none;
   }
 
-   @media (max-width: 768px) {
-     width: 95%;
-
+  @media (max-width: 768px) {
+    width: 95%;
   }
 `;
-
 
 // SubmitButton Component
 const SubmitButton = styled.button`
@@ -390,16 +431,19 @@ const SubmitButton = styled.button`
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-width: 30%;
+  width: 30%;
+  align-self: left;
+
   &:hover {
     background-color: #0056b3;
   }
 
-   @media (max-width: 768px) {
-     border-radius: 50px;
-  font-size: 0.9rem;
+  @media (max-width: 768px) {
+    border-radius: 50px;
+    font-size: 0.9rem;
+    width: 50%;
+      align-self: center;
 
-     width: 50%;
 
   }
 `;
@@ -411,3 +455,118 @@ const StatusMessage = styled.p`
   font-size: 1rem;
   color: ${props => (props.success ? 'green' : 'red')};
 `;
+
+
+// Icon Label Styling
+const IconLabel = styled.span`
+  margin-top: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  font-family: 'Arial', sans-serif;
+`;
+
+const IconSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 70px;
+  background: linear-gradient(135deg, #f0f4f8, #e8eff3);
+  border-radius: 15px;
+  margin: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+  @media (max-width: 768px) {
+    
+      font-size: 1rem;
+    
+
+    
+  }
+`;
+
+// Heading Wrapper
+const HeadingWrapper = styled.div`
+  text-align: center;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically if needed */
+  
+  @media (max-width: 768px) {
+    margin-bottom: 30px; /* Adjust spacing for smaller screens */
+  }
+`;
+const StyledHeading = styled.h2`
+  font-size: 32px;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.2; /* Adjust for better vertical spacing */
+  text-align: center; /* Center the text horizontally */
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem; /* Adjust font size for smaller screens */
+    display: flex;
+  flex-direction: row;
+    line-height: 1.3; /* Increase line height for readability */
+    width: 170%; /* Allow the heading to use full width */
+    text-align: center; /* Ensure the text remains centered */
+  }
+`;
+
+// Underline Style
+const Underline = styled.div`
+  width: 120px;
+  height: 5px;
+  background: linear-gradient(90deg, #0077B5, #00aaff);
+  border-radius: 2px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  animation: underlineAnimation 1.5s ease-in-out infinite;
+  
+  @keyframes underlineAnimation {
+    0%, 100% {
+      transform: scaleX(1);
+    }
+    50% {
+      transform: scaleX(0.6);
+    }
+  }
+`;
+
+// Icon Section Styling
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+
+   @media (max-width: 768px) {
+     gap: 100px;
+
+  }
+`;
+
+// Icon Link Wrapper
+const IconLink = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  padding: 15px;
+  border-radius: 12px;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+
