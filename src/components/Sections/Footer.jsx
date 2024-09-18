@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-scroll";
-import logo from "./logo.png";
+import logo from "./abmatrixnobg.png";
 
 
 export default function Footer() {

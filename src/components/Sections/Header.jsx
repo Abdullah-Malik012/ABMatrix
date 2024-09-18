@@ -8,6 +8,8 @@ import aboutimg from "./techbg.jpg";
 import bgimg from "./office.png";
 import faq from "./faq.jpg";
 
+import logo from "./abmatrixlogo.png"
+
 export default function Header() {
   const videoRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true); // Loading state
@@ -284,7 +286,7 @@ export default function Header() {
       <AddRightInner>
         <div className="flexNullCenter">
           <AddImgWrapp1 className="flexCenter">
-          <img className="radius8" src={"https://i.ibb.co/DKMwW25/ABMATRIX-LOGO3.png"} alt="office" style={{height:'250px',width:'250px', zIndex: 9}} />
+          <img className="radius8" src={logo} alt="office" style={{height:'250px',width:'250px', zIndex: 9}} />
 
           </AddImgWrapp1>
           

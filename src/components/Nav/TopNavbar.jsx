@@ -6,7 +6,7 @@ import Sidebar from "../Nav/Sidebar";
 import Backdrop from "../Elements/Backdrop";
 // Assets
 import BurgerIcon from "../../assets/svg/BurgerIcon";
-import logo from "./logo.png";
+import logo from "./abmatrixnobg.png";
 
 export default function TopNavbar() {
   const [y, setY] = useState(window.scrollY);
