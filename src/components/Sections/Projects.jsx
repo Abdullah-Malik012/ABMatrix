@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled, { keyframes } from 'styled-components';
 import Modal from "react-modal";
 import netbit1 from "../../assets/img/projects/netbit1.png";
@@ -92,7 +92,7 @@ export default function Projects() {
 
   return (
     <>
-      <HeaderBanner id= "home">
+      <HeaderBanner >
         {/* <TopNavbar /> */}
         <VideoContainer>
         <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
@@ -172,22 +172,6 @@ const HeaderBanner = styled.header`
 
 `;
 
-const VideoContainer = styled.div`
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: -1;
-overflow: hidden;
-`;
-
-const StyledVideo = styled.video`
-width: 100%;
-height: 100%;
-object-fit: cover;
-`;
-
 // Define the BackgroundVideo component
 const BackgroundVideo = styled.video`
   position: absolute;
@@ -197,6 +181,22 @@ const BackgroundVideo = styled.video`
   height: 100%;
   object-fit: cover;
   z-index: -1; /* Ensure the video is behind the content */
+`;
+
+const VideoContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+`;
+
+const StyledVideo = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const glowUp = keyframes`
