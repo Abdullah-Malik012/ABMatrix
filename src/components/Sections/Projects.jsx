@@ -26,6 +26,8 @@ import TopNavbar from "../../components/Nav/TopNavbar";
 import projectvideo from "../../components/Sections/bg3.mp4";
 
 export default function Projects() {
+  const videoRef = useRef(null);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [galleryImages, setGalleryImages] = useState([]);
@@ -92,10 +94,11 @@ export default function Projects() {
     <>
       <HeaderBanner id= "home">
         {/* <TopNavbar /> */}
-        <BackgroundVideo autoPlay loop muted>
-        <source src={projectvideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </BackgroundVideo>
+        <VideoContainer>
+        <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
+          <source src={projectvideo} type="video/mp4" />
+        </StyledVideo>
+      </VideoContainer>
         <BannerContent>
           <h1>Our Awesome Projects</h1>
           <p>Here are some of our recent projects</p>
@@ -167,6 +170,22 @@ const HeaderBanner = styled.header`
   text-align: center;
 
 
+`;
+
+const VideoContainer = styled.div`
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+overflow: hidden;
+`;
+
+const StyledVideo = styled.video`
+width: 100%;
+height: 100%;
+object-fit: cover;
 `;
 
 // Define the BackgroundVideo component
