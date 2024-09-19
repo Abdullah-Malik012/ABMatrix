@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 // Import images
@@ -9,10 +9,14 @@ import dbImage from './dbbanner.jpg';
 
 import servicesbg from './servicesbg.jpg'; // Import the new background image
 import projectvideo from "../../components/Sections/servicesbg.mp4";
+import headergif from "../../components/Sections/servicesbg.gif";
+
 
 // Keyframes for underline animation
 
 // Keyframes for underline animation
+
+
 
 
 // Keyframes for dropdown animation
@@ -384,20 +388,26 @@ justify-content: center;
 align-items: center;
 text-align: center;
 
+ 
 
 `;
 
 // Define the BackgroundVideo component
-const BackgroundVideo = styled.video`
+const VideoContainer = styled.div`
 position: absolute;
 top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-object-fit: cover;
-z-index: -1; /* Ensure the video is behind the content */
+z-index: -1;
+overflow: hidden;
 `;
 
+const StyledVideo = styled.video`
+width: 100%;
+height: 100%;
+object-fit: cover;
+`;
 const skewIn = keyframes`
 0% {
   opacity: 0;
@@ -426,6 +436,7 @@ const BannerContent = styled.div`
 position: relative; /* Ensure content is above the video */
 max-width: 800px;
 z-index: 1; /* Ensure content is above the video */
+
 
 
 h1 {
@@ -485,27 +496,44 @@ const services = {
 
 
 const Services = () => {
+  const videoRef = useRef(null);
+
   const [activeSection, setActiveSection] = useState(null);
 
   const handleToggle = (title) => {
     setActiveSection(activeSection === title ? null : title);
   };
 
+  const SVGFrames = ({ frames }) => {
+    const [currentFrame, setCurrentFrame] = React.useState(0);
+  
+    React.useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentFrame((prevFrame) => (prevFrame + 1) % frames.length);
+      }, 1000); // Change frame every 1 second
+  
+      return () => clearInterval(interval);
+    }, [frames.length]);
+  
+    return <img src={frames[currentFrame]} alt="Animated SVG" />;
+  };
+
   return (
     <>
    <HeaderBanner id= "home">
       {/* <TopNavbar /> */}
-      <BackgroundVideo autoPlay loop muted>
-      <source src={projectvideo} type="video/mp4" />
-      Your browser does not support the video tag.
-    </BackgroundVideo>
+      <VideoContainer>
+        <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
+          <source src={projectvideo} type="video/mp4" />
+        </StyledVideo>
+      </VideoContainer>
       <BannerContent>
         <h1>Have a look at our Awesome Services</h1>
         <p>The goal is to add value to people's life!</p>
       </BannerContent>
     </HeaderBanner>
 
-    <Container>
+    <Container >
       
       {/* <Header>
         <HeaderTitle>Our Services</HeaderTitle>
