@@ -9,7 +9,6 @@ import dbImage from './dbbanner.jpg';
 
 import servicesbg from './servicesbg.jpg'; // Import the new background image
 import projectvideo from "../../components/Sections/servicesbg.mp4";
-import headergif from "../../components/Sections/servicesbg.gif";
 
 
 // Keyframes for underline animation
