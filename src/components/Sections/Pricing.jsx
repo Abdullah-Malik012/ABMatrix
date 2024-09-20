@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from 'styled-components';
-import React, {  useRef} from "react";
+import {  useRef} from "react";
 
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import projectvideo from "../../components/Sections/pricingbg.mp4";
