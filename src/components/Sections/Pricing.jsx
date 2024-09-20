@@ -1,9 +1,13 @@
 import React from "react";
 import styled, { keyframes } from 'styled-components';
+import React, {  useRef} from "react";
+
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import projectvideo from "../../components/Sections/pricingbg.mp4";
 
 export default function Pricing() {
+  const videoRef = useRef(null);
+
   const navigate = useNavigate(); // Create a navigate function
 
   const handleContactClick = () => {
@@ -15,10 +19,11 @@ export default function Pricing() {
     
       <HeaderBanner id= "home">
         {/* <TopNavbar /> */}
-        <BackgroundVideo autoPlay loop muted>
-          <source src={projectvideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </BackgroundVideo>
+        <VideoContainer>
+          <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
+            <source src={projectvideo} type="video/mp4" />
+          </StyledVideo>
+        </VideoContainer>
         <BannerContent>
           <h1>Have a look at our pricing models</h1>
         </BannerContent>
@@ -101,6 +106,23 @@ const HeaderBanner = styled.header`
   @media (max-width: 768px) {
     text-align: center;
   }
+`;
+
+
+const VideoContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+`;
+
+const StyledVideo = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const BackgroundVideo = styled.video`
