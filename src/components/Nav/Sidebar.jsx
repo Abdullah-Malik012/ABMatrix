@@ -1,12 +1,12 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import BackArrow from '../../assets/svg/Arrowbutton'; // Adjust the path as necessary
 
 export default function Sidebar({ sidebarOpen, toggleSidebar }) {
   return (
     <Wrapper sidebarOpen={sidebarOpen}>
-      <SidebarHeader>
+      <SidebarHeader> 
         <BackBtn onClick={() => toggleSidebar(!sidebarOpen)}>
           <BackArrow />
           <span>Menu</span>
@@ -14,58 +14,60 @@ export default function Sidebar({ sidebarOpen, toggleSidebar }) {
       </SidebarHeader>
 
       <UlStyle>
-        {["Home", "Services", "Projects", "Pricing", "Contact"].map((item) => (
-          <li key={item}>
-            <StyledLink to={`/${item.toLowerCase()}`} onClick={() => toggleSidebar(!sidebarOpen)}>
-              {item}
-            </StyledLink>
-          </li>
-        ))}
+        <li>
+          <StyledLink to="/" onClick={() => toggleSidebar(!sidebarOpen)}>
+            Home
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/services" onClick={() => toggleSidebar(!sidebarOpen)}>
+            Services
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/projects" onClick={() => toggleSidebar(!sidebarOpen)}>
+            Projects
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/pricing" onClick={() => toggleSidebar(!sidebarOpen)}>
+            Pricing
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/contact" onClick={() => toggleSidebar(!sidebarOpen)}>
+            Contact
+          </StyledLink>
+        </li>
       </UlStyle>
     </Wrapper>
   );
 }
 
-const slideIn = keyframes`
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-`;
-
-const slideOut = keyframes`
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-`;
-
 const Wrapper = styled.nav`
-  width: 200px;
+  width: 300px;
   height: 100vh;
   position: fixed;
   top: 0;
   left: ${(props) => (props.sidebarOpen ? "0" : "-300px")};
+  transition: left 0.3s ease-in-out;
   z-index: 1000;
-  background: linear-gradient(135deg, #2c2c54, #1a1a2e);
-  color: #f0f0f0;
+  background: #2c2c54; /* Darker color for better contrast */
+  color: #f0f0f0; /* Light color for text */
   box-shadow: 2px 0 15px rgba(0, 0, 0, 0.5);
   border-radius: 0 10px 10px 0;
-  transition: left 0.5s ease-in-out; /* Smooth transition for position change */
 
-  animation: ${(props) => (props.sidebarOpen ? slideIn : slideOut)} 0.5s ease forwards; /* Animation without delay */
+  @media (max-width: 768px) {
+    width: 60%;
+    left: ${(props) => (props.sidebarOpen ? "0" : "-100%")};
+  }
 `;
 
 const SidebarHeader = styled.div`
   padding: 20px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #444; /* Lighter border for contrast */
   display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.2);
 `;
 
 const BackBtn = styled.button`
@@ -87,52 +89,36 @@ const BackBtn = styled.button`
     fill: #ffffff;
     width: 24px;
     height: 24px;
-    margin-right: 10px;
+    margin-right: 10px; /* Space between icon and text */
     transition: fill 0.3s;
   }
 
   &:hover svg {
-    fill: #ffcc00;
+    fill: #ffcc00; /* Gold color on hover */
   }
 `;
 
 const UlStyle = styled.ul`
   list-style: none;
   padding: 40px 20px;
-  margin: 0;
+  margin: 0; /* Remove default margin */
 `;
 
 const StyledLink = styled(Link)`
   color: #f0f0f0;
   font-size: 18px;
   padding: 15px 20px;
-  display: block;
+  display: block; /* Make the link block-level for easier clicking */
   border-radius: 5px;
-  position: relative;
   transition: background-color 0.3s, color 0.3s;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffcc00;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 100%;
-    background: transparent;
-    transition: background 0.3s;
-  }
-
-  &:hover::after {
-    background: #ffcc00;
+    background-color: rgba(255, 255, 255, 0.1); /* Background on hover */
+    color: #ffcc00; /* Gold color on hover */
   }
 
   &.active {
-    background-color: #ffcc00;
-    color: #121212;
+    background-color: #ffcc00; /* Highlight active link */
+    color: #121212; /* Dark text for active link */
   }
 `;
