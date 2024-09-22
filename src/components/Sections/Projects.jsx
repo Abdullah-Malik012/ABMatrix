@@ -349,6 +349,9 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
+
+  @media (max-width: 600px) {
+  }
 `;
 
 const NavigationButton = styled.button`
@@ -360,13 +363,19 @@ const NavigationButton = styled.button`
   padding: 10px 20px;
   border-radius: 50%;
   transition: background 0.3s ease, color 0.3s ease;
+  margin: 0 5px; /* Add horizontal margin for spacing */
 
   &:hover {
     background: #0d1b2a; /* Changes background color on hover */
     color: white; /* Ensures text color stays white on hover */
   }
-`;
 
+  @media (max-width: 600px) {
+    font-size: 1.5rem; /* Smaller font size on smaller screens */
+    padding: 8px 12px; /* Reduced padding */
+    margin: 5px 0; /* Vertical margin for stacked buttons */
+  }
+`;
 
 const CloseButton = styled.button`
   position: absolute;
@@ -386,7 +395,18 @@ const CloseButton = styled.button`
     background: red; /* Changes background color to red on hover */
     color: white; /* Ensures text color stays white on hover */
   }
+
+  @media (max-width: 600px) {
+    font-size: 1.1rem; /* Smaller font size on smaller screens */
+    padding: 5px; /* Reduced padding */
+    width: 12%; /* Increased width for easier tapping */
+        height: 15%; /* Increased width for easier tapping */
+
+    top: 2px; /* Adjust position for a more balanced look */
+    right: 1px; /* Adjust position for a more balanced look */
+  }
 `;
+
 
 
 const customModalStyles = {
