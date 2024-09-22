@@ -92,7 +92,7 @@ export default function Projects() {
 
   return (
     <>
-      <HeaderBanner >
+      <HeaderBanner id= "home">
         {/* <TopNavbar /> */}
         <VideoContainer>
         <StyledVideo ref={videoRef} autoPlay loop muted playsInline>
@@ -358,7 +358,7 @@ const NavigationButton = styled.button`
   background: #1d3557;
   color: white;
   border: none;
-  font-size: 2rem; /* Adjust font size for better visibility */
+  font-size: 2rem;
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 50%;
@@ -371,11 +371,12 @@ const NavigationButton = styled.button`
   }
 
   @media (max-width: 600px) {
-    font-size: 1.8rem; /* Adjust font size on smaller screens to ensure icons are visible */
-    padding: 8px 12px; /* Reduced padding */
+    font-size: 2rem; /* Ensure the font size stays large enough for the arrows */
+    padding: 10px 15px; /* Adjust padding */
     margin: 5px 0; /* Vertical margin for stacked buttons */
   }
 `;
+
 
 const CloseButton = styled.button`
   position: absolute;
