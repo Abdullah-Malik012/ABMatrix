@@ -680,30 +680,31 @@ const TextWrapper = styled.div`
 
   h2 .underline {
     position: absolute;
-    bottom: -5px; /* Adjusts the space between text and underline */
-    height: 4px; /* Thickness of the underline */
-    background-color: #08116A; /* Color of the underline */
-    transform: scaleX(0); /* Start with no visible underline */
-    transform-origin: left; /* Animation starts from the left */
-    animation: slideUnderline 2s infinite; /* Apply the animation */
-    border-radius: 4px; /* Rounded ends of the underline */
-    width: 25%; /* Full width minus the width of the dots */
+    bottom: -5px;
+    height: 4px;
+    background-color: #08116A;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: slideUnderline 2s infinite;
+    border-radius: 4px;
+    width: 25%;
   }
 
   @keyframes slideUnderline {
     0% {
-      transform: scaleX(0); /* Start with no visible underline */
+      transform: scaleX(0);
     }
     50% {
-      transform: scaleX(1); /* Fully extend the underline */
+      transform: scaleX(1);
     }
     100% {
-      transform: scaleX(0); /* Collapse the underline back to zero width */
+      transform: scaleX(0);
     }
   }
 
   ul {
     display: flex;
+    flex-direction: row; /* Keep items in a row for larger screens */
     flex-wrap: wrap;
     margin-top: 20px;
     padding-left: 0;
@@ -711,18 +712,16 @@ const TextWrapper = styled.div`
     font-size: 1.125rem;
     line-height: 1.6;
     color: #333;
-    width: 100%; /* Ensures full width usage */
+    width: 100%;
 
     @media (max-width: 960px) {
-      display: flex;
-      font-size: 20px;
-      align-items: flex-start;
-      justify-content: flex-start;
-      flex-direction: column;
+      flex-direction: column; /* Stack items in a column for mobile */
+      align-items: center; /* Center items */
+      font-size: 20px; /* Adjust font size for mobile */
     }
 
     li {
-      width: 45%;
+      width: 45%; /* Adjust the width for larger screens */
       margin-bottom: 10px;
       position: relative;
       padding-left: 30px;
@@ -733,17 +732,20 @@ const TextWrapper = styled.div`
         content: '✔';
         color: green;
         position: absolute;
+        
         left: 0;
       }
 
       @media (max-width: 960px) {
-        padding-left: 0; /* Adjust padding for mobile */
+        padding-left: 10; /* Remove left padding for mobile */
         font-size: 80%;
         width: 100%; /* Full width for mobile */
+        justify-content: flex-start; /* Align items to the left */
       }
     }
   }
 `;
+
 
 const ImageWrapper = styled.div`
   flex: 1;
