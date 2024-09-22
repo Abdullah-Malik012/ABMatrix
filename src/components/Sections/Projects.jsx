@@ -363,19 +363,22 @@ const NavigationButton = styled.button`
   padding: 10px 20px;
   border-radius: 50%;
   transition: background 0.3s ease, color 0.3s ease;
-  margin: 0 5px; /* Add horizontal margin for spacing */
+  margin: 0 5px;
+  z-index: 10; /* Ensure the button is above other content */
 
   &:hover {
-    background: #0d1b2a; /* Changes background color on hover */
-    color: white; /* Ensures text color stays white on hover */
+    background: #0d1b2a;
+    color: white;
   }
 
   @media (max-width: 600px) {
-    font-size: 2rem; /* Ensure the font size stays large enough for the arrows */
-    padding: 10px 15px; /* Adjust padding */
-    margin: 5px 0; /* Vertical margin for stacked buttons */
+    font-size: 2rem;
+    padding: 10px 15px;
+    margin: 5px 0;
+    z-index: 10; /* Maintain the z-index for mobile */
   }
 `;
+
 
 
 const CloseButton = styled.button`
