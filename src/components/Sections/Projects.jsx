@@ -146,9 +146,16 @@ export default function Projects() {
                 ))}
               </ThumbnailWrapper>
               <ButtonWrapper>
-                <NavigationButton onClick={previousImage}>⮜</NavigationButton>
-                <NavigationButton onClick={nextImage}>⮞</NavigationButton>
-              </ButtonWrapper>
+              <NavigationButton onClick={previousImage}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+      <path d="M15.414 16.586L10.828 12l4.586-4.586L14 6l-6 6 6 6z" />
+    </svg>
+  </NavigationButton>
+  <NavigationButton onClick={nextImage}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+      <path d="M8.586 16.586L13.172 12l-4.586-4.586L10 6l6 6-6 6z" />
+    </svg>
+  </NavigationButton></ButtonWrapper>
               <CloseButton onClick={closeModal}>✖</CloseButton>
             </ModalContent>
           </Modal>
@@ -349,33 +356,37 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
-
-  @media (max-width: 600px) {
-  }
+  z-index: 10;
 `;
 
 const NavigationButton = styled.button`
   background: #1d3557;
   color: white;
   border: none;
-  font-size: 2rem;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 10px;
   border-radius: 50%;
   transition: background 0.3s ease, color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 5px;
-  z-index: 10; /* Ensure the button is above other content */
 
   &:hover {
     background: #0d1b2a;
-    color: white;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
   }
 
   @media (max-width: 600px) {
-    font-size: 2rem;
-    padding: 10px 15px;
-    margin: 5px 0;
-    z-index: 10; /* Maintain the z-index for mobile */
+    padding: 8px;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 `;
 
