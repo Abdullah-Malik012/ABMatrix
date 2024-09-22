@@ -41,9 +41,10 @@ export default function Projects() {
   const openModal = (images) => {
     setGalleryImages(images);
     setCurrentImageIndex(0);
-    setIsLoading(true); // Set loading to true when opening modal
     setIsModalOpen(true);
   };
+
+  
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -52,12 +53,10 @@ export default function Projects() {
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % galleryImages.length);
-    setIsLoading(true); // Reset loading state when changing the image
   };
 
   const previousImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + galleryImages.length) % galleryImages.length);
-    setIsLoading(true); // Reset loading state when changing the image
   };
 
   const projects = [
@@ -136,44 +135,31 @@ export default function Projects() {
           </ProjectGrid>
 
           <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Image Gallery Modal"
-        style={customModalStyles}
-      >
-        <ModalContent>
-          {isLoading && <Loader />}
-          <GalleryMainImage
-            src={galleryImages[currentImageIndex]}
-            alt={`Gallery Image ${currentImageIndex + 1}`}
-            onLoad={handleImageLoad}
-            style={isLoading ? { display: 'none' } : {}}
-          />
-          <ThumbnailWrapper>
-            {galleryImages.map((image, index) => (
-              <Thumbnail
-                key={index}
-                src={image}
-                alt={`Thumbnail ${index + 1}`}
-                active={currentImageIndex === index}
-                onClick={() => {
-                  setCurrentImageIndex(index);
-                  setIsLoading(true); // Reset loading state on thumbnail click
-                }}
-              />
-            ))}
-          </ThumbnailWrapper>
-          {!isLoading && (
-            <ButtonWrapper>
-              <NavigationButton onClick={previousImage}>⮜</NavigationButton>
-              <NavigationButton onClick={nextImage}>⮞</NavigationButton>
-            </ButtonWrapper>
-          )}
-          {!isLoading && (
-            <CloseButton onClick={closeModal}>✖</CloseButton>
-          )}
-        </ModalContent>
-      </Modal>
+            isOpen={isModalOpen}
+            onRequestClose={closeModal}
+            contentLabel="Image Gallery Modal"
+            style={customModalStyles}
+          >
+            <ModalContent>
+              <GalleryMainImage src={galleryImages[currentImageIndex]} alt={`Gallery Image ${currentImageIndex + 1}`} />
+              <ThumbnailWrapper>
+                {galleryImages.map((image, index) => (
+                  <Thumbnail
+                    key={index}
+                    src={image}
+                    alt={`Thumbnail ${index + 1}`}
+                    active={currentImageIndex === index}
+                    onClick={() => setCurrentImageIndex(index)}
+                  />
+                ))}
+              </ThumbnailWrapper>
+              <ButtonWrapper>
+                <NavigationButton onClick={previousImage}>⮜</NavigationButton>
+                <NavigationButton onClick={nextImage}>⮞</NavigationButton>
+              </ButtonWrapper>
+              <CloseButton onClick={closeModal}>✖</CloseButton>
+            </ModalContent>
+          </Modal>
         </div>
       </ProjectsWrapper>
     </>
