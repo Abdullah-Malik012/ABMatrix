@@ -25,6 +25,10 @@ import TopNavbar from "../../components/Nav/TopNavbar";
 
 import projectvideo from "../../components/Sections/bg3.mp4";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+
 export default function Projects() {
   const videoRef = useRef(null);
 
@@ -146,8 +150,12 @@ export default function Projects() {
                 ))}
               </ThumbnailWrapper>
               <ButtonWrapper>
-                <NavigationButton onClick={previousImage}>⮜</NavigationButton>
-                <NavigationButton onClick={nextImage}>⮞</NavigationButton>
+              <NavigationButton onClick={previousImage}>
+  <FontAwesomeIcon icon={faArrowLeft} />
+</NavigationButton>
+<NavigationButton onClick={nextImage}>
+  <FontAwesomeIcon icon={faArrowRight} />
+</NavigationButton>
               </ButtonWrapper>
               <CloseButton onClick={closeModal}>✖</CloseButton>
             </ModalContent>
