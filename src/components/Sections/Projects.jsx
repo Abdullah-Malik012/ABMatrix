@@ -32,11 +32,19 @@ export default function Projects() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [galleryImages, setGalleryImages] = useState([]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleImageLoad = () => {
+    setIsLoading(false); // Hide loader when the image is loaded
+  };
+
   const openModal = (images) => {
     setGalleryImages(images);
     setCurrentImageIndex(0);
     setIsModalOpen(true);
   };
+
+  
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -127,31 +135,43 @@ export default function Projects() {
           </ProjectGrid>
 
           <Modal
-            isOpen={isModalOpen}
-            onRequestClose={closeModal}
-            contentLabel="Image Gallery Modal"
-            style={customModalStyles}
-          >
-            <ModalContent>
-              <GalleryMainImage src={galleryImages[currentImageIndex]} alt={`Gallery Image ${currentImageIndex + 1}`} />
-              <ThumbnailWrapper>
-                {galleryImages.map((image, index) => (
-                  <Thumbnail
-                    key={index}
-                    src={image}
-                    alt={`Thumbnail ${index + 1}`}
-                    active={currentImageIndex === index}
-                    onClick={() => setCurrentImageIndex(index)}
-                  />
-                ))}
-              </ThumbnailWrapper>
-              <ButtonWrapper>
-                <NavigationButton onClick={previousImage}>⮜</NavigationButton>
-                <NavigationButton onClick={nextImage}>⮞</NavigationButton>
-              </ButtonWrapper>
-              <CloseButton onClick={closeModal}>✖</CloseButton>
-            </ModalContent>
-          </Modal>
+      isOpen={isModalOpen}
+      onRequestClose={closeModal}
+      contentLabel="Image Gallery Modal"
+      style={customModalStyles}
+    >
+      <ModalContent>
+        {isLoading && <Loader />} {/* Show loader while loading */}
+        <GalleryMainImage
+          src={galleryImages[currentImageIndex]}
+          alt={`Gallery Image ${currentImageIndex + 1}`}
+          onLoad={handleImageLoad} // Trigger loading state change
+          style={isLoading ? { display: 'none' } : {}} // Hide the image until it's loaded
+        />
+        <ThumbnailWrapper>
+          {galleryImages.map((image, index) => (
+            <Thumbnail
+              key={index}
+              src={image}
+              alt={`Thumbnail ${index + 1}`}
+              active={currentImageIndex === index}
+              onClick={() => {
+                setCurrentImageIndex(index);
+                setIsLoading(true); // Reset loading state on thumbnail click
+              }}
+            />
+          ))}
+        </ThumbnailWrapper>
+        {!isLoading && ( // Hide buttons until the image is loaded
+          <ButtonWrapper>
+            <NavigationButton onClick={previousImage}>⮜</NavigationButton>
+            <NavigationButton onClick={nextImage}>⮞</NavigationButton>
+          </ButtonWrapper>
+        )}
+        {!isLoading && (
+        <CloseButton onClick={closeModal}>✖</CloseButton> )}
+      </ModalContent>
+    </Modal>
         </div>
       </ProjectsWrapper>
     </>
@@ -170,6 +190,33 @@ const HeaderBanner = styled.header`
   text-align: center;
 
 
+`;
+
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+// Loader styled component
+const Loader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Light overlay */
+  position: absolute; /* Position relative to the modal */
+  z-index: 1; /* Ensure it's above other elements */
+
+  &:before {
+    content: '';
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px; /* Spinner size */
+    height: 50px; /* Spinner size */
+    animation: ${spin} 1s linear infinite; /* Spinner animation */
+  }
 `;
 
 // Define the BackgroundVideo component
@@ -341,7 +388,6 @@ const Thumbnail = styled.img`
     transform: scale(1.1);
   }
 `;
-
 const ButtonWrapper = styled.div`
   position: absolute;
   top: 50%;
@@ -358,24 +404,22 @@ const NavigationButton = styled.button`
   background: #1d3557;
   color: white;
   border: none;
-  font-size: 2rem;
+  font-size: 2rem; /* Adjust font size for better visibility */
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 50%;
   transition: background 0.3s ease, color 0.3s ease;
-  margin: 0 5px;
-  z-index: 10; /* Ensure the button is above other content */
+  margin: 0 5px; /* Add horizontal margin for spacing */
 
   &:hover {
-    background: #0d1b2a;
-    color: white;
+    background: #0d1b2a; /* Changes background color on hover */
+    color: white; /* Ensures text color stays white on hover */
   }
 
   @media (max-width: 600px) {
-    font-size: 2rem;
-    padding: 10px 15px;
-    margin: 5px 0;
-    z-index: 10; /* Maintain the z-index for mobile */
+    font-size: 1.8rem; /* Adjust font size on smaller screens to ensure icons are visible */
+    padding: 8px 12px; /* Reduced padding */
+    margin: 5px 0; /* Vertical margin for stacked buttons */
   }
 `;
 
@@ -406,13 +450,10 @@ const CloseButton = styled.button`
     width: 12%; /* Increased width for easier tapping */
         height: 15%; /* Increased width for easier tapping */
 color: white;
-
     top: 2px; /* Adjust position for a more balanced look */
     right: 1px; /* Adjust position for a more balanced look */
   }
 `;
-
-
 
 const customModalStyles = {
   content: {
