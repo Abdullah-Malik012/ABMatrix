@@ -358,8 +358,7 @@ const NavigationButton = styled.button`
   background: #1d3557;
   color: white;
   border: none;
-  font-size: 2rem;
-  font-family: Arial, sans-serif; /* Ensure proper font rendering for icons */
+  font-size: 2rem; /* Adjust font size for better visibility */
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 50%;
@@ -373,7 +372,6 @@ const NavigationButton = styled.button`
 
   @media (max-width: 600px) {
     font-size: 1.8rem; /* Adjust font size on smaller screens to ensure icons are visible */
-    font-family: Arial, sans-serif; /* Ensure proper font rendering for icons */
     padding: 8px 12px; /* Reduced padding */
     margin: 5px 0; /* Vertical margin for stacked buttons */
   }
