@@ -198,8 +198,8 @@ const IconLink = styled.a`
   }
 
   @media (max-width: 768px) {
-    font-size: 18px;
-    margin: 5px 18px;
+    font-size: 28px;
+    margin: 5px 28px;
   }
 `;
 
