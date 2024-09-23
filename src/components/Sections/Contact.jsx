@@ -1,39 +1,56 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import emailjs from 'emailjs-com';
-import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaLinkedin } from 'react-icons/fa'; // Importing FontAwesome icons
-
+import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaLinkedin } from 'react-icons/fa';
 import contactImage from "../../components/Sections/contactus.jpg";
-import Contactbanner from "../../components/Sections/contactusbanner1.jpg"; // Replace with your contact image
+import Contactbanner from "../../components/Sections/contactusbanner1.jpg";
 
+// Hook to check if the device is mobile
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isMobile;
+};
+
+const EmailIconLink = () => {
+  const isMobile = useIsMobile();
+  const emailLink = isMobile 
+    ? 'mailto:abmatrix.co@gmail.com'
+    : 'https://mail.google.com/mail/?view=cm&fs=1&to=abmatrix.co@gmail.com';
+
+  return (
+    <IconLink href={emailLink} target="_blank" rel="noopener noreferrer">
+      <FaEnvelope size={40} color="#D44638" />
+      <IconLabel>Gmail</IconLabel>
+    </IconLink>
+  );
+};
 
 export default function Pricing() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '', // Added subject
+    subject: '',
     message: '',
   });
   const [formStatus, setFormStatus] = useState('');
 
-  emailjs.init("Zgp4GYJNEo6qlV5iU"); // Replace with your EmailJS user ID
+  emailjs.init("Zgp4GYJNEo6qlV5iU");
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    emailjs.sendForm(
-      'service_u869t1r',
-      'template_rtctqwf',
-      e.target,
-      'Zgp4GYJNEo6qlV5iU'
-    )
-    .then((result) => {
-      setFormStatus('Message sent successfully!');
-    }, (error) => {
-      setFormStatus('Failed to send message. Please try again.');
-    });
-
+    emailjs.sendForm('service_u869t1r', 'template_rtctqwf', e.target, 'Zgp4GYJNEo6qlV5iU')
+      .then((result) => {
+        setFormStatus('Message sent successfully!');
+      }, (error) => {
+        setFormStatus('Failed to send message. Please try again.');
+      });
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -61,79 +78,34 @@ export default function Pricing() {
           <ContactRight>
             <HeaderInfo>
               <h1>Reach out to us today!</h1>
-              <p>
-                Fill out the form below to reach out to us with your queries or requirements. We will get back to you shortly.
-              </p>
+              <p>Fill out the form below to reach out to us with your queries or requirements. We will get back to you shortly.</p>
             </HeaderInfo>
 
             <Form onSubmit={sendEmail}>
               <FormField>
-                <Label htmlFor="name">
-                  <i className="fa fa-user"></i> Name
-                </Label>
-                <Input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter your name"
-                />
+                <Label htmlFor="name"><i className="fa fa-user"></i> Name</Label>
+                <Input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required placeholder="Enter your name" />
               </FormField>
 
               <FormField>
-                <Label htmlFor="email">
-                  <i className="fa fa-envelope"></i> Email
-                </Label>
-                <Input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter your email"
-                />
+                <Label htmlFor="email"><i className="fa fa-envelope"></i> Email</Label>
+                <Input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required placeholder="Enter your email" />
               </FormField>
 
               <FormField>
-                <Label htmlFor="subject">
-                  <i className="fa fa-tag"></i> Subject
-                </Label>
-                <Input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter the subject"
-                />
+                <Label htmlFor="subject"><i className="fa fa-tag"></i> Subject</Label>
+                <Input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} required placeholder="Enter the subject" />
               </FormField>
 
               <FormField>
-                <Label htmlFor="message">
-                  <i className="fa fa-comment-dots"></i> Message
-                </Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your message here"
-                />
+                <Label htmlFor="message"><i className="fa fa-comment-dots"></i> Message</Label>
+                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} required placeholder="Your message here" />
               </FormField>
 
               <SubmitButton type="submit">Send Message</SubmitButton>
             </Form>
 
-            {formStatus && (
-              <StatusMessage success={formStatus === 'Message sent successfully!'}>
-                {formStatus}
-              </StatusMessage>
-            )}
+            {formStatus && <StatusMessage success={formStatus === 'Message sent successfully!'}>{formStatus}</StatusMessage>}
           </ContactRight>
 
           <ContactLeft>
@@ -141,34 +113,20 @@ export default function Pricing() {
           </ContactLeft>
         </ContactSection>
 
-       
-      </ContentWrapper>
-
-       {/* Icon Section */}
-       <IconSection>
-         <HeadingWrapper>
-    <StyledHeading>
-      You can also reach out to us through the following socials
-    </StyledHeading>
-    <Underline />
-  </HeadingWrapper>
+        {/* Icon Section */}
+        <IconSection>
+          <HeadingWrapper>
+            <StyledHeading>You can also reach out to us through the following socials</StyledHeading>
+            <Underline />
+          </HeadingWrapper>
           <IconWrapper>
             <IconLink href="https://wa.me/923137753833" target="_blank" rel="noopener noreferrer">
               <FaWhatsapp size={40} color="#25D366" />
               <IconLabel>WhatsApp</IconLabel>
             </IconLink>
-            <IconLink
-        href="https://mail.google.com/mail/?view=cm&fs=1&to=abmatrix.co@gmail.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FaEnvelope size={40} color="#D44638" />
-        <IconLabel>Gmail</IconLabel>
-      </IconLink>
-
+            <EmailIconLink /> {/* Use the new EmailIconLink component */}
             <IconLink href="https://www.upwork.com/freelancers/~0161c6d8726055c7c7" target="_blank" rel="noopener noreferrer">
-            <img src={"https://i.ibb.co/dQH10HX/upwork.png"} alt='Upwork' width='40' height='40' />
-
+              <img src={"https://i.ibb.co/dQH10HX/upwork.png"} alt='Upwork' width='40' height='40' />
               <IconLabel>Upwork</IconLabel>
             </IconLink>
             <IconLink href="https://www.linkedin.com/company/abmatrixsolutions/" target="_blank" rel="noopener noreferrer">
@@ -177,9 +135,11 @@ export default function Pricing() {
             </IconLink>
           </IconWrapper>
         </IconSection>
+      </ContentWrapper>
     </PageWrapper>
   );
 }
+
 
 // Styled components for the updated layout
 const PageWrapper = styled.div`
