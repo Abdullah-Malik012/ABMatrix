@@ -272,7 +272,7 @@ const FooterBottom = styled.div`
   @media (max-width: 480px) {
     padding: 18px 0;
     font-size: 9px;
-      margin-bottom: 40%;
+      margin-bottom: 30%;
 
 
     p {
