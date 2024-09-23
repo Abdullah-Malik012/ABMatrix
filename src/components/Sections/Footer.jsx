@@ -7,6 +7,10 @@ import { FaHome, FaEnvelope, FaPhone, FaPrint } from 'react-icons/fa';
 import FooterBanner from '../../components/Sections/footerbanner.jpg';  // Adjust the path as needed
 
 import { Link } from 'react-scroll'; // Import Link from react-scroll
+import mernlogo from '../../components/Sections/MERN-logo.png';
+import ailogo from '../../components/Sections/ailogo.png';
+import blockchainlogo from '../../components/Sections/blockchainlogo.png';
+import dblogo from '../../components/Sections/dblogo.png';
 
 import CompanyLogo from '../../components/Sections/abmatrixnobg.png';  // Import your logo image
 
@@ -50,7 +54,7 @@ export default function CustomFooter() {
           </ContentCol>
 
           <ContentCol>
-            <h6>Products</h6>
+            <h6>Services</h6>
             <ul>
               <li><a href="/Services">Web Development</a></li>
               <li><a href="/Services">Artificial Intelligence</a></li>
@@ -71,14 +75,31 @@ export default function CustomFooter() {
           </ContentCol>
 
           <ContentCol>
-            <h6>Useful Links</h6>
-            <ul>
-              <li><a href="#!">Pricing</a></li>
-              <li><a href="#!">Settings</a></li>
-              <li><a href="#!">Orders</a></li>
-              <li><a href="#!">Help</a></li>
-            </ul>
-          </ContentCol>
+  <h6 style={{ marginBottom: '35px'}}>Technology</h6>
+  <ul style={{ display: 'flex', listStyle: 'none', padding: 0, justifyContent: 'center' }}>
+    <li style={{ margin: '0 15px', textAlign: 'center' }}>
+      <img src={mernlogo} alt="MERN" style={{ width: '80px', height: 'auto' }} />
+      <p style={{ marginTop: '5px', fontSize: '14px' }}>MERN</p>
+    </li>
+
+    <li style={{ margin: '0 15px', textAlign: 'center' }}>
+      <img src={dblogo} alt="MongoDB" style={{ width: '35px', height: 'auto' }} />
+      <p style={{ marginTop: '5px', fontSize: '14px' }}>SQL & NoSQL</p>
+    </li>
+
+    <li style={{ margin: '0 15px', textAlign: 'center' }}>
+      <img src={ailogo} alt="AI" style={{ width: '35px', height: 'auto' }} />
+      <p style={{ marginTop: '5px', fontSize: '14px' }}>AI</p>
+    </li>
+
+    <li style={{ margin: '0 15px', textAlign: 'center' }}>
+      <img src={blockchainlogo} alt="Blockchain" style={{ width: '50px', height: 'auto' }} />
+      <p style={{ marginTop: '5px', fontSize: '14px' }}>Blockchain</p>
+    </li>
+  </ul>
+</ContentCol>
+
+
         </ContentRow>
       </ContentSection>
 
