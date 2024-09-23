@@ -826,21 +826,27 @@ const pulseAnimation = keyframes`
 
 // Features Section
 const FeaturesSection = styled.section`
-  padding: 40px;
+  padding: 100px;
   background: #f5f5f5;
   text-align: center;
+margin-top: 40px;
+   @media (max-width: 768px) {
+   padding: 40px;
+   margin-top: 30px;
+
+  }
 `;
 
 const FeaturesHeader = styled.h2`
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 `;
 
 const FeaturesContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 40px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -850,7 +856,7 @@ const FeaturesContent = styled.div`
 
 const FeatureItem = styled.div`
   flex: 1;
-  max-width: 250px;
+  max-width: 350px;
   margin: 10px;
   padding: 20px;
   background: #fff;
