@@ -433,13 +433,8 @@ const CloseButton = styled.button`
   }
 
   @media (max-width: 600px) {
-    font-size: 1.1rem; /* Smaller font size on smaller screens */
-    padding: 5px; /* Reduced padding */
-    width: 12%; /* Increased width for easier tapping */
-        height: 15%; /* Increased width for easier tapping */
-color: white;
-    top: 2px; /* Adjust position for a more balanced look */
-    right: 1px; /* Adjust position for a more balanced look */
+      display: none;
+
   }
 `;
 
