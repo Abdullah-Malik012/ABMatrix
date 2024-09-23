@@ -138,7 +138,6 @@ const FooterContainer = styled.footer`
   background-position: center;
   color: #ffffff;
   padding-top: 20px;
-  padding-bottom: 40px;
   font-size: 14px;
   text-align: center;
 
@@ -278,7 +277,10 @@ const LogoWrapper = styled.div`
 const FooterBottom = styled.div`
   background-color: rgba(255, 255, 255, 0.1);
   padding: 15px 0;
-  text-align: center;
+  display : flex;
+  align-items: bottom;
+  justify-content:center;
+  
 
   p {
     margin: 0;
