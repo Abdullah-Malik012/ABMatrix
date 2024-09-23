@@ -70,7 +70,7 @@ export default function Projects() {
       img: lendnest1,
       title: "LendNest",
       text: "A Decentralized App based on Solidity and Vite.",
-      gallery: [lendnest2, lendnest3, lendnest4, lendnest1],
+      gallery: [lendnest2, lendnest3, lendnest1],
     },
     {
       img: port1,
@@ -88,7 +88,7 @@ export default function Projects() {
       img: trade1,
       title: "Trade Portal",
       text: "A trade management portal.",
-      gallery: [trade2, trade3, trade4, trade1],
+      gallery: [trade2, trade3, trade1],
     },
     {
       img: ecom1,
