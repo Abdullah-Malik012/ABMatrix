@@ -1,75 +1,282 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-scroll";
-import logo from "./abmatrixnobg.png";
+import React from 'react';
+import styled from 'styled-components';
+import { SiGmail, SiUpwork } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa';
+import { BsWhatsapp } from 'react-icons/bs';
+import { FaHome, FaEnvelope, FaPhone, FaPrint } from 'react-icons/fa';
+import FooterBanner from '../../components/Sections/footerbanner.jpg';  // Adjust the path as needed
 
+import { Link } from 'react-scroll'; // Import Link from react-scroll
 
-export default function Footer() {
+import CompanyLogo from '../../components/Sections/abmatrixnobg.png';  // Import your logo image
+
+export default function CustomFooter() {
   return (
-    <Wrapper>
-      <div className="darkBg">
-        <br />
-        <div className="container">
-          <InnerWrapper className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
-            <Link className="pointer flexNullCenter" to="home" smooth={true}>
-              <img style={{ width: '100px', marginBottom: '30px' }} src={logo} alt="AB-Matrix Logo" />
-            </Link>
-            <StyleP className="whiteColor font13">
-              © <span className="purpleColor font13">AB-Matrix </span> All Right Reserved
-            </StyleP>
-            <Socialicon>
-              <div style={{ display: 'flex', gap: '30px' }} id='soicalicon' className='social-icons'>
-                <a href='https://www.upwork.com/freelancers/muhammada5313' className='social-icon' target="_blank" rel="noopener noreferrer">
-                  <img src={"https://i.ibb.co/dQH10HX/upwork.png"} alt='Upwork' width='30' height='30' />
-                </a>
-                <a href='https://www.fiverr.com/abdu11ahmalik12?public_mode=true' className='social-icon' target="_blank" rel="noopener noreferrer">
-                  <img src={"https://i.ibb.co/Zx4wfjh/fivverlogo.png"} alt='Fiverr' width='55' height='30' />
-                </a>
-                <a href='https://www.linkedin.com/company/ab-matrixx/' className='social-icon' target="_blank" rel="noopener noreferrer">
-                  <img src={"https://i.ibb.co/jHtywTY/linkedin-logo.png"} alt='LinkedIn' width='30' height='30' />
-                </a>
-              </div>
-            </Socialicon>
-          </InnerWrapper>
+<>
+    <SocialSection>
+        <div>
+          <span>Get connected with us on social networks:</span>
         </div>
-      </div>
-    </Wrapper>
+        <div>
+        <IconLink href="https://www.linkedin.com/company/abmatrixsolutions/" target="_blank" rel="noopener noreferrer">
+        <FaLinkedin /></IconLink>
+          <IconLink href="https://wa.me/923137753833" target="_blank" rel="noopener noreferrer">
+              <BsWhatsapp />
+            </IconLink>        
+            <IconLink
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=abmatrix.co@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      ><SiGmail /></IconLink>
+           <IconLink href="https://www.upwork.com/freelancers/~0161c6d8726055c7c7" target="_blank" rel="noopener noreferrer"><SiUpwork /></IconLink>
+        </div>
+      </SocialSection>
+    <FooterContainer>
+      
+
+      <ContentSection>
+        <ContentRow>
+          <ContentCol>
+            <LogoWrapper>
+            <Link 
+        className="pointer flexNullCenter" 
+        to="home" // Use an ID that corresponds to the top of your page
+        smooth={true} 
+        duration={800} // Duration of the scroll animation
+    >
+        <img src={CompanyLogo} alt="home" />
+    </Link> 
+                    </LogoWrapper>
+          </ContentCol>
+
+          <ContentCol>
+            <h6>Products</h6>
+            <ul>
+              <li><a href="/Services">Web Development</a></li>
+              <li><a href="/Services">Artificial Intelligence</a></li>
+              <li><a href="/Services">Databases</a></li>
+
+              <li><a href="/Services">Blockchain</a></li>
+            </ul>
+          </ContentCol>
+
+          <ContentCol>
+            <h6>Useful Links</h6>
+            <ul>
+              <li><a href="/Pricing">Pricing</a></li>
+              <li><a href="/Services">Services</a></li>
+              <li><a href="/Projects">Projects</a></li>
+              <li><a href="/Contact">Contact</a></li>
+            </ul>
+          </ContentCol>
+
+          <ContentCol>
+            <h6>Useful Links</h6>
+            <ul>
+              <li><a href="#!">Pricing</a></li>
+              <li><a href="#!">Settings</a></li>
+              <li><a href="#!">Orders</a></li>
+              <li><a href="#!">Help</a></li>
+            </ul>
+          </ContentCol>
+        </ContentRow>
+      </ContentSection>
+
+      <FooterBottom>
+        <p>© 2024 Copyright: <a>AB Matrix</a></p>
+      </FooterBottom>
+    </FooterContainer>
+
+    </>
   );
 }
 
-const Wrapper = styled.div`
-  width: 100%;
+const FooterContainer = styled.footer`
+  position: relative; /* Required for the overlay */
+  background-image: url(${FooterBanner});
+  background-size: cover; /* Ensures the image covers the entire footer */
+  background-position: center; /* Centers the image */
+  color: #ffffff;  /* White text */
+  padding-top: 20px;
+  padding-bottom: 40px;  /* Increased bottom padding to ensure nothing is hidden */
+  font-size: 14px;
+  text-align: center;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Light black overlay */
+    z-index: 1; /* Ensure the overlay is above the background but below the content */
+  }
+
+  > * {
+    position: relative; /* Bring child elements above the overlay */
+    z-index: 2;
+  }
 `;
 
-const InnerWrapper = styled.div`
+const SocialSection = styled.section`
+  padding: 20px;
+background: radial-gradient(circle, #010121, #000000);
+color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
 
-  @media (max-width: 550px) {
+  div {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 16px;
+      margin-right: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
     flex-direction: column;
+    text-align: center;
+
+    div {
+      margin-bottom: 10px;
+    }
   }
 `;
 
-const StyleP = styled.p`
-  text-align: center;
-  margin: 20px 0;
+const IconLink = styled.a`
+  margin: 0 20px;
+  color: inherit;
+  font-size: 20px;
+  transition: transform 0.3s ease;
 
-  @media (min-width: 550px) {
-    margin: 0;
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    margin: 5px 18px;
   }
 `;
 
-const Socialicon = styled.div`
+const ContentSection = styled.section`
+  padding: 40px 0;
+`;
+
+const ContentRow = styled.div`
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 30px;
-  margin: 20px 0;
-  padding: 0 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
 
-  @media (max-width: 550px) {
-    justify-content: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const ContentCol = styled.div`
+  flex: 1;
+  min-width: 220px;
+  margin: 0 15px;
+  color: #ffffff;
+
+  h6 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  p, a {
+    font-size: 14px;
+    color: #d3d3d3;
+    text-decoration: none;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+`;
+
+const LogoWrapper = styled.div`
+  display: flex;               /* Use flexbox */
+  justify-content: center;     /* Center horizontally */
+  align-items: center;         /* Center vertically */
+  
+  img {
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      max-width: 120px;
+    }
+  }
+`;
+
+
+const FooterBottom = styled.div`
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px 0;
+  font-size: 12px;
+  color: #ffffff;
+  text-align: center;
+
+  p {
+    margin: 0;
+    padding: 0 15px;
+
+    a {
+      color: inherit;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+        margin-bottom: 20%;
+  
+  padding: 10px 0;
+    font-size: 10px;
+
+    p {
+      padding: 0 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 18px 0;
+    font-size: 9px;
+      margin-bottom: 40%;
+
+
+    p {
+      padding: 0 8px;
+    }
   }
 `;
