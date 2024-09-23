@@ -43,10 +43,19 @@ function App() {
 
     const loadVideo = (video) => {
       return new Promise((resolve) => {
-        if (video.readyState === 4) {
+        const onLoadedData = () => {
+          video.removeEventListener("loadeddata", onLoadedData);
           resolve();
+        };
+
+        if (video.readyState >= 3) { // ReadyState 3: Metadata is loaded
+          onLoadedData();
         } else {
-          video.addEventListener("loadeddata", resolve);
+          video.addEventListener("loadeddata", onLoadedData);
+          video.addEventListener("error", () => {
+            video.removeEventListener("loadeddata", onLoadedData);
+            resolve(); // Resolve on error to not block loading
+          });
         }
       });
     };
