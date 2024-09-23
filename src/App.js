@@ -94,8 +94,8 @@ function App() {
       {loading ? (
         <div className={`loading-screen ${fadeOut ? "fade-out" : ""}`}>
           <div className="loader-container">
-            <div className="loader-ring"></div>
-            <div className="loader-text">Loading...</div>
+          <div className="loader-dual-ring"></div>
+          <div className="loader-text">Loading...</div>
           </div>
         </div>
       ) : (
@@ -181,20 +181,35 @@ function App() {
             text-align: center;
           }
 
-          .loader-ring {
-            width: 80px;
-            height: 80px;
-            border: 12px solid rgba(0, 0, 0, 0.1);
-            border-top: 12px solid #3498db; /* Blue for a modern look */
-            border-radius: 50%;
-            animation: spin 1.5s linear infinite;
-          }
+          .loader-dual-ring {
+  width: 80px;
+  height: 80px;
+  border: 8px solid transparent;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+  position: relative;
+}
+
+.loader-dual-ring::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 100%;
+  height: 100%;
+  border: 8px solid transparent;
+  border-top: 8px solid #04052e;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
 
           .loader-text {
             margin-top: 20px;
-            font-size: 18px;
+            font-size: 20px;
             color: #333;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1px;
             animation: fadeIn 1s ease-in-out;
           }
