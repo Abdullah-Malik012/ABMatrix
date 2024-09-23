@@ -26,25 +26,39 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
-  const handleResourceLoad = () => {
+  const loadResources = () => {
     const images = Array.from(document.querySelectorAll("img"));
     const videos = Array.from(document.querySelectorAll("video"));
 
-    const checkLoadedResources = () => {
-      const imagesLoaded = images.every((img) => img.complete && img.naturalHeight !== 0);
-      const videosLoaded = videos.every((video) => video.readyState === 4); // ReadyState 4: video is fully loaded
-      return imagesLoaded && videosLoaded;
+    const loadImage = (img) => {
+      return new Promise((resolve) => {
+        if (img.complete && img.naturalHeight !== 0) {
+          resolve();
+        } else {
+          img.addEventListener("load", resolve);
+          img.addEventListener("error", resolve);
+        }
+      });
     };
 
-    if (checkLoadedResources()) {
+    const loadVideo = (video) => {
+      return new Promise((resolve) => {
+        if (video.readyState === 4) {
+          resolve();
+        } else {
+          video.addEventListener("loadeddata", resolve);
+        }
+      });
+    };
+
+    const resourcePromises = [...images.map(loadImage), ...videos.map(loadVideo)];
+
+    Promise.all(resourcePromises).then(() => {
       setTimeout(() => {
-        setFadeOut(true); // Begin fade-out animation
-        setTimeout(() => setLoading(false), 600); // 600ms delay for smooth fade-out
-      }, 300); // Add small delay for smoother transition
-    } else {
-      images.forEach((img) => img.addEventListener("load", checkLoadedResources));
-      videos.forEach((video) => video.addEventListener("loadeddata", checkLoadedResources));
-    }
+        setFadeOut(true);
+        setTimeout(() => setLoading(false), 600);
+      }, 300);
+    });
   };
 
   useEffect(() => {
@@ -52,14 +66,14 @@ function App() {
     setFadeOut(false);
 
     setTimeout(() => {
-      handleResourceLoad();
+      loadResources();
     }, 100);
 
     return () => {
       const images = Array.from(document.querySelectorAll("img"));
       const videos = Array.from(document.querySelectorAll("video"));
-      images.forEach((img) => img.removeEventListener("load", handleResourceLoad));
-      videos.forEach((video) => video.removeEventListener("loadeddata", handleResourceLoad));
+      images.forEach((img) => img.removeEventListener("load", loadResources));
+      videos.forEach((video) => video.removeEventListener("loadeddata", loadResources));
     };
   }, [location]);
 
@@ -71,31 +85,30 @@ function App() {
       {loading ? (
         <div className={`loading-screen ${fadeOut ? "fade-out" : ""}`}>
           <div className="loader-container">
-            <div className="loader"></div>
+            <div className="loader-ring"></div>
+            <div className="loader-text">Loading...</div>
           </div>
         </div>
       ) : (
         <>
-        <main className="content">
-          <TransitionGroup>
-            <CSSTransition key={location.key} classNames="fade" timeout={300}>
-              <div className="page">
-                <Routes location={location}>
-                  <Route path="/" element={<Landing />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/pricing" element={<Pricing />} />
-                  <Route path="/contact" element={<Contact />} />
-                </Routes>
-              </div>
-            </CSSTransition>
-          </TransitionGroup>
-        </main>
-              <Footer />
-              </>
+          <main className="content">
+            <TransitionGroup>
+              <CSSTransition key={location.key} classNames="fade" timeout={300}>
+                <div className="page">
+                  <Routes location={location}>
+                    <Route path="/" element={<Landing />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/pricing" element={<Pricing />} />
+                    <Route path="/contact" element={<Contact />} />
+                  </Routes>
+                </div>
+              </CSSTransition>
+            </TransitionGroup>
+          </main>
+          <Footer />
+        </>
       )}
-
-     
 
       <style>
         {`
@@ -146,7 +159,6 @@ function App() {
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            opacity: 1;
             transition: opacity 600ms ease-in-out;
           }
 
@@ -160,21 +172,22 @@ function App() {
             text-align: center;
           }
 
-          .loader {
-            width: 60px;
-            height: 60px;
-            border: 8px solid rgba(0, 0, 0, 0.1);
-            border-top: 8px solid #3498db; /* Blue for a professional look */
+          .loader-ring {
+            width: 80px;
+            height: 80px;
+            border: 12px solid rgba(0, 0, 0, 0.1);
+            border-top: 12px solid #3498db; /* Blue for a modern look */
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 1.5s linear infinite;
           }
 
-          /* Loader text */
           .loader-text {
-            margin-top: 10px;
-            font-size: 16px;
+            margin-top: 20px;
+            font-size: 18px;
             color: #333;
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 1px;
+            animation: fadeIn 1s ease-in-out;
           }
 
           @keyframes spin {
@@ -186,9 +199,16 @@ function App() {
             }
           }
 
+          @keyframes fadeIn {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
         `}
       </style>
-
     </div>
   );
 }
