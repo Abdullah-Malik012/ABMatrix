@@ -420,11 +420,11 @@ const CloseButton = styled.button`
   background: #d00000;
   color: white;
   border: none;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-  width: 7%;
+  padding: 5px;
+  border-radius: 10%;
+  width: 5%;
   transition: background 0.3s ease, color 0.3s ease;
 
   &:hover {
@@ -433,8 +433,8 @@ const CloseButton = styled.button`
   }
 
   @media (max-width: 600px) {
-      display: none;
-
+  display: none;
+   
   }
 `;
 
