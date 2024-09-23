@@ -405,9 +405,8 @@ const NavigationButton = styled.button`
   }
 
   @media (max-width: 600px) {
-    font-size: 1.8rem; /* Adjust font size on smaller screens to ensure icons are visible */
-    padding: 8px 12px; /* Reduced padding */
-    margin: 5px 0; /* Vertical margin for stacked buttons */
+      display: none;
+
   }
 `;
 
