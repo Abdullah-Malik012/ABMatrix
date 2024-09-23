@@ -469,7 +469,7 @@ const LeftSide = styled.div`
 
 const AnimatedHeader = styled.h1`
   animation: ${slideIn} 1s ease-out;
-    line-height: 2;
+    line-height: 1.5;
 
 `;
 
