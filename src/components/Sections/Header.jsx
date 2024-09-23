@@ -7,8 +7,8 @@ import bgvideo from "./bgheader.mp4";
 import aboutimg from "./techbg.jpg";
 import bgimg from "./office.png";
 import faq from "./faq.jpg";
-
 import logo from "./abmatrixlogo.png"
+
 
 export default function Header() {
   const videoRef = useRef(null);
@@ -17,25 +17,48 @@ export default function Header() {
   const faqData = [
     {
       question: "What makes AB-Matrix different from other tech companies?",
-      answer: "At AB-Matrix, we combine expertise in development, design, and strategy to bring your ideas to life with unparalleled precision. Our commitment to exceeding expectations ensures that your vision is not only realized but enhanced through innovative solutions."
+      answer: [
+        "Expertise in development, design, and strategy.",
+        "Bringing ideas to life with unparalleled precision.",
+        "Commitment to exceeding expectations.",
+        "Innovative solutions that enhance your vision."
+      ]
     },
     {
       question: "How do I get started with AB-Matrix?",
-      answer: "Getting started with us is easy! Simply reach out through our contact form on the website, or email us at abmatrix.co@gmail.com. Our team will guide you through the process from initial consultation to project deployment."
+      answer: [
+        "Reach out through our contact form on the website.",
+        "Email us at abmatrix.co@gmail.com.",
+        "Our team will guide you from initial consultation to project deployment."
+      ]
     },
     {
       question: "What is AB-Matrix's approach to project management?",
-      answer: "We follow a collaborative approach to project management. From the initial concept to deployment, our team works closely with you to ensure that every aspect of your project is aligned with your goals and expectations. We prioritize clear communication and adaptive strategies to deliver exceptional results."
+      answer: [
+        "Collaborative approach from concept to deployment.",
+        "Close work with you to align with your goals.",
+        "Prioritize clear communication.",
+        "Adaptive strategies for exceptional results."
+      ]
     },
     {
       question: "How does AB-Matrix handle data protection and compliance?",
-      answer: "Data protection and compliance are core to our operations. We implement stringent security measures and adhere to relevant regulations to ensure that your data is safeguarded. Our team stays updated on the latest compliance requirements to ensure your project meets all necessary standards."
+      answer: [
+        "Implement stringent security measures.",
+        "Adhere to relevant regulations for data safety.",
+        "Stay updated on compliance requirements."
+      ]
     },
     {
       question: "Can AB-Matrix handle international projects?",
-      answer: "Absolutely! We have the expertise and resources to manage international projects efficiently. Whether you're based locally or globally, we are equipped to handle your project with the same level of dedication and excellence."
+      answer: [
+        "Expertise and resources to manage international projects.",
+        "Dedicated service whether local or global.",
+        "Consistent level of excellence in project handling."
+      ]
     }
   ];
+  
 
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -259,7 +282,11 @@ export default function Header() {
               <ArrowIcon isActive={activeIndex === index}>▼</ArrowIcon>
             </FAQCardHeader>
             <FAQCardBody isActive={activeIndex === index}>
-              <p>{faq.answer}</p>
+            <ul>
+        {faq.answer.map((point, index) => (
+          <li key={index}>{point}</li>
+        ))}
+      </ul>
             </FAQCardBody>
           </FAQCard>
         ))}
@@ -270,7 +297,7 @@ export default function Header() {
   <Advertising className="flexSpaceCenter">
     <AddLeft>
       <h2 className="font40 extraBold">A Study of Creativity</h2>
-      <p className="font12">
+      <p className="font16">
       Fueling Innovation, Transforming Ideas: We are a dynamic company dedicated to pushing the boundaries of digital creativity. From intuitive UI/UX designs to robust web development and seamless integrations, from Artifical Intelligene to Blockchain, we are the catalysts for your online success. Our commitment to excellence extends to database solutions and effortless deployment, ensuring your digital journey is not just evolutionary but revolutionary. Embrace the future with a partner that brings your vision to life – where innovation meets unparalleled expertise.
       </p>
       <ButtonsRow className="flexNullCenter" style={{ margin: "30px 0"}}>
@@ -439,7 +466,7 @@ const Content = styled.div`
   justify-content: space-between;
   padding: 0 20px;
   color: white;
-  font-family: "Poppins", Times New Roman;
+  font-family: "Poppins";
 
   @media (max-width: 960px) {
     flex-direction: column;
@@ -469,8 +496,7 @@ const LeftSide = styled.div`
 
 const AnimatedHeader = styled.h1`
   animation: ${slideIn} 1s ease-out;
-    line-height: 1.5;
-
+  line-height: 1.5;
 `;
 
 const HeaderP = styled.p`
@@ -649,6 +675,7 @@ const AboutWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 50px;
+  
   background-color: #f8f9fa;
   min-height: 100vh; /* Ensures it covers the full viewport height */
   width: 100%; /* Ensures it covers the full viewport width */
@@ -747,7 +774,6 @@ const TextWrapper = styled.div`
     }
   }
 `;
-
 
 const ImageWrapper = styled.div`
   flex: 1;
@@ -977,13 +1003,19 @@ const ArrowIcon = styled.span`
 `;
 
 const FAQCardBody = styled.div`
-  padding: ${({ isActive }) => (isActive ? "15px" : "0")}; /* Adjusted padding */
+padding: ${({ isActive }) => (isActive ? "15px" : "0")};
   background: #f9f9f9;
-  max-height: ${({ isActive }) => (isActive ? "150px" : "0")}; /* Adjusted max-height */
+  max-height: ${({ isActive }) => (isActive ? "150px" : "0")};
   opacity: ${({ isActive }) => (isActive ? "1" : "0")};
   overflow: hidden;
   transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.3s ease;
   visibility: ${({ isActive }) => (isActive ? "visible" : "hidden")};
+  
+  ul {
+    list-style-type: disc; /* Set bullet points */
+    padding-left: 20px; /* Indent bullets */
+    margin: 0; /* Remove default margin */
+  }
 
 
   @media (max-width: 768px) {
@@ -1000,6 +1032,7 @@ const Advertising = styled.div`
   margin: 110px 0;
   padding: 100px 0;
   position: relative;
+  font-family: 'Poppins';
   @media (max-width: 1160px) {
     padding: 100px 0 40px 0;
     font-size: 10px;
@@ -1013,7 +1046,7 @@ const Advertising = styled.div`
   }
 
   @media (max-width: 768px) {
-    font-size: 10px;
+    font-size: 16px;
   }
 `;
 
