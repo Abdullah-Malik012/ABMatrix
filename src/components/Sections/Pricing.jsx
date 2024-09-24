@@ -347,12 +347,11 @@ const TableBox = styled.div`
   }
 `;
 
-
 const pricingTables = [
   {
     title: "UI/UX Designs",
     icon: "🎨", // Add an appropriate icon
-    price: "Starting with $300",
+    price: "Starting with $1000",
     text: "A wide range of UI/UX services",
     offers: ["  Figma Designs", "  Canva Designs", "  Adobe XD", "  Custom Mockups", "Responsive designs"],
     action: () => alert("contact"),
@@ -360,7 +359,7 @@ const pricingTables = [
   {
     title: "Web Development",
     icon: "🌐", // Add an appropriate icon
-    price: "Starting with $1000",
+    price: "Starting with $3000",
     text: "Full-stack development services",
     offers: ["  React", "  Node.js", "  Express", "  MongoDB", "  WordPress"],
     action: () => alert("contact"),
@@ -368,7 +367,7 @@ const pricingTables = [
   {
     title: "Database Solutions",
     icon: "💾", // Add an appropriate icon
-    price: "Starting with $200",
+    price: "Starting with $500",
     text: "Scalable database management",
     offers: ["  SQL", "  MySQL", "  MongoDB", "  PostgreSQL", "  OracleDB"],
     action: () => alert("contact"),
@@ -384,7 +383,7 @@ const pricingTables = [
   {
     title: "Deployment",
     icon: "🚀", // Add an appropriate icon
-    price: "Starting with $300",
+    price: "Starting with $500",
     text: "Reliable and secure deployment",
     offers: ["  AWS", "  Docker", "  Kubernetes", "  GitHub Actions"],
     action: () => alert("contact"),
@@ -392,7 +391,7 @@ const pricingTables = [
   {
     title: "AI Services",
     icon: "🤖", // Add an appropriate icon
-    price: "Starting with $500",
+    price: "Starting with $1000",
     text: "AI and Machine Learning solutions",
     offers: ["  ML Models", "  NLP", "  Computer Vision", "  Data Analytics"],
     action: () => alert("contact"),
@@ -400,7 +399,7 @@ const pricingTables = [
   {
     title: "Blockchain",
     icon: "🔒", // Add an appropriate icon
-    price: "Starting with $600",
+    price: "Starting with $1000",
     text: "Decentralized app and token solutions",
     offers: ["  Smart Contracts", "  DApps", "  Token Development", "  Web3 Integration"],
     action: () => alert("contact"),
