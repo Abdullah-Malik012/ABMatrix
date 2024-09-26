@@ -480,7 +480,7 @@ const RightSide = styled.div`
 
   @media (max-width: 960px) {
     width: 100%;
-    margin-bottom: 60%;
+    margin-bottom: 50%;
   }
 `;
 
