@@ -500,7 +500,6 @@ const AnimatedHeader = styled.h1`
 
   @media (max-width: 960px) {
     
-  margin: 10px ;
 
   }
 `;
