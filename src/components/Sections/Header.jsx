@@ -480,7 +480,7 @@ const RightSide = styled.div`
 
   @media (max-width: 960px) {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 60%;
   }
 `;
 
@@ -500,7 +500,7 @@ const AnimatedHeader = styled.h1`
 
   @media (max-width: 960px) {
     
-  margin: 40px ;
+  margin: 10px ;
 
   }
 `;
@@ -512,7 +512,6 @@ const HeaderP = styled.p`
   @media (max-width: 960px) {
     max-width: 100%;
     font-size: 1rem;
-  margin: 40px ;
 
   }
 `;
@@ -523,7 +522,7 @@ const BtnWrapper = styled.div`
   margin-top: 50px;
   @media (max-width: 960px) {
     width: 60%;
-    margin-top: -5%;
+    margin-top: 5%;
   }
   @media (max-width: 480px) {
     width: 80%;
