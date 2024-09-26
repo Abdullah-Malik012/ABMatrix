@@ -497,6 +497,12 @@ const LeftSide = styled.div`
 const AnimatedHeader = styled.h1`
   animation: ${slideIn} 1s ease-out;
   line-height: 1.5;
+
+  @media (max-width: 960px) {
+    
+  margin: 40px ;
+
+  }
 `;
 
 const HeaderP = styled.p`
@@ -505,7 +511,9 @@ const HeaderP = styled.p`
   line-height: 1.5rem;
   @media (max-width: 960px) {
     max-width: 100%;
-    font-size: 0.9rem;
+    font-size: 1rem;
+  margin: 40px ;
+
   }
 `;
 
