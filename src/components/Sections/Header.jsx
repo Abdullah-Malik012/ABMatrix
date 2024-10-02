@@ -186,6 +186,8 @@ export default function Header() {
             </TestimonialQuote>
             <br />
             <br />
+            <br />
+            <br />
             <TestimonialAuthor>- Emilie</TestimonialAuthor>
           </TestimonialItem>
 
@@ -195,6 +197,8 @@ export default function Header() {
                They consistently delivers more than initially discussed, demonstrating their client-centric approach.
                 I look forward to collaborating with them again in the future."
             </TestimonialQuote>
+            <br />
+            <br />
             <TestimonialAuthor>- Damien</TestimonialAuthor>
           </TestimonialItem>
           <TestimonialItem>
