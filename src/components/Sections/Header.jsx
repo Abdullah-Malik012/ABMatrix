@@ -200,13 +200,12 @@ export default function Header() {
           <TestimonialItem>
           <br />
             <TestimonialQuote>
-              "Thank you so much for the fast delivery.
-               All of my queries were solved and in detail explanations were also provided."
+              "They're professional, timely, and go above and beyond the scope of work! Their attention to detail is great and I look forward to working with them on all other future projects pertaining to their line of work"
             </TestimonialQuote>
             <br />
             <br />
          
-            <TestimonialAuthor>- Shamayel</TestimonialAuthor>
+            <TestimonialAuthor>- Myles</TestimonialAuthor>
           </TestimonialItem>
 
           <TestimonialItem>
