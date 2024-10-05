@@ -522,7 +522,7 @@ const HeaderP = styled.p`
 const BtnWrapper = styled.div`
   max-width: 200px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 40px;
   @media (max-width: 960px) {
     width: 60%;
     margin-top: 5%;
