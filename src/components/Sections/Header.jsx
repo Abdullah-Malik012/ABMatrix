@@ -510,7 +510,7 @@ const AnimatedHeader = styled.h1`
 
 const HeaderP = styled.p`
   max-width: 600px;
-  margin: 20px auto;
+  margin: 10px auto;
   line-height: 1.5rem;
   @media (max-width: 960px) {
     max-width: 100%;
