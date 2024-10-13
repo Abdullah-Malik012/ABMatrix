@@ -214,12 +214,12 @@ export default function Header() {
 
           <TestimonialItem>
             <TestimonialQuote>
-              "I recently had the experience of using the services of AB-Matrix and I must say, I was thoroughly impressed with the level of professionalism, expertise that he provided."
+              "Very good and Collaborative and did everything good"
             </TestimonialQuote>
             <br />
             <br />
 
-            <TestimonialAuthor>- Tanveer seith</TestimonialAuthor>
+            <TestimonialAuthor>- Medo</TestimonialAuthor>
           </TestimonialItem>
 
 
