@@ -217,12 +217,12 @@ export default function Header() {
           <br />
 
             <TestimonialQuote>
-              "Very good and Collaborative and did everything good"
+              "Extremely professional and a good communicators and delivered the work on time! Highly recommended"
             </TestimonialQuote>
             <br />
             <br />
 
-            <TestimonialAuthor>- Medo</TestimonialAuthor>
+            <TestimonialAuthor>- Aida</TestimonialAuthor>
           </TestimonialItem>
 
 
